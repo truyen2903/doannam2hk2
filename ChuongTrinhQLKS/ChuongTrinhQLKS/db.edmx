@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'HotelManagement.dbo.access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="access">
+          <Property Name="Idstafftype" Type="int" />
+          <Property Name="idjob" Type="int" />
+        </EntityType>-->
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDReceiveRoom" Type="int" Nullable="false" />
+          <Property Name="StaffSetUp" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfCreate" Type="smalldatetime" />
+          <Property Name="RoomPrice" Type="int" Nullable="false" />
+          <Property Name="ServicePrice" Type="int" Nullable="false" />
+          <Property Name="Surcharge" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="IDStatusBill" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BILLDETAILS">
+          <Key>
+            <PropertyRef Name="IDBill" />
+            <PropertyRef Name="IDService" />
+          </Key>
+          <Property Name="IDBill" Type="int" Nullable="false" />
+          <Property Name="IDService" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOOKROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCustomer" Type="int" Nullable="false" />
+          <Property Name="IDRoomType" Type="int" Nullable="false" />
+          <Property Name="DateBookRoom" Type="smalldatetime" Nullable="false" />
+          <Property Name="DateCheckIn" Type="date" Nullable="false" />
+          <Property Name="DateCheckOut" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCard" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IDCustomerType" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneNumber" Type="int" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="nameform" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="RECEIVEROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDBookRoom" Type="int" Nullable="false" />
+          <Property Name="IDRoom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECEIVEROOMDETAILS">
+          <Key>
+            <PropertyRef Name="IDReceiveRoom" />
+            <PropertyRef Name="IDCustomerOther" />
+          </Key>
+          <Property Name="IDReceiveRoom" Type="int" Nullable="false" />
+          <Property Name="IDCustomerOther" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'HotelManagement.dbo.report' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="report">
+          <Property Name="idRoomType" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="value" Type="real" />
+          <Property Name="rate" Type="real" />
+        </EntityType>-->
+        <EntityType Name="ROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IDRoomType" Type="int" Nullable="false" />
+          <Property Name="IDStatusRoom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROOMTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="LimitPerson" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IDServiceType" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IDStaffType" Type="int" Nullable="false" />
+          <Property Name="IDCard" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneNumber" Type="int" Nullable="false" />
+          <Property Name="StartDay" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STAFFTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUSBILL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUSROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__BILL__IDReceiveR__66603565">
+          <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEIVEROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="IDReceiveRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__IDStatusBi__6E01572D">
+          <End Role="STATUSBILL" Type="Self.STATUSBILL" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUSBILL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="IDStatusBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__StaffSetUp__6754599E">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="StaffSetUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__IDBil__71D1E811">
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="BILLDETAILS" Type="Self.BILLDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILLDETAILS">
+              <PropertyRef Name="IDBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__IDSer__72C60C4A">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="BILLDETAILS" Type="Self.BILLDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILLDETAILS">
+              <PropertyRef Name="IDService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKROOM__IDCust__5165187F">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="BOOKROOM" Type="Self.BOOKROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKROOM">
+              <PropertyRef Name="IDCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKROOM__IDRoom__52593CB8">
+          <End Role="ROOMTYPE" Type="Self.ROOMTYPE" Multiplicity="1" />
+          <End Role="BOOKROOM" Type="Self.BOOKROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKROOM">
+              <PropertyRef Name="IDRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CUSTOMER__IDCust__4316F928">
+          <End Role="CUSTOMERTYPE" Type="Self.CUSTOMERTYPE" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="IDCustomerType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDBoo__5535A963">
+          <End Role="BOOKROOM" Type="Self.BOOKROOM" Multiplicity="1" />
+          <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOM">
+              <PropertyRef Name="IDBookRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDCus__59FA5E80">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="RECEIVEROOMDETAILS" Type="Self.RECEIVEROOMDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOMDETAILS">
+              <PropertyRef Name="IDCustomerOther" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDRec__59063A47">
+          <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="1" />
+          <End Role="RECEIVEROOMDETAILS" Type="Self.RECEIVEROOMDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEIVEROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOMDETAILS">
+              <PropertyRef Name="IDReceiveRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDRoo__5629CD9C">
+          <End Role="ROOM" Type="Self.ROOM" Multiplicity="1" />
+          <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOM">
+              <PropertyRef Name="IDRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROOM__IDRoomType__4D94879B">
+          <End Role="ROOMTYPE" Type="Self.ROOMTYPE" Multiplicity="1" />
+          <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROOM">
+              <PropertyRef Name="IDRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROOM__IDStatusRo__4E88ABD4">
+          <End Role="STATUSROOM" Type="Self.STATUSROOM" Multiplicity="1" />
+          <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUSROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROOM">
+              <PropertyRef Name="IDStatusRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICE__IDServi__60A75C0F">
+          <End Role="SERVICETYPE" Type="Self.SERVICETYPE" Multiplicity="1" />
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SERVICE">
+              <PropertyRef Name="IDServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STAFF__IDStaffTy__3C69FB99">
+          <End Role="STAFFTYPE" Type="Self.STAFFTYPE" Multiplicity="1" />
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFFTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="IDStaffType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelManagementModelStoreContainer">
+          <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BILLDETAILS" EntityType="Self.BILLDETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKROOM" EntityType="Self.BOOKROOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMERTYPE" EntityType="Self.CUSTOMERTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job" EntityType="Self.job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEIVEROOM" EntityType="Self.RECEIVEROOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEIVEROOMDETAILS" EntityType="Self.RECEIVEROOMDETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROOM" EntityType="Self.ROOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROOMTYPE" EntityType="Self.ROOMTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICE" EntityType="Self.SERVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICETYPE" EntityType="Self.SERVICETYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STAFFTYPE" EntityType="Self.STAFFTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUSBILL" EntityType="Self.STATUSBILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUSROOM" EntityType="Self.STATUSROOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PARAMETER].[Name] AS [Name], 
+    [PARAMETER].[Value] AS [Value], 
+    [PARAMETER].[Describe] AS [Describe]
+    FROM [dbo].[PARAMETER] AS [PARAMETER]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__BILL__IDReceiveR__66603565" Association="Self.FK__BILL__IDReceiveR__66603565">
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__IDStatusBi__6E01572D" Association="Self.FK__BILL__IDStatusBi__6E01572D">
+            <End Role="STATUSBILL" EntitySet="STATUSBILL" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__StaffSetUp__6754599E" Association="Self.FK__BILL__StaffSetUp__6754599E">
+            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__IDBil__71D1E811" Association="Self.FK__BILLDETAI__IDBil__71D1E811">
+            <End Role="BILL" EntitySet="BILL" />
+            <End Role="BILLDETAILS" EntitySet="BILLDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__IDSer__72C60C4A" Association="Self.FK__BILLDETAI__IDSer__72C60C4A">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="BILLDETAILS" EntitySet="BILLDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKROOM__IDCust__5165187F" Association="Self.FK__BOOKROOM__IDCust__5165187F">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="BOOKROOM" EntitySet="BOOKROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKROOM__IDRoom__52593CB8" Association="Self.FK__BOOKROOM__IDRoom__52593CB8">
+            <End Role="ROOMTYPE" EntitySet="ROOMTYPE" />
+            <End Role="BOOKROOM" EntitySet="BOOKROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CUSTOMER__IDCust__4316F928" Association="Self.FK__CUSTOMER__IDCust__4316F928">
+            <End Role="CUSTOMERTYPE" EntitySet="CUSTOMERTYPE" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDBoo__5535A963" Association="Self.FK__RECEIVERO__IDBoo__5535A963">
+            <End Role="BOOKROOM" EntitySet="BOOKROOM" />
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDCus__59FA5E80" Association="Self.FK__RECEIVERO__IDCus__59FA5E80">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="RECEIVEROOMDETAILS" EntitySet="RECEIVEROOMDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDRec__59063A47" Association="Self.FK__RECEIVERO__IDRec__59063A47">
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
+            <End Role="RECEIVEROOMDETAILS" EntitySet="RECEIVEROOMDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDRoo__5629CD9C" Association="Self.FK__RECEIVERO__IDRoo__5629CD9C">
+            <End Role="ROOM" EntitySet="ROOM" />
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROOM__IDRoomType__4D94879B" Association="Self.FK__ROOM__IDRoomType__4D94879B">
+            <End Role="ROOMTYPE" EntitySet="ROOMTYPE" />
+            <End Role="ROOM" EntitySet="ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROOM__IDStatusRo__4E88ABD4" Association="Self.FK__ROOM__IDStatusRo__4E88ABD4">
+            <End Role="STATUSROOM" EntitySet="STATUSROOM" />
+            <End Role="ROOM" EntitySet="ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICE__IDServi__60A75C0F" Association="Self.FK__SERVICE__IDServi__60A75C0F">
+            <End Role="SERVICETYPE" EntitySet="SERVICETYPE" />
+            <End Role="SERVICE" EntitySet="SERVICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STAFF__IDStaffTy__3C69FB99" Association="Self.FK__STAFF__IDStaffTy__3C69FB99">
+            <End Role="STAFFTYPE" EntitySet="STAFFTYPE" />
+            <End Role="STAFF" EntitySet="STAFF" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HotelManagement" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BILLs" EntityType="HotelManagementModel.BILL" />
+          <EntitySet Name="BILLDETAILS" EntityType="HotelManagementModel.BILLDETAIL" />
+          <EntitySet Name="BOOKROOMs" EntityType="HotelManagementModel.BOOKROOM" />
+          <EntitySet Name="CUSTOMERs" EntityType="HotelManagementModel.CUSTOMER" />
+          <EntitySet Name="CUSTOMERTYPEs" EntityType="HotelManagementModel.CUSTOMERTYPE" />
+          <EntitySet Name="jobs" EntityType="HotelManagementModel.job" />
+          <EntitySet Name="RECEIVEROOMs" EntityType="HotelManagementModel.RECEIVEROOM" />
+          <EntitySet Name="ROOMs" EntityType="HotelManagementModel.ROOM" />
+          <EntitySet Name="ROOMTYPEs" EntityType="HotelManagementModel.ROOMTYPE" />
+          <EntitySet Name="SERVICEs" EntityType="HotelManagementModel.SERVICE" />
+          <EntitySet Name="SERVICETYPEs" EntityType="HotelManagementModel.SERVICETYPE" />
+          <EntitySet Name="STAFFs" EntityType="HotelManagementModel.STAFF" />
+          <EntitySet Name="STAFFTYPEs" EntityType="HotelManagementModel.STAFFTYPE" />
+          <EntitySet Name="STATUSBILLs" EntityType="HotelManagementModel.STATUSBILL" />
+          <EntitySet Name="STATUSROOMs" EntityType="HotelManagementModel.STATUSROOM" />
+          <EntitySet Name="sysdiagrams" EntityType="HotelManagementModel.sysdiagram" />
+          <EntitySet Name="PARAMETERs" EntityType="HotelManagementModel.PARAMETER" />
+          <AssociationSet Name="FK__BILL__IDReceiveR__66603565" Association="HotelManagementModel.FK__BILL__IDReceiveR__66603565">
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__IDStatusBi__6E01572D" Association="HotelManagementModel.FK__BILL__IDStatusBi__6E01572D">
+            <End Role="STATUSBILL" EntitySet="STATUSBILLs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__StaffSetUp__6754599E" Association="HotelManagementModel.FK__BILL__StaffSetUp__6754599E">
+            <End Role="STAFF" EntitySet="STAFFs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__IDBil__71D1E811" Association="HotelManagementModel.FK__BILLDETAI__IDBil__71D1E811">
+            <End Role="BILL" EntitySet="BILLs" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__IDSer__72C60C4A" Association="HotelManagementModel.FK__BILLDETAI__IDSer__72C60C4A">
+            <End Role="SERVICE" EntitySet="SERVICEs" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKROOM__IDCust__5165187F" Association="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="BOOKROOM" EntitySet="BOOKROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKROOM__IDRoom__52593CB8" Association="HotelManagementModel.FK__BOOKROOM__IDRoom__52593CB8">
+            <End Role="ROOMTYPE" EntitySet="ROOMTYPEs" />
+            <End Role="BOOKROOM" EntitySet="BOOKROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDBoo__5535A963" Association="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963">
+            <End Role="BOOKROOM" EntitySet="BOOKROOMs" />
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CUSTOMER__IDCust__4316F928" Association="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928">
+            <End Role="CUSTOMERTYPE" EntitySet="CUSTOMERTYPEs" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECEIVERO__IDRoo__5629CD9C" Association="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C">
+            <End Role="ROOM" EntitySet="ROOMs" />
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROOM__IDRoomType__4D94879B" Association="HotelManagementModel.FK__ROOM__IDRoomType__4D94879B">
+            <End Role="ROOMTYPE" EntitySet="ROOMTYPEs" />
+            <End Role="ROOM" EntitySet="ROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROOM__IDStatusRo__4E88ABD4" Association="HotelManagementModel.FK__ROOM__IDStatusRo__4E88ABD4">
+            <End Role="STATUSROOM" EntitySet="STATUSROOMs" />
+            <End Role="ROOM" EntitySet="ROOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICE__IDServi__60A75C0F" Association="HotelManagementModel.FK__SERVICE__IDServi__60A75C0F">
+            <End Role="SERVICETYPE" EntitySet="SERVICETYPEs" />
+            <End Role="SERVICE" EntitySet="SERVICEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STAFF__IDStaffTy__3C69FB99" Association="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99">
+            <End Role="STAFFTYPE" EntitySet="STAFFTYPEs" />
+            <End Role="STAFF" EntitySet="STAFFs" />
+          </AssociationSet>
+          <AssociationSet Name="RECEIVEROOMDETAILS" Association="HotelManagementModel.RECEIVEROOMDETAILS">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDReceiveRoom" Type="Int32" Nullable="false" />
+          <Property Name="StaffSetUp" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfCreate" Type="DateTime" Precision="0" />
+          <Property Name="RoomPrice" Type="Int32" Nullable="false" />
+          <Property Name="ServicePrice" Type="Int32" Nullable="false" />
+          <Property Name="Surcharge" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="IDStatusBill" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RECEIVEROOM" Relationship="HotelManagementModel.FK__BILL__IDReceiveR__66603565" FromRole="BILL" ToRole="RECEIVEROOM" />
+          <NavigationProperty Name="STATUSBILL" Relationship="HotelManagementModel.FK__BILL__IDStatusBi__6E01572D" FromRole="BILL" ToRole="STATUSBILL" />
+          <NavigationProperty Name="STAFF" Relationship="HotelManagementModel.FK__BILL__StaffSetUp__6754599E" FromRole="BILL" ToRole="STAFF" />
+          <NavigationProperty Name="BILLDETAILS" Relationship="HotelManagementModel.FK__BILLDETAI__IDBil__71D1E811" FromRole="BILL" ToRole="BILLDETAIL" />
+        </EntityType>
+        <EntityType Name="BILLDETAIL">
+          <Key>
+            <PropertyRef Name="IDBill" />
+            <PropertyRef Name="IDService" />
+          </Key>
+          <Property Name="IDBill" Type="Int32" Nullable="false" />
+          <Property Name="IDService" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BILL" Relationship="HotelManagementModel.FK__BILLDETAI__IDBil__71D1E811" FromRole="BILLDETAIL" ToRole="BILL" />
+          <NavigationProperty Name="SERVICE" Relationship="HotelManagementModel.FK__BILLDETAI__IDSer__72C60C4A" FromRole="BILLDETAIL" ToRole="SERVICE" />
+        </EntityType>
+        <EntityType Name="BOOKROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCustomer" Type="Int32" Nullable="false" />
+          <Property Name="IDRoomType" Type="Int32" Nullable="false" />
+          <Property Name="DateBookRoom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateCheckIn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateCheckOut" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CUSTOMER" Relationship="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F" FromRole="BOOKROOM" ToRole="CUSTOMER" />
+          <NavigationProperty Name="ROOMTYPE" Relationship="HotelManagementModel.FK__BOOKROOM__IDRoom__52593CB8" FromRole="BOOKROOM" ToRole="ROOMTYPE" />
+          <NavigationProperty Name="RECEIVEROOMs" Relationship="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963" FromRole="BOOKROOM" ToRole="RECEIVEROOM" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCard" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDCustomerType" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BOOKROOMs" Relationship="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F" FromRole="CUSTOMER" ToRole="BOOKROOM" />
+          <NavigationProperty Name="CUSTOMERTYPE" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMER" ToRole="CUSTOMERTYPE" />
+          <NavigationProperty Name="RECEIVEROOMs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="CUSTOMER" ToRole="RECEIVEROOM" />
+        </EntityType>
+        <EntityType Name="CUSTOMERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMERTYPE" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="nameform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RECEIVEROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDBookRoom" Type="Int32" Nullable="false" />
+          <Property Name="IDRoom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BILLs" Relationship="HotelManagementModel.FK__BILL__IDReceiveR__66603565" FromRole="RECEIVEROOM" ToRole="BILL" />
+          <NavigationProperty Name="BOOKROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963" FromRole="RECEIVEROOM" ToRole="BOOKROOM" />
+          <NavigationProperty Name="ROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C" FromRole="RECEIVEROOM" ToRole="ROOM" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="RECEIVEROOM" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="ROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDRoomType" Type="Int32" Nullable="false" />
+          <Property Name="IDStatusRoom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RECEIVEROOMs" Relationship="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C" FromRole="ROOM" ToRole="RECEIVEROOM" />
+          <NavigationProperty Name="ROOMTYPE" Relationship="HotelManagementModel.FK__ROOM__IDRoomType__4D94879B" FromRole="ROOM" ToRole="ROOMTYPE" />
+          <NavigationProperty Name="STATUSROOM" Relationship="HotelManagementModel.FK__ROOM__IDStatusRo__4E88ABD4" FromRole="ROOM" ToRole="STATUSROOM" />
+        </EntityType>
+        <EntityType Name="ROOMTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="LimitPerson" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKROOMs" Relationship="HotelManagementModel.FK__BOOKROOM__IDRoom__52593CB8" FromRole="ROOMTYPE" ToRole="BOOKROOM" />
+          <NavigationProperty Name="ROOMs" Relationship="HotelManagementModel.FK__ROOM__IDRoomType__4D94879B" FromRole="ROOMTYPE" ToRole="ROOM" />
+        </EntityType>
+        <EntityType Name="SERVICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IDServiceType" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BILLDETAILS" Relationship="HotelManagementModel.FK__BILLDETAI__IDSer__72C60C4A" FromRole="SERVICE" ToRole="BILLDETAIL" />
+          <NavigationProperty Name="SERVICETYPE" Relationship="HotelManagementModel.FK__SERVICE__IDServi__60A75C0F" FromRole="SERVICE" ToRole="SERVICETYPE" />
+        </EntityType>
+        <EntityType Name="SERVICETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SERVICEs" Relationship="HotelManagementModel.FK__SERVICE__IDServi__60A75C0F" FromRole="SERVICETYPE" ToRole="SERVICE" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDStaffType" Type="Int32" Nullable="false" />
+          <Property Name="IDCard" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+          <Property Name="StartDay" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="BILLs" Relationship="HotelManagementModel.FK__BILL__StaffSetUp__6754599E" FromRole="STAFF" ToRole="BILL" />
+          <NavigationProperty Name="STAFFTYPE" Relationship="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99" FromRole="STAFF" ToRole="STAFFTYPE" />
+        </EntityType>
+        <EntityType Name="STAFFTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STAFFs" Relationship="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99" FromRole="STAFFTYPE" ToRole="STAFF" />
+        </EntityType>
+        <EntityType Name="STATUSBILL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BILLs" Relationship="HotelManagementModel.FK__BILL__IDStatusBi__6E01572D" FromRole="STATUSBILL" ToRole="BILL" />
+        </EntityType>
+        <EntityType Name="STATUSROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ROOMs" Relationship="HotelManagementModel.FK__ROOM__IDStatusRo__4E88ABD4" FromRole="STATUSROOM" ToRole="ROOM" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Double" Nullable="false" />
+          <Property Name="Describe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__BILL__IDReceiveR__66603565">
+          <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="1" />
+          <End Type="HotelManagementModel.BILL" Role="BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEIVEROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="IDReceiveRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__IDStatusBi__6E01572D">
+          <End Type="HotelManagementModel.STATUSBILL" Role="STATUSBILL" Multiplicity="1" />
+          <End Type="HotelManagementModel.BILL" Role="BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUSBILL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="IDStatusBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__StaffSetUp__6754599E">
+          <End Type="HotelManagementModel.STAFF" Role="STAFF" Multiplicity="1" />
+          <End Type="HotelManagementModel.BILL" Role="BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="StaffSetUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__IDBil__71D1E811">
+          <End Type="HotelManagementModel.BILL" Role="BILL" Multiplicity="1" />
+          <End Type="HotelManagementModel.BILLDETAIL" Role="BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="IDBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__IDSer__72C60C4A">
+          <End Type="HotelManagementModel.SERVICE" Role="SERVICE" Multiplicity="1" />
+          <End Type="HotelManagementModel.BILLDETAIL" Role="BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="IDService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKROOM__IDCust__5165187F">
+          <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="1" />
+          <End Type="HotelManagementModel.BOOKROOM" Role="BOOKROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKROOM">
+              <PropertyRef Name="IDCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKROOM__IDRoom__52593CB8">
+          <End Type="HotelManagementModel.ROOMTYPE" Role="ROOMTYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.BOOKROOM" Role="BOOKROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKROOM">
+              <PropertyRef Name="IDRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDBoo__5535A963">
+          <End Type="HotelManagementModel.BOOKROOM" Role="BOOKROOM" Multiplicity="1" />
+          <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOM">
+              <PropertyRef Name="IDBookRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CUSTOMER__IDCust__4316F928">
+          <End Type="HotelManagementModel.CUSTOMERTYPE" Role="CUSTOMERTYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="IDCustomerType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECEIVERO__IDRoo__5629CD9C">
+          <End Type="HotelManagementModel.ROOM" Role="ROOM" Multiplicity="1" />
+          <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECEIVEROOM">
+              <PropertyRef Name="IDRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROOM__IDRoomType__4D94879B">
+          <End Type="HotelManagementModel.ROOMTYPE" Role="ROOMTYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.ROOM" Role="ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROOM">
+              <PropertyRef Name="IDRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROOM__IDStatusRo__4E88ABD4">
+          <End Type="HotelManagementModel.STATUSROOM" Role="STATUSROOM" Multiplicity="1" />
+          <End Type="HotelManagementModel.ROOM" Role="ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUSROOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROOM">
+              <PropertyRef Name="IDStatusRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICE__IDServi__60A75C0F">
+          <End Type="HotelManagementModel.SERVICETYPE" Role="SERVICETYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.SERVICE" Role="SERVICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SERVICE">
+              <PropertyRef Name="IDServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STAFF__IDStaffTy__3C69FB99">
+          <End Type="HotelManagementModel.STAFFTYPE" Role="STAFFTYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.STAFF" Role="STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFFTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="IDStaffType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECEIVEROOMDETAILS">
+          <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
+          <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelManagementModelStoreContainer" CdmEntityContainer="HotelManagement">
+          <EntitySetMapping Name="BILLs">
+            <EntityTypeMapping TypeName="HotelManagementModel.BILL">
+              <MappingFragment StoreEntitySet="BILL">
+                <ScalarProperty Name="IDStatusBill" ColumnName="IDStatusBill" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+                <ScalarProperty Name="RoomPrice" ColumnName="RoomPrice" />
+                <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
+                <ScalarProperty Name="StaffSetUp" ColumnName="StaffSetUp" />
+                <ScalarProperty Name="IDReceiveRoom" ColumnName="IDReceiveRoom" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLDETAILS">
+            <EntityTypeMapping TypeName="HotelManagementModel.BILLDETAIL">
+              <MappingFragment StoreEntitySet="BILLDETAILS">
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IDService" ColumnName="IDService" />
+                <ScalarProperty Name="IDBill" ColumnName="IDBill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKROOMs">
+            <EntityTypeMapping TypeName="HotelManagementModel.BOOKROOM">
+              <MappingFragment StoreEntitySet="BOOKROOM">
+                <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+                <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+                <ScalarProperty Name="DateBookRoom" ColumnName="DateBookRoom" />
+                <ScalarProperty Name="IDRoomType" ColumnName="IDRoomType" />
+                <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="HotelManagementModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IDCustomerType" ColumnName="IDCustomerType" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERTYPEs">
+            <EntityTypeMapping TypeName="HotelManagementModel.CUSTOMERTYPE">
+              <MappingFragment StoreEntitySet="CUSTOMERTYPE">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="HotelManagementModel.job">
+              <MappingFragment StoreEntitySet="job">
+                <ScalarProperty Name="nameform" ColumnName="nameform" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEIVEROOMs">
+            <EntityTypeMapping TypeName="HotelManagementModel.RECEIVEROOM">
+              <MappingFragment StoreEntitySet="RECEIVEROOM">
+                <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
+                <ScalarProperty Name="IDBookRoom" ColumnName="IDBookRoom" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROOMs">
+            <EntityTypeMapping TypeName="HotelManagementModel.ROOM">
+              <MappingFragment StoreEntitySet="ROOM">
+                <ScalarProperty Name="IDStatusRoom" ColumnName="IDStatusRoom" />
+                <ScalarProperty Name="IDRoomType" ColumnName="IDRoomType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROOMTYPEs">
+            <EntityTypeMapping TypeName="HotelManagementModel.ROOMTYPE">
+              <MappingFragment StoreEntitySet="ROOMTYPE">
+                <ScalarProperty Name="LimitPerson" ColumnName="LimitPerson" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICEs">
+            <EntityTypeMapping TypeName="HotelManagementModel.SERVICE">
+              <MappingFragment StoreEntitySet="SERVICE">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IDServiceType" ColumnName="IDServiceType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICETYPEs">
+            <EntityTypeMapping TypeName="HotelManagementModel.SERVICETYPE">
+              <MappingFragment StoreEntitySet="SERVICETYPE">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAFFs">
+            <EntityTypeMapping TypeName="HotelManagementModel.STAFF">
+              <MappingFragment StoreEntitySet="STAFF">
+                <ScalarProperty Name="StartDay" ColumnName="StartDay" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="IDStaffType" ColumnName="IDStaffType" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAFFTYPEs">
+            <EntityTypeMapping TypeName="HotelManagementModel.STAFFTYPE">
+              <MappingFragment StoreEntitySet="STAFFTYPE">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUSBILLs">
+            <EntityTypeMapping TypeName="HotelManagementModel.STATUSBILL">
+              <MappingFragment StoreEntitySet="STATUSBILL">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUSROOMs">
+            <EntityTypeMapping TypeName="HotelManagementModel.STATUSROOM">
+              <MappingFragment StoreEntitySet="STATUSROOM">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HotelManagementModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETERs">
+            <EntityTypeMapping TypeName="HotelManagementModel.PARAMETER">
+              <MappingFragment StoreEntitySet="PARAMETER">
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RECEIVEROOMDETAILS" TypeName="HotelManagementModel.RECEIVEROOMDETAILS" StoreEntitySet="RECEIVEROOMDETAILS">
+            <EndProperty Name="RECEIVEROOM">
+              <ScalarProperty Name="ID" ColumnName="IDReceiveRoom" />
+            </EndProperty>
+            <EndProperty Name="CUSTOMER">
+              <ScalarProperty Name="ID" ColumnName="IDCustomerOther" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

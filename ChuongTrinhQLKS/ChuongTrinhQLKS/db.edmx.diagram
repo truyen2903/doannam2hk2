@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a34b70c77aa4bd6a1082ea0069fef76" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelManagementModel.BILL" Width="1.5" PointX="10.5" PointY="4.5" />
+        <EntityTypeShape EntityType="HotelManagementModel.BILLDETAIL" Width="1.5" PointX="12.75" PointY="5.375" />
+        <EntityTypeShape EntityType="HotelManagementModel.BOOKROOM" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="HotelManagementModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HotelManagementModel.CUSTOMERTYPE" Width="1.5" PointX="1.5" PointY="9.75" />
+        <EntityTypeShape EntityType="HotelManagementModel.job" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="HotelManagementModel.RECEIVEROOM" Width="1.5" PointX="8.25" PointY="5.25" />
+        <EntityTypeShape EntityType="HotelManagementModel.ROOM" Width="1.5" PointX="6" PointY="5.25" />
+        <EntityTypeShape EntityType="HotelManagementModel.ROOMTYPE" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="HotelManagementModel.SERVICE" Width="1.5" PointX="10.5" PointY="13.375" />
+        <EntityTypeShape EntityType="HotelManagementModel.SERVICETYPE" Width="1.5" PointX="8.25" PointY="13.625" />
+        <EntityTypeShape EntityType="HotelManagementModel.STAFF" Width="1.5" PointX="8.25" PointY="8.875" />
+        <EntityTypeShape EntityType="HotelManagementModel.STAFFTYPE" Width="1.5" PointX="6" PointY="9.75" />
+        <EntityTypeShape EntityType="HotelManagementModel.STATUSBILL" Width="1.5" PointX="8.25" PointY="2.625" />
+        <EntityTypeShape EntityType="HotelManagementModel.STATUSROOM" Width="1.5" PointX="4.625" PointY="0.875" />
+        <EntityTypeShape EntityType="HotelManagementModel.sysdiagram" Width="1.5" PointX="2.75" PointY="12.625" />
+        <EntityTypeShape EntityType="HotelManagementModel.PARAMETER" Width="1.5" PointX="4.75" PointY="12.625" />
+        <AssociationConnector Association="HotelManagementModel.FK__BILL__IDReceiveR__66603565" />
+        <AssociationConnector Association="HotelManagementModel.FK__BILL__IDStatusBi__6E01572D" />
+        <AssociationConnector Association="HotelManagementModel.FK__BILL__StaffSetUp__6754599E" />
+        <AssociationConnector Association="HotelManagementModel.FK__BILLDETAI__IDBil__71D1E811" />
+        <AssociationConnector Association="HotelManagementModel.FK__BILLDETAI__IDSer__72C60C4A" />
+        <AssociationConnector Association="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F" />
+        <AssociationConnector Association="HotelManagementModel.FK__BOOKROOM__IDRoom__52593CB8" />
+        <AssociationConnector Association="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963" />
+        <AssociationConnector Association="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" />
+        <AssociationConnector Association="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C" />
+        <AssociationConnector Association="HotelManagementModel.FK__ROOM__IDRoomType__4D94879B" />
+        <AssociationConnector Association="HotelManagementModel.FK__ROOM__IDStatusRo__4E88ABD4" />
+        <AssociationConnector Association="HotelManagementModel.FK__SERVICE__IDServi__60A75C0F" />
+        <AssociationConnector Association="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99" />
+        <AssociationConnector Association="HotelManagementModel.RECEIVEROOMDETAILS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
