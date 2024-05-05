@@ -395,6 +395,7 @@
             this.btnAddRoom.Size = new System.Drawing.Size(164, 29);
             this.btnAddRoom.TabIndex = 34;
             this.btnAddRoom.Text = "Add Room";
+            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // btnUpdate
             // 

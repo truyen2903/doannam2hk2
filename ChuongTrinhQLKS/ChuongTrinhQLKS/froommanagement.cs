@@ -179,5 +179,17 @@ namespace ChuongTrinhQLKS
             fRoomtype.ShowDialog(); 
             Show();
         }
+
+        private void btnAddRoom_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Faddrom faddrom = new Faddrom();
+            faddrom.ShowDialog();
+            LoadRoom();
+            Loadcondition();
+            Loadtyperoom();
+            LoadlistRoom();
+            Show();
+        }
     }
 }
