@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'HotelManagement.dbo.access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="access">
-          <Property Name="Idstafftype" Type="int" />
-          <Property Name="idjob" Type="int" />
-        </EntityType>-->
   <EntityType Name="BILL">
     <Key>
       <PropertyRef Name="ID" />
@@ -98,15 +92,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
     <Property Name="IDReceiveRoom" Type="int" Nullable="false" />
     <Property Name="IDCustomerOther" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'HotelManagement.dbo.report' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="report">
-          <Property Name="idRoomType" Type="int" />
-          <Property Name="Month" Type="int" />
-          <Property Name="Year" Type="int" />
-          <Property Name="value" Type="real" />
-          <Property Name="rate" Type="real" />
-        </EntityType>-->
   <EntityType Name="ROOM">
     <Key>
       <PropertyRef Name="ID" />
@@ -379,6 +364,381 @@ warning 6013: The table/view 'HotelManagement.dbo.report' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetIDReceiveRoomCurrent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertReceiveRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBookRoom" Type="int" Mode="In" />
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertReceiveRoomDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+    <Parameter Name="idCustomer" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ShowBookRoomInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBookRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_ChekcAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="formname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_DeleteAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idJob" Type="int" Mode="In" />
+    <Parameter Name="idStaffType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_DeleteBookRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_DeleteReceiveRoomDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+    <Parameter Name="idCustomer" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_DeleteStaffType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetCustomerTypeNameByIdCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_GetIdBillFromIdRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetIdBillMax" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_GetIDCustomerFromBookRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetIdReceiRoomFromIdRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetIDRoomFromReceiveRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetNameStaffTypeByUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_GetPeoples" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetRoomTypeByIdBookRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBookRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetRoomTypeByIdRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_GetStaffSetUp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idJob" Type="int" Mode="In" />
+    <Parameter Name="idStaffType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+    <Parameter Name="staffSetUp" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertBillDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+    <Parameter Name="idService" Type="int" Mode="In" />
+    <Parameter Name="count" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertBookRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCustomer" Type="int" Mode="In" />
+    <Parameter Name="idRoomType" Type="int" Mode="In" />
+    <Parameter Name="datecheckin" Type="date" Mode="In" />
+    <Parameter Name="datecheckout" Type="date" Mode="In" />
+    <Parameter Name="datebookroom" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCustomerType" Type="int" Mode="In" />
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertCustomer_" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCustomerType" Type="int" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nameRoom" Type="nvarchar" Mode="In" />
+    <Parameter Name="idRoomType" Type="int" Mode="In" />
+    <Parameter Name="idStatusRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="idServiceType" Type="int" Mode="In" />
+    <Parameter Name="price" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="idStaffType" Type="int" Mode="In" />
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="startDay" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_InsertStaffType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_IsExistBillDetailsOfRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+    <Parameter Name="idservice" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_IsExistBillOfRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_IsIDBookRoomExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBookRoom" Type="int" Mode="In" />
+    <Parameter Name="dateNow" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_IsIdCardExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_IsIdCardExistsAcc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadBookRoomsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadEmptyRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoomType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadFullAccessNow" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idStaffType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadFUllBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullCustomerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="month" Type="int" Mode="In" />
+    <Parameter Name="year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadFullRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullRoomType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullStaffType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadFullStatusRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_LoadListFullRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="getToday" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadReceiveRoomsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadServiceByServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idServiceType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_LoadStaffInforByUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+    <Parameter Name="passWord" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_RoomTypeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="mode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="mode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="int" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchRoomType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="int" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="int" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="int" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SearchStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar" Mode="In" />
+    <Parameter Name="int" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowBillInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowBillPreView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowBillRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="getToday" Type="date" Mode="In" />
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowCustomerFromReceiveRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_ShowReceiveRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idReceiveRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateBill_Other" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+    <Parameter Name="discount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateBill_RoomPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateBill_ServicePrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateBillDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idBill" Type="int" Mode="In" />
+    <Parameter Name="idService" Type="int" Mode="In" />
+    <Parameter Name="p_count" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateBookRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="idRoomType" Type="int" Mode="In" />
+    <Parameter Name="dateCheckIn" Type="date" Mode="In" />
+    <Parameter Name="datecheckOut" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="customerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCustomerType" Type="int" Mode="In" />
+    <Parameter Name="idCardNow" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCardPre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateCustomer_" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+    <Parameter Name="idCustomerType" Type="int" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateDisplayName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="displayname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="phonenumber" Type="int" Mode="In" />
+    <Parameter Name="idcard" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdatePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateReceiveRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nameRoom" Type="nvarchar" Mode="In" />
+    <Parameter Name="idRoomType" Type="int" Mode="In" />
+    <Parameter Name="idStatusRoom" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateRoomType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="price" Type="int" Mode="In" />
+    <Parameter Name="limitPerson" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="idServiceType" Type="int" Mode="In" />
+    <Parameter Name="price" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="idStaffType" Type="int" Mode="In" />
+    <Parameter Name="idCard" Type="nvarchar" Mode="In" />
+    <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="sex" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="int" Mode="In" />
+    <Parameter Name="startDay" Type="date" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateStaffType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UpdateStatusRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="HotelManagementModelStoreContainer">
     <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BILLDETAILS" EntityType="Self.BILLDETAILS" Schema="dbo" store:Type="Tables" />

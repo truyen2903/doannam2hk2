@@ -103,6 +103,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Faddrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faddrom.Designer.cs">
+      <DependentUpon>Faddrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="fbookroom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="flogin.Designer.cs">
       <DependentUpon>flogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fprofile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fprofile.Designer.cs">
+      <DependentUpon>Fprofile.cs</DependentUpon>
     </Compile>
     <Compile Include="froommanagement.cs">
       <SubType>Form</SubType>
@@ -152,6 +164,9 @@
     <Compile Include="SERVICETYPE.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="ShowBookRoomInfo_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <Compile Include="STAFF.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -167,17 +182,137 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="USP_GetIdBillFromIdRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetIdReceiRoomFromIdRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetNameStaffTypeByUserName_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetRoomTypeByIdBookRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetRoomTypeByIdRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetStaffSetUp_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_IsExistBillDetailsOfRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_IsExistBillOfRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_IsIDBookRoomExists_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_IsIdCardExistsAcc_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_IsIdCardExists_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadBookRoomsByDate_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadEmptyRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullAccessNow_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFUllBill_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullCustomerType_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullCustomer_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullParameter_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullReport_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullRoomType_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullServiceType_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullService_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullStaffType_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullStaff_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadFullStatusRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadListFullRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadReceiveRoomsByDate_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadServiceByServiceType_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_LoadStaffInforByUserName_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_Login_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_RoomTypeInfo_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowBillInfo_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowBillPreView_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowBillRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowBill_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowCustomerFromReceiveRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_ShowReceiveRoom_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BOOKROOM.resx">
       <DependentUpon>BOOKROOM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Faddrom.resx">
+      <DependentUpon>Faddrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fbookroom.resx">
       <DependentUpon>fbookroom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flogin.resx">
       <DependentUpon>flogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fprofile.resx">
+      <DependentUpon>Fprofile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="froommanagement.resx">
       <DependentUpon>froommanagement.cs</DependentUpon>

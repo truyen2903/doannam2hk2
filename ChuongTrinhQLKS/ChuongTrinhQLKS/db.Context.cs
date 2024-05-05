@@ -12,6 +12,8 @@ namespace ChuongTrinhQLKS
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class HotelManagement : DbContext
     {
@@ -42,5 +44,1266 @@ namespace ChuongTrinhQLKS
         public virtual DbSet<STATUSROOM> STATUSROOMs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<PARAMETER> PARAMETERs { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> GetIDReceiveRoomCurrent()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GetIDReceiveRoomCurrent");
+        }
+    
+        public virtual int InsertReceiveRoom(Nullable<int> idBookRoom, Nullable<int> idRoom)
+        {
+            var idBookRoomParameter = idBookRoom.HasValue ?
+                new ObjectParameter("idBookRoom", idBookRoom) :
+                new ObjectParameter("idBookRoom", typeof(int));
+    
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReceiveRoom", idBookRoomParameter, idRoomParameter);
+        }
+    
+        public virtual int InsertReceiveRoomDetails(Nullable<int> idReceiveRoom, Nullable<int> idCustomer)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            var idCustomerParameter = idCustomer.HasValue ?
+                new ObjectParameter("idCustomer", idCustomer) :
+                new ObjectParameter("idCustomer", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReceiveRoomDetails", idReceiveRoomParameter, idCustomerParameter);
+        }
+    
+        public virtual ObjectResult<ShowBookRoomInfo_Result> ShowBookRoomInfo(Nullable<int> idBookRoom)
+        {
+            var idBookRoomParameter = idBookRoom.HasValue ?
+                new ObjectParameter("idBookRoom", idBookRoom) :
+                new ObjectParameter("idBookRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowBookRoomInfo_Result>("ShowBookRoomInfo", idBookRoomParameter);
+        }
+    
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<string> USP_ChekcAccess(string username, string formname)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var formnameParameter = formname != null ?
+                new ObjectParameter("formname", formname) :
+                new ObjectParameter("formname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_ChekcAccess", usernameParameter, formnameParameter);
+        }
+    
+        public virtual int USP_DeleteAccess(Nullable<int> idJob, Nullable<int> idStaffType)
+        {
+            var idJobParameter = idJob.HasValue ?
+                new ObjectParameter("idJob", idJob) :
+                new ObjectParameter("idJob", typeof(int));
+    
+            var idStaffTypeParameter = idStaffType.HasValue ?
+                new ObjectParameter("idStaffType", idStaffType) :
+                new ObjectParameter("idStaffType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_DeleteAccess", idJobParameter, idStaffTypeParameter);
+        }
+    
+        public virtual int USP_DeleteBookRoom(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_DeleteBookRoom", idParameter);
+        }
+    
+        public virtual int USP_DeleteReceiveRoomDetails(Nullable<int> idReceiveRoom, Nullable<int> idCustomer)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            var idCustomerParameter = idCustomer.HasValue ?
+                new ObjectParameter("idCustomer", idCustomer) :
+                new ObjectParameter("idCustomer", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_DeleteReceiveRoomDetails", idReceiveRoomParameter, idCustomerParameter);
+        }
+    
+        public virtual int USP_DeleteStaffType(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_DeleteStaffType", idParameter);
+        }
+    
+        public virtual ObjectResult<string> USP_GetCustomerTypeNameByIdCard(string idCard)
+        {
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_GetCustomerTypeNameByIdCard", idCardParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetIdBillFromIdRoom_Result> USP_GetIdBillFromIdRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetIdBillFromIdRoom_Result>("USP_GetIdBillFromIdRoom", idRoomParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_GetIdBillMax()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_GetIdBillMax");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_GetIDCustomerFromBookRoom(Nullable<int> idReceiveRoom)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_GetIDCustomerFromBookRoom", idReceiveRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetIdReceiRoomFromIdRoom_Result> USP_GetIdReceiRoomFromIdRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetIdReceiRoomFromIdRoom_Result>("USP_GetIdReceiRoomFromIdRoom", idRoomParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_GetIDRoomFromReceiveRoom(Nullable<int> idReceiveRoom)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_GetIDRoomFromReceiveRoom", idReceiveRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetNameStaffTypeByUserName_Result> USP_GetNameStaffTypeByUserName(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetNameStaffTypeByUserName_Result>("USP_GetNameStaffTypeByUserName", usernameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_GetPeoples(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_GetPeoples", idBillParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetRoomTypeByIdBookRoom_Result> USP_GetRoomTypeByIdBookRoom(Nullable<int> idBookRoom)
+        {
+            var idBookRoomParameter = idBookRoom.HasValue ?
+                new ObjectParameter("idBookRoom", idBookRoom) :
+                new ObjectParameter("idBookRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetRoomTypeByIdBookRoom_Result>("USP_GetRoomTypeByIdBookRoom", idBookRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetRoomTypeByIdRoom_Result> USP_GetRoomTypeByIdRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetRoomTypeByIdRoom_Result>("USP_GetRoomTypeByIdRoom", idRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetStaffSetUp_Result> USP_GetStaffSetUp(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetStaffSetUp_Result>("USP_GetStaffSetUp", idBillParameter);
+        }
+    
+        public virtual int USP_InsertAccess(Nullable<int> idJob, Nullable<int> idStaffType)
+        {
+            var idJobParameter = idJob.HasValue ?
+                new ObjectParameter("idJob", idJob) :
+                new ObjectParameter("idJob", typeof(int));
+    
+            var idStaffTypeParameter = idStaffType.HasValue ?
+                new ObjectParameter("idStaffType", idStaffType) :
+                new ObjectParameter("idStaffType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertAccess", idJobParameter, idStaffTypeParameter);
+        }
+    
+        public virtual int USP_InsertBill(Nullable<int> idReceiveRoom, string staffSetUp)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            var staffSetUpParameter = staffSetUp != null ?
+                new ObjectParameter("staffSetUp", staffSetUp) :
+                new ObjectParameter("staffSetUp", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertBill", idReceiveRoomParameter, staffSetUpParameter);
+        }
+    
+        public virtual int USP_InsertBillDetails(Nullable<int> idBill, Nullable<int> idService, Nullable<int> count)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            var idServiceParameter = idService.HasValue ?
+                new ObjectParameter("idService", idService) :
+                new ObjectParameter("idService", typeof(int));
+    
+            var countParameter = count.HasValue ?
+                new ObjectParameter("count", count) :
+                new ObjectParameter("count", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertBillDetails", idBillParameter, idServiceParameter, countParameter);
+        }
+    
+        public virtual int USP_InsertBookRoom(Nullable<int> idCustomer, Nullable<int> idRoomType, Nullable<System.DateTime> datecheckin, Nullable<System.DateTime> datecheckout, Nullable<System.DateTime> datebookroom)
+        {
+            var idCustomerParameter = idCustomer.HasValue ?
+                new ObjectParameter("idCustomer", idCustomer) :
+                new ObjectParameter("idCustomer", typeof(int));
+    
+            var idRoomTypeParameter = idRoomType.HasValue ?
+                new ObjectParameter("idRoomType", idRoomType) :
+                new ObjectParameter("idRoomType", typeof(int));
+    
+            var datecheckinParameter = datecheckin.HasValue ?
+                new ObjectParameter("datecheckin", datecheckin) :
+                new ObjectParameter("datecheckin", typeof(System.DateTime));
+    
+            var datecheckoutParameter = datecheckout.HasValue ?
+                new ObjectParameter("datecheckout", datecheckout) :
+                new ObjectParameter("datecheckout", typeof(System.DateTime));
+    
+            var datebookroomParameter = datebookroom.HasValue ?
+                new ObjectParameter("datebookroom", datebookroom) :
+                new ObjectParameter("datebookroom", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertBookRoom", idCustomerParameter, idRoomTypeParameter, datecheckinParameter, datecheckoutParameter, datebookroomParameter);
+        }
+    
+        public virtual int USP_InsertCustomer(string customerName, Nullable<int> idCustomerType, string idCard, string address, Nullable<System.DateTime> dateOfBirth, Nullable<int> phoneNumber, string sex, string nationality)
+        {
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("customerName", customerName) :
+                new ObjectParameter("customerName", typeof(string));
+    
+            var idCustomerTypeParameter = idCustomerType.HasValue ?
+                new ObjectParameter("idCustomerType", idCustomerType) :
+                new ObjectParameter("idCustomerType", typeof(int));
+    
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var nationalityParameter = nationality != null ?
+                new ObjectParameter("nationality", nationality) :
+                new ObjectParameter("nationality", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertCustomer", customerNameParameter, idCustomerTypeParameter, idCardParameter, addressParameter, dateOfBirthParameter, phoneNumberParameter, sexParameter, nationalityParameter);
+        }
+    
+        public virtual int USP_InsertCustomer_(string idCard, string name, Nullable<int> idCustomerType, Nullable<System.DateTime> dateOfBirth, string address, Nullable<int> phoneNumber, string sex, string nationality)
+        {
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var idCustomerTypeParameter = idCustomerType.HasValue ?
+                new ObjectParameter("idCustomerType", idCustomerType) :
+                new ObjectParameter("idCustomerType", typeof(int));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var nationalityParameter = nationality != null ?
+                new ObjectParameter("nationality", nationality) :
+                new ObjectParameter("nationality", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertCustomer_", idCardParameter, nameParameter, idCustomerTypeParameter, dateOfBirthParameter, addressParameter, phoneNumberParameter, sexParameter, nationalityParameter);
+        }
+    
+        public virtual int USP_InsertReport(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertReport", idBillParameter);
+        }
+    
+        public virtual int USP_InsertRoom(string nameRoom, Nullable<int> idRoomType, Nullable<int> idStatusRoom)
+        {
+            var nameRoomParameter = nameRoom != null ?
+                new ObjectParameter("nameRoom", nameRoom) :
+                new ObjectParameter("nameRoom", typeof(string));
+    
+            var idRoomTypeParameter = idRoomType.HasValue ?
+                new ObjectParameter("idRoomType", idRoomType) :
+                new ObjectParameter("idRoomType", typeof(int));
+    
+            var idStatusRoomParameter = idStatusRoom.HasValue ?
+                new ObjectParameter("idStatusRoom", idStatusRoom) :
+                new ObjectParameter("idStatusRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertRoom", nameRoomParameter, idRoomTypeParameter, idStatusRoomParameter);
+        }
+    
+        public virtual int USP_InsertService(string name, Nullable<int> idServiceType, Nullable<int> price)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertService", nameParameter, idServiceTypeParameter, priceParameter);
+        }
+    
+        public virtual int USP_InsertServiceType(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertServiceType", nameParameter);
+        }
+    
+        public virtual int USP_InsertStaff(string user, string name, string pass, Nullable<int> idStaffType, string idCard, Nullable<System.DateTime> dateOfBirth, string sex, string address, Nullable<int> phoneNumber, Nullable<System.DateTime> startDay)
+        {
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            var idStaffTypeParameter = idStaffType.HasValue ?
+                new ObjectParameter("idStaffType", idStaffType) :
+                new ObjectParameter("idStaffType", typeof(int));
+    
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var startDayParameter = startDay.HasValue ?
+                new ObjectParameter("startDay", startDay) :
+                new ObjectParameter("startDay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertStaff", userParameter, nameParameter, passParameter, idStaffTypeParameter, idCardParameter, dateOfBirthParameter, sexParameter, addressParameter, phoneNumberParameter, startDayParameter);
+        }
+    
+        public virtual int USP_InsertStaffType(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_InsertStaffType", nameParameter);
+        }
+    
+        public virtual ObjectResult<USP_IsExistBillDetailsOfRoom_Result> USP_IsExistBillDetailsOfRoom(Nullable<int> idRoom, Nullable<int> idservice)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            var idserviceParameter = idservice.HasValue ?
+                new ObjectParameter("idservice", idservice) :
+                new ObjectParameter("idservice", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_IsExistBillDetailsOfRoom_Result>("USP_IsExistBillDetailsOfRoom", idRoomParameter, idserviceParameter);
+        }
+    
+        public virtual ObjectResult<USP_IsExistBillOfRoom_Result> USP_IsExistBillOfRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_IsExistBillOfRoom_Result>("USP_IsExistBillOfRoom", idRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_IsIDBookRoomExists_Result> USP_IsIDBookRoomExists(Nullable<int> idBookRoom, Nullable<System.DateTime> dateNow)
+        {
+            var idBookRoomParameter = idBookRoom.HasValue ?
+                new ObjectParameter("idBookRoom", idBookRoom) :
+                new ObjectParameter("idBookRoom", typeof(int));
+    
+            var dateNowParameter = dateNow.HasValue ?
+                new ObjectParameter("dateNow", dateNow) :
+                new ObjectParameter("dateNow", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_IsIDBookRoomExists_Result>("USP_IsIDBookRoomExists", idBookRoomParameter, dateNowParameter);
+        }
+    
+        public virtual ObjectResult<USP_IsIdCardExists_Result> USP_IsIdCardExists(string idCard)
+        {
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_IsIdCardExists_Result>("USP_IsIdCardExists", idCardParameter);
+        }
+    
+        public virtual ObjectResult<USP_IsIdCardExistsAcc_Result> USP_IsIdCardExistsAcc(string idCard)
+        {
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_IsIdCardExistsAcc_Result>("USP_IsIdCardExistsAcc", idCardParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadBookRoomsByDate_Result> USP_LoadBookRoomsByDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadBookRoomsByDate_Result>("USP_LoadBookRoomsByDate", dateParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadEmptyRoom_Result> USP_LoadEmptyRoom(Nullable<int> idRoomType)
+        {
+            var idRoomTypeParameter = idRoomType.HasValue ?
+                new ObjectParameter("idRoomType", idRoomType) :
+                new ObjectParameter("idRoomType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadEmptyRoom_Result>("USP_LoadEmptyRoom", idRoomTypeParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadFullAccessNow_Result> USP_LoadFullAccessNow(Nullable<int> idStaffType)
+        {
+            var idStaffTypeParameter = idStaffType.HasValue ?
+                new ObjectParameter("idStaffType", idStaffType) :
+                new ObjectParameter("idStaffType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullAccessNow_Result>("USP_LoadFullAccessNow", idStaffTypeParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadFUllBill_Result> USP_LoadFUllBill()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFUllBill_Result>("USP_LoadFUllBill");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullCustomer_Result> USP_LoadFullCustomer()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullCustomer_Result>("USP_LoadFullCustomer");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullCustomerType_Result> USP_LoadFullCustomerType()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullCustomerType_Result>("USP_LoadFullCustomerType");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullParameter_Result> USP_LoadFullParameter()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullParameter_Result>("USP_LoadFullParameter");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullReport_Result> USP_LoadFullReport(Nullable<int> month, Nullable<int> year)
+        {
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("month", month) :
+                new ObjectParameter("month", typeof(int));
+    
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("year", year) :
+                new ObjectParameter("year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullReport_Result>("USP_LoadFullReport", monthParameter, yearParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadFullRoom_Result> USP_LoadFullRoom()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullRoom_Result>("USP_LoadFullRoom");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullRoomType_Result> USP_LoadFullRoomType()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullRoomType_Result>("USP_LoadFullRoomType");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullService_Result> USP_LoadFullService()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullService_Result>("USP_LoadFullService");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullServiceType_Result> USP_LoadFullServiceType()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullServiceType_Result>("USP_LoadFullServiceType");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullStaff_Result> USP_LoadFullStaff()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullStaff_Result>("USP_LoadFullStaff");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullStaffType_Result> USP_LoadFullStaffType()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullStaffType_Result>("USP_LoadFullStaffType");
+        }
+    
+        public virtual ObjectResult<USP_LoadFullStatusRoom_Result> USP_LoadFullStatusRoom()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadFullStatusRoom_Result>("USP_LoadFullStatusRoom");
+        }
+    
+        public virtual ObjectResult<USP_LoadListFullRoom_Result> USP_LoadListFullRoom(Nullable<System.DateTime> getToday)
+        {
+            var getTodayParameter = getToday.HasValue ?
+                new ObjectParameter("getToday", getToday) :
+                new ObjectParameter("getToday", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadListFullRoom_Result>("USP_LoadListFullRoom", getTodayParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadReceiveRoomsByDate_Result> USP_LoadReceiveRoomsByDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadReceiveRoomsByDate_Result>("USP_LoadReceiveRoomsByDate", dateParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadServiceByServiceType_Result> USP_LoadServiceByServiceType(Nullable<int> idServiceType)
+        {
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadServiceByServiceType_Result>("USP_LoadServiceByServiceType", idServiceTypeParameter);
+        }
+    
+        public virtual ObjectResult<USP_LoadStaffInforByUserName_Result> USP_LoadStaffInforByUserName(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LoadStaffInforByUserName_Result>("USP_LoadStaffInforByUserName", usernameParameter);
+        }
+    
+        public virtual ObjectResult<USP_Login_Result> USP_Login(string userName, string passWord)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var passWordParameter = passWord != null ?
+                new ObjectParameter("passWord", passWord) :
+                new ObjectParameter("passWord", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_Login_Result>("USP_Login", userNameParameter, passWordParameter);
+        }
+    
+        public virtual ObjectResult<USP_RoomTypeInfo_Result> USP_RoomTypeInfo(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_RoomTypeInfo_Result>("USP_RoomTypeInfo", idParameter);
+        }
+    
+        public virtual int USP_SearchBill(string @string, Nullable<int> mode)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var modeParameter = mode.HasValue ?
+                new ObjectParameter("mode", mode) :
+                new ObjectParameter("mode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchBill", stringParameter, modeParameter);
+        }
+    
+        public virtual int USP_SearchCustomer(string @string, Nullable<int> mode)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var modeParameter = mode.HasValue ?
+                new ObjectParameter("mode", mode) :
+                new ObjectParameter("mode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchCustomer", stringParameter, modeParameter);
+        }
+    
+        public virtual int USP_SearchParameter(string @string)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchParameter", stringParameter);
+        }
+    
+        public virtual int USP_SearchRoom(string @string, Nullable<int> @int)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var intParameter = @int.HasValue ?
+                new ObjectParameter("int", @int) :
+                new ObjectParameter("int", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchRoom", stringParameter, intParameter);
+        }
+    
+        public virtual int USP_SearchRoomType(string @string, Nullable<int> @int)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var intParameter = @int.HasValue ?
+                new ObjectParameter("int", @int) :
+                new ObjectParameter("int", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchRoomType", stringParameter, intParameter);
+        }
+    
+        public virtual int USP_SearchService(string @string, Nullable<int> @int)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var intParameter = @int.HasValue ?
+                new ObjectParameter("int", @int) :
+                new ObjectParameter("int", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchService", stringParameter, intParameter);
+        }
+    
+        public virtual int USP_SearchServiceType(string @string, Nullable<int> @int)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var intParameter = @int.HasValue ?
+                new ObjectParameter("int", @int) :
+                new ObjectParameter("int", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchServiceType", stringParameter, intParameter);
+        }
+    
+        public virtual int USP_SearchStaff(string @string, Nullable<int> @int)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var intParameter = @int.HasValue ?
+                new ObjectParameter("int", @int) :
+                new ObjectParameter("int", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SearchStaff", stringParameter, intParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowBill_Result> USP_ShowBill(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowBill_Result>("USP_ShowBill", idRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowBillInfo_Result> USP_ShowBillInfo(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowBillInfo_Result>("USP_ShowBillInfo", idBillParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowBillPreView_Result> USP_ShowBillPreView(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowBillPreView_Result>("USP_ShowBillPreView", idBillParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowBillRoom_Result> USP_ShowBillRoom(Nullable<System.DateTime> getToday, Nullable<int> idRoom)
+        {
+            var getTodayParameter = getToday.HasValue ?
+                new ObjectParameter("getToday", getToday) :
+                new ObjectParameter("getToday", typeof(System.DateTime));
+    
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowBillRoom_Result>("USP_ShowBillRoom", getTodayParameter, idRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowCustomerFromReceiveRoom_Result> USP_ShowCustomerFromReceiveRoom(Nullable<int> idReceiveRoom)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowCustomerFromReceiveRoom_Result>("USP_ShowCustomerFromReceiveRoom", idReceiveRoomParameter);
+        }
+    
+        public virtual ObjectResult<USP_ShowReceiveRoom_Result> USP_ShowReceiveRoom(Nullable<int> idReceiveRoom)
+        {
+            var idReceiveRoomParameter = idReceiveRoom.HasValue ?
+                new ObjectParameter("idReceiveRoom", idReceiveRoom) :
+                new ObjectParameter("idReceiveRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_ShowReceiveRoom_Result>("USP_ShowReceiveRoom", idReceiveRoomParameter);
+        }
+    
+        public virtual int USP_UpdateBill_Other(Nullable<int> idBill, Nullable<int> discount)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            var discountParameter = discount.HasValue ?
+                new ObjectParameter("discount", discount) :
+                new ObjectParameter("discount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateBill_Other", idBillParameter, discountParameter);
+        }
+    
+        public virtual int USP_UpdateBill_RoomPrice(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateBill_RoomPrice", idBillParameter);
+        }
+    
+        public virtual int USP_UpdateBill_ServicePrice(Nullable<int> idBill)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateBill_ServicePrice", idBillParameter);
+        }
+    
+        public virtual int USP_UpdateBillDetails(Nullable<int> idBill, Nullable<int> idService, Nullable<int> p_count)
+        {
+            var idBillParameter = idBill.HasValue ?
+                new ObjectParameter("idBill", idBill) :
+                new ObjectParameter("idBill", typeof(int));
+    
+            var idServiceParameter = idService.HasValue ?
+                new ObjectParameter("idService", idService) :
+                new ObjectParameter("idService", typeof(int));
+    
+            var p_countParameter = p_count.HasValue ?
+                new ObjectParameter("p_count", p_count) :
+                new ObjectParameter("p_count", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateBillDetails", idBillParameter, idServiceParameter, p_countParameter);
+        }
+    
+        public virtual int USP_UpdateBookRoom(Nullable<int> id, Nullable<int> idRoomType, Nullable<System.DateTime> dateCheckIn, Nullable<System.DateTime> datecheckOut)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var idRoomTypeParameter = idRoomType.HasValue ?
+                new ObjectParameter("idRoomType", idRoomType) :
+                new ObjectParameter("idRoomType", typeof(int));
+    
+            var dateCheckInParameter = dateCheckIn.HasValue ?
+                new ObjectParameter("dateCheckIn", dateCheckIn) :
+                new ObjectParameter("dateCheckIn", typeof(System.DateTime));
+    
+            var datecheckOutParameter = datecheckOut.HasValue ?
+                new ObjectParameter("datecheckOut", datecheckOut) :
+                new ObjectParameter("datecheckOut", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateBookRoom", idParameter, idRoomTypeParameter, dateCheckInParameter, datecheckOutParameter);
+        }
+    
+        public virtual int USP_UpdateCustomer(Nullable<int> id, string customerName, Nullable<int> idCustomerType, string idCardNow, string address, Nullable<System.DateTime> dateOfBirth, Nullable<int> phoneNumber, string sex, string nationality, string idCardPre)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("customerName", customerName) :
+                new ObjectParameter("customerName", typeof(string));
+    
+            var idCustomerTypeParameter = idCustomerType.HasValue ?
+                new ObjectParameter("idCustomerType", idCustomerType) :
+                new ObjectParameter("idCustomerType", typeof(int));
+    
+            var idCardNowParameter = idCardNow != null ?
+                new ObjectParameter("idCardNow", idCardNow) :
+                new ObjectParameter("idCardNow", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var nationalityParameter = nationality != null ?
+                new ObjectParameter("nationality", nationality) :
+                new ObjectParameter("nationality", typeof(string));
+    
+            var idCardPreParameter = idCardPre != null ?
+                new ObjectParameter("idCardPre", idCardPre) :
+                new ObjectParameter("idCardPre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateCustomer", idParameter, customerNameParameter, idCustomerTypeParameter, idCardNowParameter, addressParameter, dateOfBirthParameter, phoneNumberParameter, sexParameter, nationalityParameter, idCardPreParameter);
+        }
+    
+        public virtual int USP_UpdateCustomer_(Nullable<int> id, string name, string idCard, Nullable<int> idCustomerType, Nullable<int> phoneNumber, Nullable<System.DateTime> dateOfBirth, string address, string sex, string nationality)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            var idCustomerTypeParameter = idCustomerType.HasValue ?
+                new ObjectParameter("idCustomerType", idCustomerType) :
+                new ObjectParameter("idCustomerType", typeof(int));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var nationalityParameter = nationality != null ?
+                new ObjectParameter("nationality", nationality) :
+                new ObjectParameter("nationality", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateCustomer_", idParameter, nameParameter, idCardParameter, idCustomerTypeParameter, phoneNumberParameter, dateOfBirthParameter, addressParameter, sexParameter, nationalityParameter);
+        }
+    
+        public virtual int USP_UpdateDisplayName(string username, string displayname)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var displaynameParameter = displayname != null ?
+                new ObjectParameter("displayname", displayname) :
+                new ObjectParameter("displayname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateDisplayName", usernameParameter, displaynameParameter);
+        }
+    
+        public virtual int USP_UpdateInfo(string username, string address, Nullable<int> phonenumber, string idcard)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var phonenumberParameter = phonenumber.HasValue ?
+                new ObjectParameter("phonenumber", phonenumber) :
+                new ObjectParameter("phonenumber", typeof(int));
+    
+            var idcardParameter = idcard != null ?
+                new ObjectParameter("idcard", idcard) :
+                new ObjectParameter("idcard", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateInfo", usernameParameter, addressParameter, phonenumberParameter, idcardParameter);
+        }
+    
+        public virtual int USP_UpdatePassword(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdatePassword", usernameParameter, passwordParameter);
+        }
+    
+        public virtual int USP_UpdateReceiveRoom(Nullable<int> id, Nullable<int> idRoom)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateReceiveRoom", idParameter, idRoomParameter);
+        }
+    
+        public virtual int USP_UpdateRoom(Nullable<int> id, string nameRoom, Nullable<int> idRoomType, Nullable<int> idStatusRoom)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameRoomParameter = nameRoom != null ?
+                new ObjectParameter("nameRoom", nameRoom) :
+                new ObjectParameter("nameRoom", typeof(string));
+    
+            var idRoomTypeParameter = idRoomType.HasValue ?
+                new ObjectParameter("idRoomType", idRoomType) :
+                new ObjectParameter("idRoomType", typeof(int));
+    
+            var idStatusRoomParameter = idStatusRoom.HasValue ?
+                new ObjectParameter("idStatusRoom", idStatusRoom) :
+                new ObjectParameter("idStatusRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateRoom", idParameter, nameRoomParameter, idRoomTypeParameter, idStatusRoomParameter);
+        }
+    
+        public virtual int USP_UpdateRoomType(Nullable<int> id, string name, Nullable<int> price, Nullable<int> limitPerson)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(int));
+    
+            var limitPersonParameter = limitPerson.HasValue ?
+                new ObjectParameter("limitPerson", limitPerson) :
+                new ObjectParameter("limitPerson", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateRoomType", idParameter, nameParameter, priceParameter, limitPersonParameter);
+        }
+    
+        public virtual int USP_UpdateService(Nullable<int> id, string name, Nullable<int> idServiceType, Nullable<int> price)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateService", idParameter, nameParameter, idServiceTypeParameter, priceParameter);
+        }
+    
+        public virtual int USP_UpdateServiceType(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateServiceType", idParameter, nameParameter);
+        }
+    
+        public virtual int USP_UpdateStaff(string user, string name, Nullable<int> idStaffType, string idCard, Nullable<System.DateTime> dateOfBirth, string sex, string address, Nullable<int> phoneNumber, Nullable<System.DateTime> startDay)
+        {
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var idStaffTypeParameter = idStaffType.HasValue ?
+                new ObjectParameter("idStaffType", idStaffType) :
+                new ObjectParameter("idStaffType", typeof(int));
+    
+            var idCardParameter = idCard != null ?
+                new ObjectParameter("idCard", idCard) :
+                new ObjectParameter("idCard", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("dateOfBirth", dateOfBirth) :
+                new ObjectParameter("dateOfBirth", typeof(System.DateTime));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("sex", sex) :
+                new ObjectParameter("sex", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("address", address) :
+                new ObjectParameter("address", typeof(string));
+    
+            var phoneNumberParameter = phoneNumber.HasValue ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(int));
+    
+            var startDayParameter = startDay.HasValue ?
+                new ObjectParameter("startDay", startDay) :
+                new ObjectParameter("startDay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateStaff", userParameter, nameParameter, idStaffTypeParameter, idCardParameter, dateOfBirthParameter, sexParameter, addressParameter, phoneNumberParameter, startDayParameter);
+        }
+    
+        public virtual int USP_UpdateStaffType(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateStaffType", idParameter, nameParameter);
+        }
+    
+        public virtual int USP_UpdateStatusRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_UpdateStatusRoom", idRoomParameter);
+        }
     }
 }

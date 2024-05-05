@@ -399,7 +399,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(-3, 323);
+            this.label8.Location = new System.Drawing.Point(3, 321);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label8.Size = new System.Drawing.Size(116, 15);
@@ -503,7 +503,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(-2, 147);
+            this.label5.Location = new System.Drawing.Point(3, 147);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label5.Size = new System.Drawing.Size(130, 15);
@@ -712,9 +712,9 @@
             this.label7.Location = new System.Drawing.Point(1, 146);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(58, 15);
+            this.label7.Size = new System.Drawing.Size(62, 15);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Checkout";
+            this.label7.Text = "Check-out";
             // 
             // btncheckout
             // 
@@ -733,6 +733,7 @@
             this.btncheckout.Name = "btncheckout";
             this.btncheckout.Size = new System.Drawing.Size(368, 166);
             this.btncheckout.TabIndex = 0;
+     
             // 
             // Dashboard
             // 

@@ -81,9 +81,9 @@
             this.labelName.ForeColor = System.Drawing.Color.SeaGreen;
             this.labelName.Location = new System.Drawing.Point(9, 6);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(192, 37);
+            this.labelName.Size = new System.Drawing.Size(252, 37);
             this.labelName.TabIndex = 51;
-            this.labelName.Text = "Quản Lí Phòng";
+            this.labelName.Text = "Room Management";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox3
@@ -116,7 +116,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnSearch.Location = new System.Drawing.Point(262, 44);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(164, 29);
             this.btnSearch.TabIndex = 30;
@@ -190,7 +190,7 @@
             this.cbIDRoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.cbIDRoom.ItemHeight = 30;
             this.cbIDRoom.Location = new System.Drawing.Point(26, 46);
-            this.cbIDRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbIDRoom.Margin = new System.Windows.Forms.Padding(2);
             this.cbIDRoom.Name = "cbIDRoom";
             this.cbIDRoom.Size = new System.Drawing.Size(176, 36);
             this.cbIDRoom.TabIndex = 53;
@@ -207,7 +207,7 @@
             this.cbTyperoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.cbTyperoom.ItemHeight = 30;
             this.cbTyperoom.Location = new System.Drawing.Point(250, 44);
-            this.cbTyperoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTyperoom.Margin = new System.Windows.Forms.Padding(2);
             this.cbTyperoom.Name = "cbTyperoom";
             this.cbTyperoom.Size = new System.Drawing.Size(176, 36);
             this.cbTyperoom.TabIndex = 52;
@@ -224,7 +224,7 @@
             this.cbCondition.ForeColor = System.Drawing.Color.SeaGreen;
             this.cbCondition.ItemHeight = 30;
             this.cbCondition.Location = new System.Drawing.Point(26, 157);
-            this.cbCondition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCondition.Margin = new System.Windows.Forms.Padding(2);
             this.cbCondition.Name = "cbCondition";
             this.cbCondition.Size = new System.Drawing.Size(176, 36);
             this.cbCondition.TabIndex = 51;
@@ -390,7 +390,7 @@
             this.btnAddRoom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddRoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnAddRoom.Location = new System.Drawing.Point(22, 35);
-            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(164, 29);
             this.btnAddRoom.TabIndex = 34;
@@ -412,7 +412,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnUpdate.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnUpdate.Location = new System.Drawing.Point(22, 89);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(164, 29);
             this.btnUpdate.TabIndex = 33;
@@ -435,7 +435,7 @@
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnClose.Location = new System.Drawing.Point(247, 89);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(164, 29);
             this.btnClose.TabIndex = 32;
@@ -458,7 +458,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEdit.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnEdit.Location = new System.Drawing.Point(247, 35);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(164, 29);
             this.btnEdit.TabIndex = 31;
@@ -623,7 +623,7 @@
             // guna2Separator1
             // 
             this.guna2Separator1.Location = new System.Drawing.Point(5, 43);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(1102, 14);
             this.guna2Separator1.TabIndex = 31;
@@ -641,7 +641,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.labelName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "froommanagement";
             this.Text = "  ";
             this.Load += new System.EventHandler(this.Froommanagement_Load);

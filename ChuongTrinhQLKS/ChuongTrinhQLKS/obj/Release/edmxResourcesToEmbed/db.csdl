@@ -78,6 +78,380 @@
       <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
       <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
     </AssociationSet>
+    <FunctionImport Name="GetIDReceiveRoomCurrent" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="InsertReceiveRoom">
+      <Parameter Name="idBookRoom" Mode="In" Type="Int32" />
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertReceiveRoomDetails">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+      <Parameter Name="idCustomer" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ShowBookRoomInfo" ReturnType="Collection(HotelManagementModel.ShowBookRoomInfo_Result)">
+      <Parameter Name="idBookRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="USP_ChekcAccess" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="formname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DeleteAccess">
+      <Parameter Name="idJob" Mode="In" Type="Int32" />
+      <Parameter Name="idStaffType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DeleteBookRoom">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DeleteReceiveRoomDetails">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+      <Parameter Name="idCustomer" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DeleteStaffType">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetCustomerTypeNameByIdCard" ReturnType="Collection(String)">
+      <Parameter Name="idCard" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetIdBillFromIdRoom" ReturnType="Collection(HotelManagementModel.USP_GetIdBillFromIdRoom_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetIdBillMax" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_GetIDCustomerFromBookRoom" ReturnType="Collection(Int32)">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetIdReceiRoomFromIdRoom" ReturnType="Collection(HotelManagementModel.USP_GetIdReceiRoomFromIdRoom_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetIDRoomFromReceiveRoom" ReturnType="Collection(Int32)">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetNameStaffTypeByUserName" ReturnType="Collection(HotelManagementModel.USP_GetNameStaffTypeByUserName_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetPeoples" ReturnType="Collection(Int32)">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetRoomTypeByIdBookRoom" ReturnType="Collection(HotelManagementModel.USP_GetRoomTypeByIdBookRoom_Result)">
+      <Parameter Name="idBookRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetRoomTypeByIdRoom" ReturnType="Collection(HotelManagementModel.USP_GetRoomTypeByIdRoom_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetStaffSetUp" ReturnType="Collection(HotelManagementModel.USP_GetStaffSetUp_Result)">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertAccess">
+      <Parameter Name="idJob" Mode="In" Type="Int32" />
+      <Parameter Name="idStaffType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertBill">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+      <Parameter Name="staffSetUp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertBillDetails">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+      <Parameter Name="idService" Mode="In" Type="Int32" />
+      <Parameter Name="count" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertBookRoom">
+      <Parameter Name="idCustomer" Mode="In" Type="Int32" />
+      <Parameter Name="idRoomType" Mode="In" Type="Int32" />
+      <Parameter Name="datecheckin" Mode="In" Type="DateTime" />
+      <Parameter Name="datecheckout" Mode="In" Type="DateTime" />
+      <Parameter Name="datebookroom" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertCustomer">
+      <Parameter Name="customerName" Mode="In" Type="String" />
+      <Parameter Name="idCustomerType" Mode="In" Type="Int32" />
+      <Parameter Name="idCard" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertCustomer_">
+      <Parameter Name="idCard" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="idCustomerType" Mode="In" Type="Int32" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertReport">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertRoom">
+      <Parameter Name="nameRoom" Mode="In" Type="String" />
+      <Parameter Name="idRoomType" Mode="In" Type="Int32" />
+      <Parameter Name="idStatusRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertService">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+      <Parameter Name="price" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertServiceType">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertStaff">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="idStaffType" Mode="In" Type="Int32" />
+      <Parameter Name="idCard" Mode="In" Type="String" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="startDay" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertStaffType">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_IsExistBillDetailsOfRoom" ReturnType="Collection(HotelManagementModel.USP_IsExistBillDetailsOfRoom_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+      <Parameter Name="idservice" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_IsExistBillOfRoom" ReturnType="Collection(HotelManagementModel.USP_IsExistBillOfRoom_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_IsIDBookRoomExists" ReturnType="Collection(HotelManagementModel.USP_IsIDBookRoomExists_Result)">
+      <Parameter Name="idBookRoom" Mode="In" Type="Int32" />
+      <Parameter Name="dateNow" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_IsIdCardExists" ReturnType="Collection(HotelManagementModel.USP_IsIdCardExists_Result)">
+      <Parameter Name="idCard" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_IsIdCardExistsAcc" ReturnType="Collection(HotelManagementModel.USP_IsIdCardExistsAcc_Result)">
+      <Parameter Name="idCard" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadBookRoomsByDate" ReturnType="Collection(HotelManagementModel.USP_LoadBookRoomsByDate_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadEmptyRoom" ReturnType="Collection(HotelManagementModel.USP_LoadEmptyRoom_Result)">
+      <Parameter Name="idRoomType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadFullAccessNow" ReturnType="Collection(HotelManagementModel.USP_LoadFullAccessNow_Result)">
+      <Parameter Name="idStaffType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadFUllBill" ReturnType="Collection(HotelManagementModel.USP_LoadFUllBill_Result)" />
+    <FunctionImport Name="USP_LoadFullCustomer" ReturnType="Collection(HotelManagementModel.USP_LoadFullCustomer_Result)" />
+    <FunctionImport Name="USP_LoadFullCustomerType" ReturnType="Collection(HotelManagementModel.USP_LoadFullCustomerType_Result)" />
+    <FunctionImport Name="USP_LoadFullParameter" ReturnType="Collection(HotelManagementModel.USP_LoadFullParameter_Result)" />
+    <FunctionImport Name="USP_LoadFullReport" ReturnType="Collection(HotelManagementModel.USP_LoadFullReport_Result)">
+      <Parameter Name="month" Mode="In" Type="Int32" />
+      <Parameter Name="year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadFullRoom" ReturnType="Collection(HotelManagementModel.USP_LoadFullRoom_Result)" />
+    <FunctionImport Name="USP_LoadFullRoomType" ReturnType="Collection(HotelManagementModel.USP_LoadFullRoomType_Result)" />
+    <FunctionImport Name="USP_LoadFullService" ReturnType="Collection(HotelManagementModel.USP_LoadFullService_Result)" />
+    <FunctionImport Name="USP_LoadFullServiceType" ReturnType="Collection(HotelManagementModel.USP_LoadFullServiceType_Result)" />
+    <FunctionImport Name="USP_LoadFullStaff" ReturnType="Collection(HotelManagementModel.USP_LoadFullStaff_Result)" />
+    <FunctionImport Name="USP_LoadFullStaffType" ReturnType="Collection(HotelManagementModel.USP_LoadFullStaffType_Result)" />
+    <FunctionImport Name="USP_LoadFullStatusRoom" ReturnType="Collection(HotelManagementModel.USP_LoadFullStatusRoom_Result)" />
+    <FunctionImport Name="USP_LoadListFullRoom" ReturnType="Collection(HotelManagementModel.USP_LoadListFullRoom_Result)">
+      <Parameter Name="getToday" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadReceiveRoomsByDate" ReturnType="Collection(HotelManagementModel.USP_LoadReceiveRoomsByDate_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadServiceByServiceType" ReturnType="Collection(HotelManagementModel.USP_LoadServiceByServiceType_Result)">
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_LoadStaffInforByUserName" ReturnType="Collection(HotelManagementModel.USP_LoadStaffInforByUserName_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Login" ReturnType="Collection(HotelManagementModel.USP_Login_Result)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="passWord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_RoomTypeInfo" ReturnType="Collection(HotelManagementModel.USP_RoomTypeInfo_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchBill">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="mode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchCustomer">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="mode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchParameter">
+      <Parameter Name="string" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchRoom">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="int" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchRoomType">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="int" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchService">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="int" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchServiceType">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="int" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SearchStaff">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="int" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowBill" ReturnType="Collection(HotelManagementModel.USP_ShowBill_Result)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowBillInfo" ReturnType="Collection(HotelManagementModel.USP_ShowBillInfo_Result)">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowBillPreView" ReturnType="Collection(HotelManagementModel.USP_ShowBillPreView_Result)">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowBillRoom" ReturnType="Collection(HotelManagementModel.USP_ShowBillRoom_Result)">
+      <Parameter Name="getToday" Mode="In" Type="DateTime" />
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowCustomerFromReceiveRoom" ReturnType="Collection(HotelManagementModel.USP_ShowCustomerFromReceiveRoom_Result)">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ShowReceiveRoom" ReturnType="Collection(HotelManagementModel.USP_ShowReceiveRoom_Result)">
+      <Parameter Name="idReceiveRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateBill_Other">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+      <Parameter Name="discount" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateBill_RoomPrice">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateBill_ServicePrice">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateBillDetails">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+      <Parameter Name="idService" Mode="In" Type="Int32" />
+      <Parameter Name="p_count" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateBookRoom">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="idRoomType" Mode="In" Type="Int32" />
+      <Parameter Name="dateCheckIn" Mode="In" Type="DateTime" />
+      <Parameter Name="datecheckOut" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateCustomer">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="customerName" Mode="In" Type="String" />
+      <Parameter Name="idCustomerType" Mode="In" Type="Int32" />
+      <Parameter Name="idCardNow" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+      <Parameter Name="idCardPre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateCustomer_">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="idCard" Mode="In" Type="String" />
+      <Parameter Name="idCustomerType" Mode="In" Type="Int32" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateDisplayName">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="displayname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateInfo">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phonenumber" Mode="In" Type="Int32" />
+      <Parameter Name="idcard" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdatePassword">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateReceiveRoom">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateRoom">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nameRoom" Mode="In" Type="String" />
+      <Parameter Name="idRoomType" Mode="In" Type="Int32" />
+      <Parameter Name="idStatusRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateRoomType">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="price" Mode="In" Type="Int32" />
+      <Parameter Name="limitPerson" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateService">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+      <Parameter Name="price" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateServiceType">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateStaff">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="idStaffType" Mode="In" Type="Int32" />
+      <Parameter Name="idCard" Mode="In" Type="String" />
+      <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="sex" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="Int32" />
+      <Parameter Name="startDay" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateStaffType">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UpdateStatusRoom">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="BILL">
     <Key>
@@ -443,4 +817,325 @@
     <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
     <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
   </Association>
+  <ComplexType Name="ShowBookRoomInfo_Result">
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="RoomTypeName" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateCheckIn" Nullable="false" />
+    <Property Type="DateTime" Name="DateCheckOut" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetIdBillFromIdRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDReceiveRoom" Nullable="false" />
+    <Property Type="String" Name="StaffSetUp" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfCreate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="RoomPrice" Nullable="false" />
+    <Property Type="Int32" Name="ServicePrice" Nullable="false" />
+    <Property Type="Int32" Name="Surcharge" Nullable="false" />
+    <Property Type="Int32" Name="TotalPrice" Nullable="false" />
+    <Property Type="Int32" Name="Discount" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusBill" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetIdReceiRoomFromIdRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDBookRoom" Nullable="false" />
+    <Property Type="Int32" Name="IDRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetNameStaffTypeByUserName_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_GetRoomTypeByIdBookRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetRoomTypeByIdRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetStaffSetUp_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PassWord" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDStaffType" Nullable="false" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="DateTime" Name="StartDay" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_IsExistBillDetailsOfRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDReceiveRoom" Nullable="false" />
+    <Property Type="String" Name="StaffSetUp" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfCreate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="RoomPrice" Nullable="false" />
+    <Property Type="Int32" Name="ServicePrice" Nullable="false" />
+    <Property Type="Int32" Name="Surcharge" Nullable="false" />
+    <Property Type="Int32" Name="TotalPrice" Nullable="false" />
+    <Property Type="Int32" Name="Discount" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusBill" Nullable="false" />
+    <Property Type="Int32" Name="IDBill" Nullable="false" />
+    <Property Type="Int32" Name="IDService" Nullable="false" />
+    <Property Type="Int32" Name="Count" Nullable="false" />
+    <Property Type="Int32" Name="TotalPrice1" Nullable="false" />
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="IDBookRoom" Nullable="false" />
+    <Property Type="Int32" Name="IDRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_IsExistBillOfRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDReceiveRoom" Nullable="false" />
+    <Property Type="String" Name="StaffSetUp" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfCreate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="RoomPrice" Nullable="false" />
+    <Property Type="Int32" Name="ServicePrice" Nullable="false" />
+    <Property Type="Int32" Name="Surcharge" Nullable="false" />
+    <Property Type="Int32" Name="TotalPrice" Nullable="false" />
+    <Property Type="Int32" Name="Discount" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusBill" Nullable="false" />
+    <Property Type="Int32" Name="ID1" Nullable="false" />
+    <Property Type="Int32" Name="IDBookRoom" Nullable="false" />
+    <Property Type="Int32" Name="IDRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_IsIDBookRoomExists_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDCustomer" Nullable="false" />
+    <Property Type="Int32" Name="IDRoomType" Nullable="false" />
+    <Property Type="DateTime" Name="DateBookRoom" Nullable="false" Precision="16" />
+    <Property Type="DateTime" Name="DateCheckIn" Nullable="false" />
+    <Property Type="DateTime" Name="DateCheckOut" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_IsIdCardExists_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDCustomerType" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Nationality" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_IsIdCardExistsAcc_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PassWord" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDStaffType" Nullable="false" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="DateTime" Name="StartDay" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadBookRoomsByDate_Result">
+    <Property Type="Int32" Name="Mã_đặt_phòng" Nullable="false" />
+    <Property Type="String" Name="Họ_và_tên" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Loại_phòng" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
+    <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadEmptyRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDRoomType" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullAccessNow_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFUllBill_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="roomName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="StaffSetUp" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfCreate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="TotalPrice" Nullable="false" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="FinalPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullCustomer_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NameCustomerType" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Nationality" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDCustomerType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullCustomerType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullParameter_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="Double" Name="Value" Nullable="false" />
+    <Property Type="String" Name="Describe" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullReport_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+    <Property Type="Single" Name="value" Nullable="true" />
+    <Property Type="Single" Name="rate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="nameRoomType" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+    <Property Type="String" Name="nameStatusRoom" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDRoomType" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullRoomType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullService_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="String" Name="nameServiceType" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDServiceType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullServiceType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullStaff_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="DateTime" Name="StartDay" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="IDStaffType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullStaffType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadFullStatusRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadListFullRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDRoomType" Nullable="false" />
+    <Property Type="Int32" Name="IDStatusRoom" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadReceiveRoomsByDate_Result">
+    <Property Type="Int32" Name="Mã_nhận_phòng" Nullable="false" />
+    <Property Type="String" Name="Họ_và_tên" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Tên_phòng" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
+    <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadServiceByServiceType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="IDServiceType" Nullable="false" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_LoadStaffInforByUserName_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PassWord" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDStaffType" Nullable="false" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="DateTime" Name="StartDay" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Login_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PassWord" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="IDStaffType" Nullable="false" />
+    <Property Type="String" Name="IDCard" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PhoneNumber" Nullable="false" />
+    <Property Type="DateTime" Name="StartDay" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_RoomTypeInfo_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="LimitPerson" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowBill_Result">
+    <Property Type="String" Name="Tên_dịch_vụ" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="Đơn_giá" Nullable="false" />
+    <Property Type="Int32" Name="Số_lượng" Nullable="false" />
+    <Property Type="Int32" Name="Thành_tiền" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowBillInfo_Result">
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="SDT" Nullable="false" />
+    <Property Type="String" Name="LoaiKH" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DiaChi" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="QuocTich" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="TenPhong" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="LoaiPhong" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="DonGia" Nullable="false" />
+    <Property Type="DateTime" Name="NgayDen" Nullable="false" />
+    <Property Type="DateTime" Name="NgayDi" Nullable="false" />
+    <Property Type="Int32" Name="TienPhong" Nullable="false" />
+    <Property Type="Int32" Name="TienDichVu" Nullable="false" />
+    <Property Type="Int32" Name="PhuThu" Nullable="false" />
+    <Property Type="Int32" Name="ThanhTien" Nullable="false" />
+    <Property Type="Int32" Name="GiamGia" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowBillPreView_Result">
+    <Property Type="String" Name="Tên_dịch_vụ" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="Đơn_giá" Nullable="false" />
+    <Property Type="Int32" Name="Số_lượng" Nullable="false" />
+    <Property Type="Int32" Name="Thành_tiền" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowBillRoom_Result">
+    <Property Type="String" Name="Tên_phòng" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Đơn_giá" Nullable="false" />
+    <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
+    <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
+    <Property Type="Int32" Name="Tiền_phòng" Nullable="false" />
+    <Property Type="Int32" Name="Phụ_thu" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowCustomerFromReceiveRoom_Result">
+    <Property Type="String" Name="Tên_khách_hàng" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Địa_chỉ" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="Số_điện_thoại" Nullable="false" />
+    <Property Type="String" Name="Quốc_tịch" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_ShowReceiveRoom_Result">
+    <Property Type="Int32" Name="Mã_nhận_phòng" Nullable="false" />
+    <Property Type="String" Name="Tên_phòng" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
+    <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
+  </ComplexType>
 </Schema>

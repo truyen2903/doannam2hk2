@@ -31,12 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flogin));
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Panellogin = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtpassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbclick = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
+            this.txtpassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnexit = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Panellogin.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +69,10 @@
             this.Panellogin.BackColor = System.Drawing.Color.Snow;
             this.Panellogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panellogin.BackgroundImage")));
             this.Panellogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panellogin.Controls.Add(this.guna2ImageButton3);
+            this.Panellogin.Controls.Add(this.guna2ImageButton2);
+            this.Panellogin.Controls.Add(this.guna2ImageButton1);
+            this.Panellogin.Controls.Add(this.guna2HtmlLabel2);
             this.Panellogin.Controls.Add(this.lbclick);
             this.Panellogin.Controls.Add(this.guna2HtmlLabel1);
             this.Panellogin.Controls.Add(this.btnlogin);
@@ -76,17 +84,128 @@
             this.Panellogin.Size = new System.Drawing.Size(557, 699);
             this.Panellogin.TabIndex = 1;
             // 
-            // label1
+            // guna2ImageButton3
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(210, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Login";
+            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton3.Image")));
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(461, 623);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton3.TabIndex = 9;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(435, 623);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.TabIndex = 8;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(409, 623);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton1.TabIndex = 7;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(409, 595);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(70, 22);
+            this.guna2HtmlLabel2.TabIndex = 6;
+            this.guna2HtmlLabel2.Text = "Log in via";
+            // 
+            // lbclick
+            // 
+            this.lbclick.BackColor = System.Drawing.Color.Transparent;
+            this.lbclick.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbclick.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbclick.Location = new System.Drawing.Point(324, 522);
+            this.lbclick.Name = "lbclick";
+            this.lbclick.Size = new System.Drawing.Size(65, 19);
+            this.lbclick.TabIndex = 5;
+            this.lbclick.Text = "Click here";
+            this.lbclick.Click += new System.EventHandler(this.Lbclick_Click);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(207, 522);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(111, 19);
+            this.guna2HtmlLabel1.TabIndex = 4;
+            this.guna2HtmlLabel1.Text = "Forget Password? ";
+            // 
+            // btnlogin
+            // 
+            this.btnlogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnlogin.BorderRadius = 12;
+            this.btnlogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnlogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnlogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnlogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnlogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnlogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnlogin.ForeColor = System.Drawing.Color.White;
+            this.btnlogin.Location = new System.Drawing.Point(167, 476);
+            this.btnlogin.Name = "btnlogin";
+            this.btnlogin.Size = new System.Drawing.Size(219, 38);
+            this.btnlogin.TabIndex = 3;
+            this.btnlogin.Text = "Login";
+            this.btnlogin.Click += new System.EventHandler(this.Btnlogin_Click);
+            // 
+            // txtpassword
+            // 
+            this.txtpassword.BackColor = System.Drawing.Color.Transparent;
+            this.txtpassword.BorderColor = System.Drawing.Color.Transparent;
+            this.txtpassword.BorderRadius = 5;
+            this.txtpassword.BorderThickness = 0;
+            this.txtpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtpassword.DefaultText = "";
+            this.txtpassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtpassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtpassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtpassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtpassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtpassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtpassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtpassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtpassword.Location = new System.Drawing.Point(167, 351);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '*';
+            this.txtpassword.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtpassword.PlaceholderText = "Password";
+            this.txtpassword.SelectedText = "";
+            this.txtpassword.Size = new System.Drawing.Size(219, 43);
+            this.txtpassword.TabIndex = 2;
+            this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtusername
             // 
@@ -115,71 +234,17 @@
             this.txtusername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtusername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txtusername_KeyDown);
             // 
-            // txtpassword
+            // label1
             // 
-            this.txtpassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtpassword.BorderColor = System.Drawing.Color.Transparent;
-            this.txtpassword.BorderRadius = 5;
-            this.txtpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpassword.DefaultText = "";
-            this.txtpassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtpassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtpassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtpassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtpassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtpassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtpassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpassword.Location = new System.Drawing.Point(167, 351);
-            this.txtpassword.Name = "txtpassword";
-            this.txtpassword.PasswordChar = '*';
-            this.txtpassword.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.txtpassword.PlaceholderText = "Password";
-            this.txtpassword.SelectedText = "";
-            this.txtpassword.Size = new System.Drawing.Size(219, 43);
-            this.txtpassword.TabIndex = 2;
-            this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnlogin
-            // 
-            this.btnlogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnlogin.BorderRadius = 12;
-            this.btnlogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnlogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnlogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnlogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnlogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnlogin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.Location = new System.Drawing.Point(167, 476);
-            this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(219, 38);
-            this.btnlogin.TabIndex = 3;
-            this.btnlogin.Text = "Login";
-            this.btnlogin.Click += new System.EventHandler(this.Btnlogin_Click);
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(207, 520);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(99, 17);
-            this.guna2HtmlLabel1.TabIndex = 4;
-            this.guna2HtmlLabel1.Text = "Forget Password? ";
-            // 
-            // lbclick
-            // 
-            this.lbclick.BackColor = System.Drawing.Color.Transparent;
-            this.lbclick.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbclick.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbclick.Location = new System.Drawing.Point(312, 520);
-            this.lbclick.Name = "lbclick";
-            this.lbclick.Size = new System.Drawing.Size(62, 17);
-            this.lbclick.TabIndex = 5;
-            this.lbclick.Text = "Click here";
-            this.lbclick.Click += new System.EventHandler(this.Lbclick_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(210, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 65);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Log in";
             // 
             // btnexit
             // 
@@ -231,6 +296,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtusername;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbclick;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2CircleButton btnexit;
     }
 }

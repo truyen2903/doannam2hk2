@@ -19,3 +19,25 @@ C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFram
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTr.C11445CF.Up2Date
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.exe
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.pdb
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\ChuongTrinhQLKS.exe.config
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\ChuongTrinhQLKS.exe
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\ChuongTrinhQLKS.pdb
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFramework.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFramework.xml
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.csproj.AssemblyReference.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.BOOKROOM.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Dashboard.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.fbookroom.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.flogin.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.froommanagement.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.fRoomtype.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Properties.Resources.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.csproj.GenerateResource.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTr.C11445CF.Up2Date
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.exe
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.pdb
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fprofile.resources

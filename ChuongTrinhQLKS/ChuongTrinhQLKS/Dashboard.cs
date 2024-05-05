@@ -5,7 +5,6 @@ namespace ChuongTrinhQLKS
 {
     public partial class Dashboard : Form
     {
-#pragma warning disable IDE0052
         private readonly string loggedInUser;
         public Dashboard(string username)
         {
@@ -37,10 +36,10 @@ namespace ChuongTrinhQLKS
 
         private void BtnInformation_Click(object sender, EventArgs e)
         {
-            //Hide();
-            //fProfile profile = new fProfile(loggedInUser);
-            //profile.ShowDialog();
-            //Show();
+            Hide();
+            Fprofile profile = new Fprofile(loggedInUser);
+            profile.ShowDialog();
+            Show();
         }
 
         private void Btnaddrom_Click(object sender, EventArgs e)

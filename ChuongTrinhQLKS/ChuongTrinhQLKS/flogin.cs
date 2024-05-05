@@ -45,7 +45,8 @@ namespace ChuongTrinhQLKS
             {
                 Hide();
                 Dashboard dashboard = new Dashboard(username);
-                dashboard.Show();
+                dashboard.ShowDialog();
+                this.Close();
             }
             else
             {

@@ -1,12 +1,36 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\doannam2hk2\\ChuongTrinhQLKS\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|c:\\users\\nguye\\onedrive - vinhuni.edu.vn\\documents\\github\\doannam2hk2\\chuongtrinhqlks\\chuongtrinhqlks\\faddrom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|solutionrelative:chuongtrinhqlks\\faddrom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Faddrom.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Faddrom.cs",
+              "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Faddrom.cs",
+              "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Faddrom.cs [Design]",
+              "RelativeToolTip": "ChuongTrinhQLKS\\Faddrom.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T06:21:32.456Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

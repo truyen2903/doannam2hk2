@@ -23,3 +23,25 @@ C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTr
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.fbookroom.resources
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.froommanagement.resources
 C:\Users\Admin\source\repos\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.fRoomtype.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\ChuongTrinhQLKS.exe.config
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\ChuongTrinhQLKS.exe
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\ChuongTrinhQLKS.pdb
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\EntityFramework.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\Guna.UI2.dll
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\EntityFramework.xml
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.csproj.AssemblyReference.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.BOOKROOM.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.Dashboard.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.fbookroom.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.flogin.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.froommanagement.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.fRoomtype.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.Properties.Resources.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.csproj.GenerateResource.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTr.C11445CF.Up2Date
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.exe
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.pdb
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Release\ChuongTrinhQLKS.Fprofile.resources

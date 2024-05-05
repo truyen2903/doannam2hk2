@@ -6,7 +6,7 @@ namespace ChuongTrinhQLKS
 {
     internal class funcion
     {
-        private string sqlrequery = @"Data Source=DESKTOP-O9OLGCH\SQLEXPRESS;Initial Catalog=HotelManagement;Integrated Security=True;";
+        private string sqlrequery = @"Data Source=DESKTOP-MLLK3NM\SQLEXPRESS;Initial Catalog=HotelManagement;Integrated Security=True;";
 
         private SqlConnection mysql;
 
