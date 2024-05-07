@@ -64,5 +64,13 @@ namespace ChuongTrinhQLKS
             flogin flogin = new flogin();   
             flogin.Show();
         }
+
+        private void BtnCheckin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Fcheck_in fcheckin = new Fcheck_in();
+            fcheckin.ShowDialog();
+            Show();
+        }
     }
 }

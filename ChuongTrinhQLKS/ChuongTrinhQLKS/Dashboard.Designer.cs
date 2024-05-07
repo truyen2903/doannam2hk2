@@ -41,7 +41,7 @@
             this.btnCustomerManagement = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnCheckin = new Guna.UI2.WinForms.Guna2Button();
             this.btnexit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -246,7 +246,7 @@
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.guna2Panel5.Controls.Add(this.label3);
-            this.guna2Panel5.Controls.Add(this.guna2Button5);
+            this.guna2Panel5.Controls.Add(this.BtnCheckin);
             this.guna2Panel5.Location = new System.Drawing.Point(227, 90);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(180, 340);
@@ -264,23 +264,24 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Check-in";
             // 
-            // guna2Button5
+            // BtnCheckin
             // 
-            this.guna2Button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Button5.BackgroundImage")));
-            this.guna2Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
-            this.guna2Button5.ImageSize = new System.Drawing.Size(60, 60);
-            this.guna2Button5.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(180, 340);
-            this.guna2Button5.TabIndex = 0;
+            this.BtnCheckin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCheckin.BackgroundImage")));
+            this.BtnCheckin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCheckin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnCheckin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnCheckin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnCheckin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnCheckin.FillColor = System.Drawing.Color.Transparent;
+            this.BtnCheckin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnCheckin.ForeColor = System.Drawing.Color.White;
+            this.BtnCheckin.Image = ((System.Drawing.Image)(resources.GetObject("BtnCheckin.Image")));
+            this.BtnCheckin.ImageSize = new System.Drawing.Size(60, 60);
+            this.BtnCheckin.Location = new System.Drawing.Point(0, 0);
+            this.BtnCheckin.Name = "BtnCheckin";
+            this.BtnCheckin.Size = new System.Drawing.Size(180, 340);
+            this.BtnCheckin.TabIndex = 0;
+            this.BtnCheckin.Click += new System.EventHandler(this.BtnCheckin_Click);
             // 
             // btnexit
             // 
@@ -733,7 +734,6 @@
             this.btncheckout.Name = "btncheckout";
             this.btncheckout.Size = new System.Drawing.Size(368, 166);
             this.btncheckout.TabIndex = 0;
-     
             // 
             // Dashboard
             // 
@@ -820,7 +820,7 @@
         private Guna.UI2.WinForms.Guna2Button btnexit;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button BtnCheckin;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
         private System.Windows.Forms.Label label12;
