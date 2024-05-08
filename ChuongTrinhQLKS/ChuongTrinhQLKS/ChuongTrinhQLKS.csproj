@@ -115,6 +115,12 @@
     <Compile Include="fbookroom.Designer.cs">
       <DependentUpon>fbookroom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fcheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fcheckout.Designer.cs">
+      <DependentUpon>Fcheckout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fcheck_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fbookroom.resx">
       <DependentUpon>fbookroom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fcheckout.resx">
+      <DependentUpon>Fcheckout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fcheck_in.resx">
       <DependentUpon>Fcheck_in.cs</DependentUpon>

@@ -1,15 +1,9 @@
 ﻿using ChuongTrinhQLKS.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ChuongTrinhQLKS
 {
@@ -66,6 +60,7 @@ namespace ChuongTrinhQLKS
             TxtPrice.ReadOnly = true;
             TxtNameRoom.ReadOnly = true;
             LoadTypeRoom();
+            LoadCheckinDay();
         }
 
         private void CbTyroom_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,21 +85,20 @@ namespace ChuongTrinhQLKS
             } 
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             TxtName.Text = Txtcard.Text = TxtCheckinDay.Text = TxtCheckoutDay.Text = TxtLimitsPerson.Text = TxtPrice.Text  = string.Empty;
         }
         private async void SearchID()
         {
-            
             int idbookroom = int.Parse(TxtFind.Text);
             dblinq = linqConnect.GetDatabase();
-            var checkin = await (from bookroom in dblinq.BOOKROOMs
+            var check = await (from i in dblinq.RECEIVEROOMs
+                        where i.IDBookRoom == idbookroom
+                        select i).FirstOrDefaultAsync();
+            if (check == null) 
+            { 
+                var checkin = await (from bookroom in dblinq.BOOKROOMs
                                  join customer in dblinq.CUSTOMERs on bookroom.IDCustomer equals customer.ID
                                  join typeroom in dblinq.ROOMTYPEs on bookroom.IDRoomType equals typeroom.ID
                                  where bookroom.ID == idbookroom
@@ -119,8 +113,8 @@ namespace ChuongTrinhQLKS
                                      datecheckin = bookroom.DateCheckIn,
                                      datecheckout = bookroom.DateCheckOut,
                                  }).FirstOrDefaultAsync();
-            if (checkin != null)
-            {
+                if (checkin != null)
+                {
                 TxtName.Text = checkin.Namecustumer;
                 Txtcard.Text = checkin.idCard;
                 TxtCheckinDay.Text= checkin.datecheckin.ToString();
@@ -128,14 +122,21 @@ namespace ChuongTrinhQLKS
                 TxtLimitsPerson.Text = checkin.limitsperson.ToString();
                 TxtPrice.Text = checkin.price.ToString();
                 CbTyroom.Text = checkin.typeroom;
+                }
+                else
+                {
+                MessageBox.Show("Please re-enter ID Bookroom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtFind.Text = string.Empty;
+                TxtFind.Focus();
+                }
+
             }
             else
             {
                 MessageBox.Show("Please re-enter ID Bookroom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtFind.Text = string.Empty;
                 TxtFind.Focus();
-            }
-
+            }    
         }
         private async void Checkin()
         {
@@ -180,15 +181,31 @@ namespace ChuongTrinhQLKS
             {
                 await dblinq.SaveChangesAsync();
                 TxtFind.Text = Txtcard.Text = TxtCheckinDay.Text = TxtCheckoutDay.Text = TxtLimitsPerson.Text = TxtName.Text = TxtNameRoom.Text = TxtPrice.Text = string.Empty;
-
+                LoadCheckinDay();
                 LoadTypeRoom();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("There is an error when correcting the room status" + ex, "Erorr", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-
+        }
+        private async void LoadCheckinDay()
+        {
+            dblinq = linqConnect.GetDatabase();
+            var listCheckin = await (from checkin in dblinq.RECEIVEROOMs
+                              join room in dblinq.ROOMs on checkin.IDRoom equals room.ID
+                              join bookroom in dblinq.BOOKROOMs on checkin.IDBookRoom equals bookroom.ID
+                              join customer in dblinq.CUSTOMERs on bookroom.IDCustomer equals customer.ID
+                              select new
+                              {
+                                  ID = checkin.ID,
+                                  NameCustomer = customer.Name,
+                                  IDcard = customer.IDCard,
+                                  NameRoom = room.Name,
+                                  Datecheckin = bookroom.DateCheckIn.ToString(),
+                                  datecheckout = bookroom.DateCheckOut.ToString(),
+                              }).ToListAsync();
+            dataGridViewReceiveRoom.DataSource = listCheckin;
         }
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -198,6 +215,10 @@ namespace ChuongTrinhQLKS
         private void BtnCheckin_Click(object sender, EventArgs e)
         {
             Checkin();
+        }
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

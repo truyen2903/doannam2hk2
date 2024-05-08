@@ -117,9 +117,9 @@
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox6.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox6.Location = new System.Drawing.Point(4, 43);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox6.Size = new System.Drawing.Size(340, 122);
             this.groupBox6.TabIndex = 35;
             this.groupBox6.TabStop = false;
@@ -133,7 +133,7 @@
             this.Datecheckout.ForeColor = System.Drawing.Color.Black;
             this.Datecheckout.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.Datecheckout.Location = new System.Drawing.Point(182, 89);
-            this.Datecheckout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datecheckout.Margin = new System.Windows.Forms.Padding(2);
             this.Datecheckout.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Datecheckout.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Datecheckout.Name = "Datecheckout";
@@ -150,7 +150,7 @@
             this.Datecheckin.ForeColor = System.Drawing.Color.Black;
             this.Datecheckin.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.Datecheckin.Location = new System.Drawing.Point(184, 43);
-            this.Datecheckin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datecheckin.Margin = new System.Windows.Forms.Padding(2);
             this.Datecheckin.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Datecheckin.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Datecheckin.Name = "Datecheckin";
@@ -192,7 +192,7 @@
             this.cbRoomtype.ForeColor = System.Drawing.Color.SeaGreen;
             this.cbRoomtype.ItemHeight = 30;
             this.cbRoomtype.Location = new System.Drawing.Point(9, 41);
-            this.cbRoomtype.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRoomtype.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoomtype.Name = "cbRoomtype";
             this.cbRoomtype.Size = new System.Drawing.Size(150, 36);
             this.cbRoomtype.TabIndex = 41;
@@ -260,9 +260,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(349, 43);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(189, 210);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
@@ -408,9 +408,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox3.Location = new System.Drawing.Point(3, 167);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(340, 86);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
@@ -429,7 +429,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnSearch.Location = new System.Drawing.Point(184, 44);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(152, 32);
             this.btnSearch.TabIndex = 44;
@@ -491,9 +491,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox2.Location = new System.Drawing.Point(4, 255);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(340, 208);
             this.groupBox2.TabIndex = 48;
             this.groupBox2.TabStop = false;
@@ -514,7 +514,7 @@
             "Nữ",
             "Khác"});
             this.cbSex.Location = new System.Drawing.Point(182, 126);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(2);
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(150, 36);
             this.cbSex.TabIndex = 55;
@@ -527,7 +527,7 @@
             this.DateBirthday.ForeColor = System.Drawing.Color.Black;
             this.DateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.DateBirthday.Location = new System.Drawing.Point(184, 42);
-            this.DateBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DateBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.DateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateBirthday.Name = "DateBirthday";
@@ -612,7 +612,7 @@
             "Khách thường xuyên",
             "Khách VIP"});
             this.cbCustomtype.Location = new System.Drawing.Point(7, 129);
-            this.cbCustomtype.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCustomtype.Margin = new System.Windows.Forms.Padding(2);
             this.cbCustomtype.Name = "cbCustomtype";
             this.cbCustomtype.Size = new System.Drawing.Size(150, 36);
             this.cbCustomtype.TabIndex = 50;
@@ -763,9 +763,9 @@
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox5.Location = new System.Drawing.Point(349, 255);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(189, 201);
             this.groupBox5.TabIndex = 49;
             this.groupBox5.TabStop = false;
@@ -784,7 +784,7 @@
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnClose.Location = new System.Drawing.Point(20, 152);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 32);
             this.btnClose.TabIndex = 47;
@@ -804,7 +804,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancel.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnCancel.Location = new System.Drawing.Point(20, 102);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(152, 32);
             this.btnCancel.TabIndex = 46;
@@ -824,7 +824,7 @@
             this.btnBookRoom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBookRoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnBookRoom.Location = new System.Drawing.Point(20, 53);
-            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(2);
             this.btnBookRoom.Name = "btnBookRoom";
             this.btnBookRoom.Size = new System.Drawing.Size(152, 32);
             this.btnBookRoom.TabIndex = 45;
@@ -837,9 +837,9 @@
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox4.Location = new System.Drawing.Point(543, 43);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(406, 413);
             this.groupBox4.TabIndex = 50;
             this.groupBox4.TabStop = false;
@@ -852,7 +852,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(2, 24);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(402, 387);
             this.panel2.TabIndex = 39;
@@ -870,7 +870,7 @@
             this.btnDetails.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDetails.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnDetails.Location = new System.Drawing.Point(247, 349);
-            this.btnDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(152, 32);
             this.btnDetails.TabIndex = 46;
@@ -938,7 +938,7 @@
             // guna2Separator1
             // 
             this.guna2Separator1.Location = new System.Drawing.Point(4, 35);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(879, 8);
             this.guna2Separator1.TabIndex = 51;
@@ -948,7 +948,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(958, 463);
+            this.ClientSize = new System.Drawing.Size(958, 469);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
@@ -958,7 +958,7 @@
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.lbTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fbookroom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "8WAAAAAA";
