@@ -12,7 +12,7 @@ namespace ChuongTrinhQLKS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new flogin());
+            Application.Run(new Fcheckout());
         }
     }
 }
