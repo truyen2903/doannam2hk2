@@ -417,6 +417,7 @@
             this.BtnPay.Size = new System.Drawing.Size(203, 29);
             this.BtnPay.TabIndex = 64;
             this.BtnPay.Text = "Pay";
+            this.BtnPay.Click += new System.EventHandler(this.BtnPay_Click);
             // 
             // TxtTotalMoney
             // 

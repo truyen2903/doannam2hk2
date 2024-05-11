@@ -120,8 +120,8 @@ namespace ChuongTrinhQLKS
         {
             var selectRoom = (ROOM)cbIDRoom.SelectedItem;
             txtNameRoom.Text = selectRoom.Name.ToString();
-            cbTyperoom.SelectedIndex = selectRoom.IDRoomType - 1;
-            cbCondition.SelectedIndex = selectRoom.IDStatusRoom - 1;
+            cbTyperoom.SelectedValue = selectRoom.IDRoomType;
+            cbCondition.SelectedValue = selectRoom.IDStatusRoom;
             txtLimitsPerson.ReadOnly = true;
             txtPriceRoom.ReadOnly = true;
         }

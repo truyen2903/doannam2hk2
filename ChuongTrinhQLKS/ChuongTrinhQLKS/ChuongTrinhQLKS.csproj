@@ -133,6 +133,12 @@
     <Compile Include="flogin.Designer.cs">
       <DependentUpon>flogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fprintbill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fprintbill.Designer.cs">
+      <DependentUpon>Fprintbill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fprofile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="flogin.resx">
       <DependentUpon>flogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fprintbill.resx">
+      <DependentUpon>Fprintbill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fprofile.resx">
       <DependentUpon>Fprofile.cs</DependentUpon>

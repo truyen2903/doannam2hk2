@@ -1,5 +1,6 @@
 ﻿using ChuongTrinhQLKS.Models;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,14 @@ namespace ChuongTrinhQLKS
     {
         string username = GlobalVariables.LoggedInUsername;
         HotelManagement db;
-        int? idbill = null;
+        int idbill = 0;
+        int Surcharge = 0;
+        int ReceiveRoom = 0;
+        int RoomPrice = 0;
+        int ServiceToltal = 0;
+        int surcharge = 0;
+        int totalMoney = 0;
+
         public Fcheckout()
         {
             InitializeComponent();
@@ -41,6 +50,7 @@ namespace ChuongTrinhQLKS
                                      select new
                                      {
                                          IDReceive= checkin.ID,
+                                         roomID = room.ID,
                                          NameRoom = room.Name,
                                          RoomTypeID = typeroom.ID,
                                          Price = typeroom.Price,
@@ -53,7 +63,10 @@ namespace ChuongTrinhQLKS
                 Button roomButton = new Button
                 {
                     Text = item.NameRoom.ToString(),
-                    Size = new Size(70, 70),
+                    ForeColor = Color.White,
+                    Size = new Size(90, 90),
+                    Image = Image.FromFile(@"C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\img\\house.png"),
+                    ImageAlign = ContentAlignment.MiddleCenter, 
                     Tag = item,
                 };
                 if (item.RoomTypeID == 1) 
@@ -70,22 +83,40 @@ namespace ChuongTrinhQLKS
         }
         private async void RoomButton_Click(object sender, EventArgs e)
         {
-            var surcharge = 0;
-            var totalMoney = 0;
+            
             db = linqConnect.GetDatabase();
             var paramer = await (from j in db.PARAMETERs
                                  select j.Value).FirstOrDefaultAsync();
             Button clickedButton = (Button)sender;
             listViewBillRoom.Items.Clear();
             var roomInfo = (dynamic)clickedButton.Tag;
-            surcharge = CalculateSurcharge(roomInfo, paramer);
+            Surcharge = CalculateSurcharge(roomInfo, paramer);
             totalMoney = CalculateTotalMoney(roomInfo, surcharge);
-            AddRoomToListView(roomInfo, surcharge, totalMoney,clickedButton);
+            AddRoomToListView(roomInfo, Surcharge, totalMoney,clickedButton);
             UpdateButtonColors(clickedButton);
             await CreateBillIfNotExists(roomInfo);
             LoadListService();
+            await Changestatus(roomInfo);   
         }
-
+        private async Task Changestatus(dynamic roomInfo)
+        {
+            int IDRoom = roomInfo.roomID;
+            var RoomList = await (from room in db.ROOMs
+                                  where room.ID == IDRoom
+                                  select room).FirstOrDefaultAsync();
+            if (RoomList != null)
+            {
+                RoomList.IDStatusRoom = 2;
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error edit " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private int CalculateSurcharge(dynamic roomInfo, double paramer)
         {
             if (roomInfo.RoomTypeID == 1)
@@ -96,7 +127,7 @@ namespace ChuongTrinhQLKS
         }
 
         private int CalculateTotalMoney(dynamic roomInfo, int surcharge)
-        {
+        {  
             return surcharge + roomInfo.Price;
         }
 
@@ -139,6 +170,7 @@ namespace ChuongTrinhQLKS
         private async Task CreateBillIfNotExists(dynamic roomInfo)
         {
             int id = Convert.ToInt32(roomInfo.IDReceive);
+            ReceiveRoom = Convert.ToInt32(roomInfo.IDReceive);
             var checkBill = await (from i in db.BILLs
                                    where i.IDReceiveRoom == id
                                    select i).FirstOrDefaultAsync();
@@ -172,11 +204,12 @@ namespace ChuongTrinhQLKS
             else
             {
                 idbill = checkBill.ID;
-            }    
+            }
         }
+        
         private async void AddService()
         {
-            if (idbill != null)
+            if (idbill != 0)
             {
                 db = linqConnect.GetDatabase();
                 int IDBill = int.Parse(idbill.ToString());
@@ -227,6 +260,36 @@ namespace ChuongTrinhQLKS
                 MessageBox.Show("Please select a room to add services", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private async void AddPay()
+        {
+            db = linqConnect.GetDatabase();
+            var ListPay = await (from i in db.BILLs
+                          where i.ID == idbill
+                          select i).FirstOrDefaultAsync();
+            if (ListPay != null)
+            {
+
+                ListPay.ServicePrice = ServiceToltal;
+                ListPay.Surcharge = Surcharge;
+                ListPay.TotalPrice = int.Parse(TxtTotalMoney.Text);
+                ListPay.Discount  = (int)numericUpDown1.Value;
+                ListPay.IDStatusBill = 2;
+                try 
+                {
+                   await db.SaveChangesAsync();
+                   LoadlistRoomBook();
+                    Fprintbill fprintbill = new Fprintbill(idbill);
+                    fprintbill.ShowDialog();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error while editing" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            
+        }
         private async void LoadListService()
         {
             int IDBill = int.Parse(idbill.ToString());
@@ -265,8 +328,9 @@ namespace ChuongTrinhQLKS
                      "",
                     "Total:",
                     totalBill.ToString()
-               });
-
+                    
+        });
+            TxtTotalMoney.Text = (totalMoney + totalBill).ToString();
             listViewUseService.Items.Add(totalItem);
 
         }
@@ -342,6 +406,11 @@ namespace ChuongTrinhQLKS
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             AddService();
+        }
+
+        private void BtnPay_Click(object sender, EventArgs e)
+        {
+            AddPay();
         }
     }
 }
