@@ -7,12 +7,8 @@
       "RelativeMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|solutionrelative:chuongtrinhqlks\\fcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|c:\\users\\nguye\\onedrive - vinhuni.edu.vn\\documents\\github\\doannam2hk2\\chuongtrinhqlks\\chuongtrinhqlks\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\chuongtrinhqlks\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|solutionrelative:chuongtrinhqlks\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|c:\\users\\nguye\\onedrive - vinhuni.edu.vn\\documents\\github\\doannam2hk2\\chuongtrinhqlks\\chuongtrinhqlks\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|solutionrelative:chuongtrinhqlks\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF8E1EA9-E9D8-4EDC-9AD8-2502CEA800EE}|ChuongTrinhQLKS\\ChuongTrinhQLKS.csproj|C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\chuongtrinhqlks\\fcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -38,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Program.cs",
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Program.cs",
@@ -51,8 +47,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-10T11:52:47.927Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -62,26 +57,14 @@
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Dashboard.cs",
               "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Dashboard.cs",
               "RelativeToolTip": "ChuongTrinhQLKS\\Dashboard.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAAAAQAAAAZAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwAQAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-11T01:32:22.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashboard.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Dashboard.cs",
-              "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Dashboard.cs",
-              "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Dashboard.cs [Design]",
-              "RelativeToolTip": "ChuongTrinhQLKS\\Dashboard.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T01:32:14.02Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "fbookroom.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\fbookroom.cs",
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\fbookroom.cs",
@@ -89,20 +72,18 @@
               "RelativeToolTip": "ChuongTrinhQLKS\\fbookroom.cs",
               "ViewState": "AQIAAJwAAAAAAAAAAAA2wLUAAACLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T22:42:02.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T22:42:02.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "fbookroom.cs [Design]",
               "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\fbookroom.cs",
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\fbookroom.cs",
               "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\fbookroom.cs [Design]",
               "RelativeToolTip": "ChuongTrinhQLKS\\fbookroom.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T22:42:01.109Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-10T22:42:01.109Z"
             },
             {
               "$type": "Document",
@@ -112,22 +93,21 @@
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Fcheckout.cs",
               "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Fcheckout.cs",
               "RelativeToolTip": "ChuongTrinhQLKS\\Fcheckout.cs",
-              "ViewState": "AQIAAJgAAAAAAAAAAAAAwKgAAAAQAAAA",
+              "ViewState": "AQIAAOIAAAAAAAAAAAAYwPIAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-10T11:46:22.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Fcheckout.cs [Design]",
               "DocumentMoniker": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Fcheckout.cs",
               "RelativeDocumentMoniker": "ChuongTrinhQLKS\\Fcheckout.cs",
               "ToolTip": "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\ChuongTrinhQLKS\\Fcheckout.cs [Design]",
               "RelativeToolTip": "ChuongTrinhQLKS\\Fcheckout.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T11:38:50.711Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-10T11:38:50.711Z"
             }
           ]
         }

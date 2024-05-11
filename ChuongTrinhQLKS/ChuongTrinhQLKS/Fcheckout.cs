@@ -83,6 +83,7 @@ namespace ChuongTrinhQLKS
             AddRoomToListView(roomInfo, surcharge, totalMoney,clickedButton);
             UpdateButtonColors(clickedButton);
             await CreateBillIfNotExists(roomInfo);
+            LoadListService();
         }
 
         private int CalculateSurcharge(dynamic roomInfo, double paramer)
@@ -213,6 +214,7 @@ namespace ChuongTrinhQLKS
                     try
                     {
                         await db.SaveChangesAsync();
+                        LoadListService();
                     }
                     catch(Exception ex)
                     {
@@ -239,7 +241,7 @@ namespace ChuongTrinhQLKS
                                          Price = j.Price
                                      }).ToListAsync();
             int totalBill = 0;
-
+            listViewUseService.Items.Clear();
             foreach (var list in ListService)
             {
                 int cout = 1;
@@ -254,18 +256,19 @@ namespace ChuongTrinhQLKS
                     serviceTotal.ToString()
                 });
                 listViewUseService.Items.Add(item);
-                ListViewItem totalItem = new ListViewItem(new string[]
-                {
-                     "", 
+                cout++;
+            }
+            ListViewItem totalItem = new ListViewItem(new string[]
+               {
+                     "",
                      "",
                      "",
                     "Total:",
-                    totalBill.ToString() 
-                });
-      
-                listViewBillRoom.Items.Add(totalItem);
-                cout++;
-            }
+                    totalBill.ToString()
+               });
+
+            listViewUseService.Items.Add(totalItem);
+
         }
         private async void LoadSurcharge()
         {
