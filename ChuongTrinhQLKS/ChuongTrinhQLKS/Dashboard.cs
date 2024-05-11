@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
+using static ChuongTrinhQLKS.Program;
 
 namespace ChuongTrinhQLKS
 {
     public partial class Dashboard : Form
     {
-        private readonly string loggedInUser;
-        public Dashboard(string username)
+        string username = GlobalVariables.LoggedInUsername;
+        public Dashboard()
         {
             InitializeComponent();
-            loggedInUser = username;
         }
 
         private void Btnexit_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace ChuongTrinhQLKS
         private void BtnInformation_Click(object sender, EventArgs e)
         {
             Hide();
-            Fprofile profile = new Fprofile(loggedInUser);
+            Fprofile profile = new Fprofile();
             profile.ShowDialog();
             Show();
         }
@@ -70,6 +70,14 @@ namespace ChuongTrinhQLKS
             Hide();
             Fcheck_in fcheckin = new Fcheck_in();
             fcheckin.ShowDialog();
+            Show();
+        }
+
+        private void btncheckout_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Fcheckout fcheckout = new Fcheckout();
+            fcheckout.ShowDialog();
             Show();
         }
     }

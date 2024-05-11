@@ -12,7 +12,11 @@ namespace ChuongTrinhQLKS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Fcheckout());
+            Application.Run(new flogin());
+        }
+        public static class GlobalVariables
+        {
+            public static string LoggedInUsername;
         }
     }
 }

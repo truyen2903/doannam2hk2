@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using ChuongTrinhQLKS.Models;
+using static ChuongTrinhQLKS.Program;
 
 namespace ChuongTrinhQLKS
 {
@@ -44,7 +45,8 @@ namespace ChuongTrinhQLKS
             if (dbfuncion.CheckLogin(username, password))
             {
                 Hide();
-                Dashboard dashboard = new Dashboard(username);
+                GlobalVariables.LoggedInUsername = username; 
+                Dashboard dashboard = new Dashboard();
                 dashboard.ShowDialog();
                 this.Close();
             }

@@ -53,7 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.Close = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.BtnPay = new Guna.UI2.WinForms.Guna2Button();
             this.TxtTotalMoney = new Guna.UI2.WinForms.Guna2TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -84,7 +84,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataGridViewBookRoom = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView = new System.Windows.Forms.ListView();
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -162,7 +162,7 @@
             this.lblRoomType2.Name = "lblRoomType2";
             this.lblRoomType2.Size = new System.Drawing.Size(110, 36);
             this.lblRoomType2.TabIndex = 57;
-            this.lblRoomType2.Text = "Phòng Superior (SUP)";
+            this.lblRoomType2.Text = "Double Room";
             this.lblRoomType2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // color2
@@ -187,7 +187,7 @@
             // 
             // color1
             // 
-            this.color1.BackColor = System.Drawing.Color.Tomato;
+            this.color1.BackColor = System.Drawing.Color.BurlyWood;
             this.color1.Location = new System.Drawing.Point(130, 30);
             this.color1.Name = "color1";
             this.color1.Size = new System.Drawing.Size(97, 26);
@@ -198,6 +198,7 @@
             // 
             this.flowLayoutRooms.AutoScroll = true;
             this.flowLayoutRooms.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutRooms.ForeColor = System.Drawing.Color.Honeydew;
             this.flowLayoutRooms.Location = new System.Drawing.Point(3, 155);
             this.flowLayoutRooms.Name = "flowLayoutRooms";
             this.flowLayoutRooms.Size = new System.Drawing.Size(354, 401);
@@ -237,6 +238,7 @@
             this.CbService.Name = "CbService";
             this.CbService.Size = new System.Drawing.Size(199, 36);
             this.CbService.TabIndex = 65;
+            this.CbService.SelectedIndexChanged += new System.EventHandler(this.CbService_SelectedIndexChanged);
             // 
             // CbTypeSer
             // 
@@ -272,6 +274,7 @@
             this.BtnAdd.Size = new System.Drawing.Size(203, 29);
             this.BtnAdd.TabIndex = 63;
             this.BtnAdd.Text = "Add services";
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // TxtPrice
             // 
@@ -361,7 +364,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.Close);
+            this.groupBox5.Controls.Add(this.BtnClose);
             this.groupBox5.Controls.Add(this.BtnPay);
             this.groupBox5.Controls.Add(this.TxtTotalMoney);
             this.groupBox5.Controls.Add(this.numericUpDown1);
@@ -376,24 +379,25 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Funcion";
             // 
-            // Close
+            // BtnClose
             // 
-            this.Close.BorderColor = System.Drawing.Color.SeaGreen;
-            this.Close.BorderRadius = 15;
-            this.Close.BorderThickness = 1;
-            this.Close.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Close.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Close.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Close.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Close.FillColor = System.Drawing.Color.Transparent;
-            this.Close.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close.ForeColor = System.Drawing.Color.SeaGreen;
-            this.Close.Location = new System.Drawing.Point(17, 212);
-            this.Close.Name = "Close";
-            this.Close.PressedColor = System.Drawing.Color.SpringGreen;
-            this.Close.Size = new System.Drawing.Size(203, 29);
-            this.Close.TabIndex = 65;
-            this.Close.Text = "Close";
+            this.BtnClose.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.BorderRadius = 15;
+            this.BtnClose.BorderThickness = 1;
+            this.BtnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnClose.FillColor = System.Drawing.Color.Transparent;
+            this.BtnClose.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.Location = new System.Drawing.Point(17, 212);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.PressedColor = System.Drawing.Color.SpringGreen;
+            this.BtnClose.Size = new System.Drawing.Size(203, 29);
+            this.BtnClose.TabIndex = 65;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // BtnPay
             // 
@@ -723,7 +727,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.listView1);
+            this.groupBox4.Controls.Add(this.listView);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox4.Location = new System.Drawing.Point(611, 124);
@@ -733,27 +737,27 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Surcharge policy";
             // 
-            // listView1
+            // listView
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader17,
             this.columnHeader18,
             this.columnHeader19,
             this.columnHeader20});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(632, 107);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.listView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listView.FullRowSelect = true;
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(3, 25);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(632, 107);
+            this.listView.TabIndex = 9;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader17
             // 
@@ -858,7 +862,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.DataGridView dataGridViewBookRoom;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.ColumnHeader columnHeader18;
         private System.Windows.Forms.ColumnHeader columnHeader19;
@@ -866,7 +870,7 @@
         private Guna.UI2.WinForms.Guna2Button BtnAdd;
         private Guna.UI2.WinForms.Guna2TextBox TxtPrice;
         private Guna.UI2.WinForms.Guna2TextBox TxtTotalMoney;
-        private Guna.UI2.WinForms.Guna2Button Close;
+        private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Button BtnPay;
         private Guna.UI2.WinForms.Guna2ComboBox CbService;
         private Guna.UI2.WinForms.Guna2ComboBox CbTypeSer;

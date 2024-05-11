@@ -734,6 +734,7 @@
             this.btncheckout.Name = "btncheckout";
             this.btncheckout.Size = new System.Drawing.Size(368, 166);
             this.btncheckout.TabIndex = 0;
+            this.btncheckout.Click += new System.EventHandler(this.btncheckout_Click);
             // 
             // Dashboard
             // 

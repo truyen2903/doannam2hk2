@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ChuongTrinhQLKS.Program;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ChuongTrinhQLKS
@@ -16,11 +17,10 @@ namespace ChuongTrinhQLKS
     public partial class Fprofile : Form
     {
         HotelManagement infor;
-        private readonly string Username;
-        public Fprofile(string User)
+        string Username = GlobalVariables.LoggedInUsername;
+        public Fprofile()
         {
             InitializeComponent();
-            Username = User;
         }
 
         private void Btnexit_Click(object sender, EventArgs e)
