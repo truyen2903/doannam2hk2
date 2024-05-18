@@ -103,6 +103,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Faddemploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faddemploy.Designer.cs">
+      <DependentUpon>Faddemploy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Faddrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="Fcheck_in.Designer.cs">
       <DependentUpon>Fcheck_in.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Femploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Femploy.Designer.cs">
+      <DependentUpon>Femploy.cs</DependentUpon>
     </Compile>
     <Compile Include="flogin.cs">
       <SubType>Form</SubType>
@@ -157,7 +169,6 @@
     <Compile Include="fRoomtype.Designer.cs">
       <DependentUpon>fRoomtype.cs</DependentUpon>
     </Compile>
-    <Compile Include="funcion.cs" />
     <Compile Include="job.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -320,6 +331,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Faddemploy.resx">
+      <DependentUpon>Faddemploy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Faddrom.resx">
       <DependentUpon>Faddrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fcheck_in.resx">
       <DependentUpon>Fcheck_in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Femploy.resx">
+      <DependentUpon>Femploy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flogin.resx">
       <DependentUpon>flogin.cs</DependentUpon>

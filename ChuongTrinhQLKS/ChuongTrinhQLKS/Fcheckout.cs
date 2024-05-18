@@ -27,7 +27,6 @@ namespace ChuongTrinhQLKS
         int idbill = 0;
         int Surcharge = 0;
         int ReceiveRoom = 0;
-        int RoomPrice = 0;
         int ServiceToltal = 0;
         int surcharge = 0;
         int totalMoney = 0;

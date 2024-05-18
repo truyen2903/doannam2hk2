@@ -87,6 +87,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Btnprint = new Guna.UI2.WinForms.Guna2Button();
             this.Btnclose = new Guna.UI2.WinForms.Guna2Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -742,6 +744,7 @@
             this.Btnprint.Size = new System.Drawing.Size(180, 29);
             this.Btnprint.TabIndex = 38;
             this.Btnprint.Text = "Print";
+            this.Btnprint.Click += new System.EventHandler(this.Btnprint_Click);
             // 
             // Btnclose
             // 
@@ -762,6 +765,15 @@
             this.Btnclose.TabIndex = 39;
             this.Btnclose.Text = "Close";
             this.Btnclose.Click += new System.EventHandler(this.Btnclose_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // Fprintbill
             // 
@@ -845,5 +857,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2Button Btnprint;
         private Guna.UI2.WinForms.Guna2Button Btnclose;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

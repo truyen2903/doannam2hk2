@@ -196,6 +196,7 @@ namespace ChuongTrinhQLKS
                               join room in dblinq.ROOMs on checkin.IDRoom equals room.ID
                               join bookroom in dblinq.BOOKROOMs on checkin.IDBookRoom equals bookroom.ID
                               join customer in dblinq.CUSTOMERs on bookroom.IDCustomer equals customer.ID
+                              where bookroom.DateCheckIn == DbFunctions.TruncateTime(DateTime.Now)
                               select new
                               {
                                   ID = checkin.ID,

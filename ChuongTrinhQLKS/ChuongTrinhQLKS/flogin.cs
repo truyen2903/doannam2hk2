@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using ChuongTrinhQLKS.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static ChuongTrinhQLKS.Program;
 
 namespace ChuongTrinhQLKS
@@ -18,7 +19,10 @@ namespace ChuongTrinhQLKS
         public flogin()
         {
             InitializeComponent();
-            Panellogin.ShadowDecoration.Shadow = new Padding(10);
+            Color shadowColor2 = Color.FromArgb(60, 0, 0, 0);
+            Panellogin.ShadowDecoration.Color = shadowColor2;
+            Panellogin.ShadowDecoration.Depth = 10; 
+            Panellogin.ShadowDecoration.Shadow = new Padding(0, 10, 36, 0);
             Panellogin.ShadowDecoration.Enabled = true;
         }
         private void Btnexit_Click(object sender, EventArgs e)
@@ -37,27 +41,24 @@ namespace ChuongTrinhQLKS
 
         private void Btnlogin_Click(object sender, EventArgs e)
         {
-            string username = txtusername.Text;
-            string password = txtpassword.Text;
-
-            funcion dbfuncion = new funcion();
-
-            if (dbfuncion.CheckLogin(username, password))
+            using (HotelManagement db = new HotelManagement())
             {
-                Hide();
-                GlobalVariables.LoggedInUsername = username; 
-                Dashboard dashboard = new Dashboard();
-                dashboard.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Wrong account or password!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtusername.Text = string.Empty;
-                txtusername.Focus();
-                txtpassword.Text = string.Empty;
-            }
-
+                var user = db.STAFFs.FirstOrDefault(u => u.UserName == txtusername.Text && u.PassWord == txtpassword.Text);
+                if (user != null)
+                {
+                    Hide();
+                    GlobalVariables.LoggedInUsername = user.UserName;
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtpassword.Focus();
+                    txtpassword.Text = string.Empty;
+                }
+            }   
         }
 
         private void Lbclick_Click(object sender, EventArgs e)
@@ -74,5 +75,7 @@ namespace ChuongTrinhQLKS
             txtusername.Focus();
             txtpassword.Text = string.Empty;
         }
+
+
     }
 }

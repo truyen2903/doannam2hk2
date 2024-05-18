@@ -45,3 +45,5 @@ C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrin
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fcheck_in.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fcheckout.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fprintbill.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Femploy.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Faddemploy.resources
