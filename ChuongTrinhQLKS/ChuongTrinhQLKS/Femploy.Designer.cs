@@ -28,23 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.txtFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupStaff = new System.Windows.Forms.GroupBox();
-            this.txtstardate = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbtype = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtbirthday = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtaddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtdisplay = new Guna.UI2.WinForms.Guna2TextBox();
@@ -57,10 +55,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.btnupdate = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnresetpassword = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvEmploy = new System.Windows.Forms.DataGridView();
@@ -74,6 +72,8 @@
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIDStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateTimeBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.DateTimeStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.groupBox3.SuspendLayout();
             this.groupStaff.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,7 +104,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox3.Location = new System.Drawing.Point(6, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(220, 158);
+            this.groupBox3.Size = new System.Drawing.Size(257, 158);
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search";
@@ -122,7 +122,7 @@
             this.btnSearch.FillColor = System.Drawing.Color.Transparent;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.Location = new System.Drawing.Point(23, 108);
+            this.btnSearch.Location = new System.Drawing.Point(45, 103);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(175, 31);
@@ -143,7 +143,7 @@
             this.txtFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFind.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFind.Location = new System.Drawing.Point(23, 66);
+            this.txtFind.Location = new System.Drawing.Point(45, 66);
             this.txtFind.Name = "txtFind";
             this.txtFind.PasswordChar = '\0';
             this.txtFind.PlaceholderText = "";
@@ -163,7 +163,7 @@
             // 
             // groupStaff
             // 
-            this.groupStaff.Controls.Add(this.txtstardate);
+            this.groupStaff.Controls.Add(this.DateTimeStart);
             this.groupStaff.Controls.Add(this.cbtype);
             this.groupStaff.Controls.Add(this.txtusername);
             this.groupStaff.Controls.Add(this.label16);
@@ -174,31 +174,10 @@
             this.groupStaff.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupStaff.Location = new System.Drawing.Point(6, 215);
             this.groupStaff.Name = "groupStaff";
-            this.groupStaff.Size = new System.Drawing.Size(220, 209);
+            this.groupStaff.Size = new System.Drawing.Size(257, 209);
             this.groupStaff.TabIndex = 44;
             this.groupStaff.TabStop = false;
             this.groupStaff.Text = "Employee accounts";
-            // 
-            // txtstardate
-            // 
-            this.txtstardate.BackColor = System.Drawing.Color.Transparent;
-            this.txtstardate.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtstardate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtstardate.DefaultText = "";
-            this.txtstardate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtstardate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtstardate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtstardate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtstardate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtstardate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstardate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtstardate.Location = new System.Drawing.Point(23, 162);
-            this.txtstardate.Name = "txtstardate";
-            this.txtstardate.PasswordChar = '\0';
-            this.txtstardate.PlaceholderText = "";
-            this.txtstardate.SelectedText = "";
-            this.txtstardate.Size = new System.Drawing.Size(175, 29);
-            this.txtstardate.TabIndex = 64;
             // 
             // cbtype
             // 
@@ -213,7 +192,7 @@
             this.cbtype.ItemHeight = 30;
             this.cbtype.Location = new System.Drawing.Point(23, 104);
             this.cbtype.Name = "cbtype";
-            this.cbtype.Size = new System.Drawing.Size(175, 36);
+            this.cbtype.Size = new System.Drawing.Size(197, 36);
             this.cbtype.TabIndex = 63;
             // 
             // txtusername
@@ -234,7 +213,7 @@
             this.txtusername.PasswordChar = '\0';
             this.txtusername.PlaceholderText = "";
             this.txtusername.SelectedText = "";
-            this.txtusername.Size = new System.Drawing.Size(175, 29);
+            this.txtusername.Size = new System.Drawing.Size(197, 29);
             this.txtusername.TabIndex = 61;
             // 
             // label16
@@ -272,7 +251,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtbirthday);
+            this.groupBox2.Controls.Add(this.DateTimeBirthday);
             this.groupBox2.Controls.Add(this.txtaddress);
             this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.txtdisplay);
@@ -287,33 +266,12 @@
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox2.Location = new System.Drawing.Point(231, 55);
+            this.groupBox2.Location = new System.Drawing.Point(269, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 369);
+            this.groupBox2.Size = new System.Drawing.Size(226, 369);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Staff information";
-            // 
-            // txtbirthday
-            // 
-            this.txtbirthday.BackColor = System.Drawing.Color.Transparent;
-            this.txtbirthday.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtbirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbirthday.DefaultText = "";
-            this.txtbirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtbirthday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtbirthday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtbirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtbirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtbirthday.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtbirthday.Location = new System.Drawing.Point(19, 211);
-            this.txtbirthday.Name = "txtbirthday";
-            this.txtbirthday.PasswordChar = '\0';
-            this.txtbirthday.PlaceholderText = "";
-            this.txtbirthday.SelectedText = "";
-            this.txtbirthday.Size = new System.Drawing.Size(175, 29);
-            this.txtbirthday.TabIndex = 65;
             // 
             // txtaddress
             // 
@@ -333,7 +291,7 @@
             this.txtaddress.PasswordChar = '\0';
             this.txtaddress.PlaceholderText = "";
             this.txtaddress.SelectedText = "";
-            this.txtaddress.Size = new System.Drawing.Size(175, 29);
+            this.txtaddress.Size = new System.Drawing.Size(201, 29);
             this.txtaddress.TabIndex = 64;
             // 
             // txtPhone
@@ -354,7 +312,7 @@
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
-            this.txtPhone.Size = new System.Drawing.Size(175, 29);
+            this.txtPhone.Size = new System.Drawing.Size(201, 29);
             this.txtPhone.TabIndex = 63;
             // 
             // txtdisplay
@@ -375,7 +333,7 @@
             this.txtdisplay.PasswordChar = '\0';
             this.txtdisplay.PlaceholderText = "";
             this.txtdisplay.SelectedText = "";
-            this.txtdisplay.Size = new System.Drawing.Size(175, 29);
+            this.txtdisplay.Size = new System.Drawing.Size(201, 29);
             this.txtdisplay.TabIndex = 60;
             // 
             // txtIDcard
@@ -396,7 +354,7 @@
             this.txtIDcard.PasswordChar = '\0';
             this.txtIDcard.PlaceholderText = "";
             this.txtIDcard.SelectedText = "";
-            this.txtIDcard.Size = new System.Drawing.Size(175, 29);
+            this.txtIDcard.Size = new System.Drawing.Size(201, 29);
             this.txtIDcard.TabIndex = 59;
             // 
             // txtsex
@@ -417,7 +375,7 @@
             this.txtsex.PasswordChar = '\0';
             this.txtsex.PlaceholderText = "";
             this.txtsex.SelectedText = "";
-            this.txtsex.Size = new System.Drawing.Size(175, 29);
+            this.txtsex.Size = new System.Drawing.Size(201, 29);
             this.txtsex.TabIndex = 58;
             // 
             // label14
@@ -489,41 +447,41 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.guna2Button6);
+            this.groupBox4.Controls.Add(this.BtnClose);
             this.groupBox4.Controls.Add(this.guna2Button5);
             this.groupBox4.Controls.Add(this.btnupdate);
-            this.groupBox4.Controls.Add(this.guna2Button3);
+            this.groupBox4.Controls.Add(this.BtnAdd);
             this.groupBox4.Controls.Add(this.btnresetpassword);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox4.Location = new System.Drawing.Point(6, 426);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(435, 179);
+            this.groupBox4.Size = new System.Drawing.Size(489, 179);
             this.groupBox4.TabIndex = 46;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chức Năng";
             // 
-            // guna2Button6
+            // BtnClose
             // 
-            this.guna2Button6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.BorderColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button6.BorderRadius = 15;
-            this.guna2Button6.BorderThickness = 1;
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button6.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button6.Location = new System.Drawing.Point(23, 145);
-            this.guna2Button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(175, 31);
-            this.guna2Button6.TabIndex = 35;
-            this.guna2Button6.Text = "Close";
-            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
+            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.BorderRadius = 15;
+            this.BtnClose.BorderThickness = 1;
+            this.BtnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnClose.FillColor = System.Drawing.Color.Transparent;
+            this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.Location = new System.Drawing.Point(45, 140);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(175, 31);
+            this.BtnClose.TabIndex = 35;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // guna2Button5
             // 
@@ -538,7 +496,7 @@
             this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.Location = new System.Drawing.Point(244, 95);
+            this.guna2Button5.Location = new System.Drawing.Point(290, 95);
             this.guna2Button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(175, 31);
@@ -558,7 +516,7 @@
             this.btnupdate.FillColor = System.Drawing.Color.Transparent;
             this.btnupdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnupdate.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnupdate.Location = new System.Drawing.Point(23, 41);
+            this.btnupdate.Location = new System.Drawing.Point(45, 41);
             this.btnupdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(175, 31);
@@ -566,25 +524,26 @@
             this.btnupdate.Text = "Update";
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
-            // guna2Button3
+            // BtnAdd
             // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button3.BorderRadius = 15;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button3.Location = new System.Drawing.Point(244, 41);
-            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(175, 31);
-            this.guna2Button3.TabIndex = 32;
-            this.guna2Button3.Text = "Add";
+            this.BtnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.BtnAdd.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnAdd.BorderRadius = 15;
+            this.BtnAdd.BorderThickness = 1;
+            this.BtnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnAdd.FillColor = System.Drawing.Color.Transparent;
+            this.BtnAdd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAdd.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnAdd.Location = new System.Drawing.Point(290, 41);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(175, 31);
+            this.BtnAdd.TabIndex = 32;
+            this.BtnAdd.Text = "Add";
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnresetpassword
             // 
@@ -599,7 +558,7 @@
             this.btnresetpassword.FillColor = System.Drawing.Color.Transparent;
             this.btnresetpassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnresetpassword.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnresetpassword.Location = new System.Drawing.Point(23, 95);
+            this.btnresetpassword.Location = new System.Drawing.Point(45, 95);
             this.btnresetpassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnresetpassword.Name = "btnresetpassword";
             this.btnresetpassword.Size = new System.Drawing.Size(175, 31);
@@ -612,7 +571,7 @@
             this.groupBox1.Controls.Add(this.dgvEmploy);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(446, 55);
+            this.groupBox1.Location = new System.Drawing.Point(501, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(577, 550);
             this.groupBox1.TabIndex = 47;
@@ -626,14 +585,14 @@
             this.dgvEmploy.AllowUserToResizeRows = false;
             this.dgvEmploy.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmploy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmploy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmploy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEmploy.ColumnHeadersHeight = 29;
             this.dgvEmploy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvEmploy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -647,27 +606,27 @@
             this.colStartDate,
             this.colSex,
             this.colIDStaffType});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmploy.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmploy.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEmploy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmploy.GridColor = System.Drawing.Color.White;
             this.dgvEmploy.Location = new System.Drawing.Point(3, 25);
             this.dgvEmploy.Name = "dgvEmploy";
             this.dgvEmploy.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmploy.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmploy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEmploy.RowHeadersVisible = false;
             this.dgvEmploy.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEmploy.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -763,12 +722,48 @@
             this.colIDStaffType.ReadOnly = true;
             this.colIDStaffType.Visible = false;
             // 
+            // DateTimeBirthday
+            // 
+            this.DateTimeBirthday.BackColor = System.Drawing.Color.Transparent;
+            this.DateTimeBirthday.BorderColor = System.Drawing.Color.SeaGreen;
+            this.DateTimeBirthday.BorderThickness = 1;
+            this.DateTimeBirthday.Checked = true;
+            this.DateTimeBirthday.FillColor = System.Drawing.Color.White;
+            this.DateTimeBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimeBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimeBirthday.Location = new System.Drawing.Point(19, 211);
+            this.DateTimeBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimeBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimeBirthday.Name = "DateTimeBirthday";
+            this.DateTimeBirthday.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DateTimeBirthday.Size = new System.Drawing.Size(201, 29);
+            this.DateTimeBirthday.TabIndex = 73;
+            this.DateTimeBirthday.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
+            // 
+            // DateTimeStart
+            // 
+            this.DateTimeStart.BackColor = System.Drawing.Color.Transparent;
+            this.DateTimeStart.BorderColor = System.Drawing.Color.SeaGreen;
+            this.DateTimeStart.BorderThickness = 1;
+            this.DateTimeStart.Checked = true;
+            this.DateTimeStart.FillColor = System.Drawing.Color.White;
+            this.DateTimeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimeStart.Location = new System.Drawing.Point(23, 162);
+            this.DateTimeStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimeStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimeStart.Name = "DateTimeStart";
+            this.DateTimeStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DateTimeStart.Size = new System.Drawing.Size(201, 29);
+            this.DateTimeStart.TabIndex = 74;
+            this.DateTimeStart.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
+            // 
             // Femploy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1027, 607);
+            this.ClientSize = new System.Drawing.Size(1101, 607);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -821,12 +816,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtaddress;
         private Guna.UI2.WinForms.Guna2TextBox txtPhone;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
-        private Guna.UI2.WinForms.Guna2TextBox txtstardate;
-        private Guna.UI2.WinForms.Guna2TextBox txtbirthday;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnupdate;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button BtnAdd;
         private Guna.UI2.WinForms.Guna2Button btnresetpassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colname;
@@ -838,5 +831,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDStaffType;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeBirthday;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeStart;
     }
 }

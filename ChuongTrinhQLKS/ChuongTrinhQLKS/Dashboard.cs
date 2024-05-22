@@ -80,5 +80,13 @@ namespace ChuongTrinhQLKS
             fcheckout.ShowDialog();
             Show();
         }
+
+        private void btnEmployeemanagement_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Femploy femploy = new Femploy();
+            femploy.ShowDialog();
+            Show();
+        }
     }
 }

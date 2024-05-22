@@ -114,7 +114,7 @@
             this.BtnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnSearch.FillColor = System.Drawing.Color.Transparent;
-            this.BtnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnSearch.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnSearch.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnSearch.Location = new System.Drawing.Point(25, 100);
             this.BtnSearch.Name = "BtnSearch";
@@ -554,7 +554,7 @@
             this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnClose.FillColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnClose.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnClose.Location = new System.Drawing.Point(274, 94);
             this.BtnClose.Name = "BtnClose";
@@ -575,7 +575,7 @@
             this.BtnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnCancel.FillColor = System.Drawing.Color.Transparent;
-            this.BtnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnCancel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnCancel.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnCancel.Location = new System.Drawing.Point(35, 94);
             this.BtnCancel.Name = "BtnCancel";
@@ -596,7 +596,7 @@
             this.BtnCheckin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnCheckin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnCheckin.FillColor = System.Drawing.Color.Transparent;
-            this.BtnCheckin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnCheckin.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnCheckin.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnCheckin.Location = new System.Drawing.Point(274, 40);
             this.BtnCheckin.Name = "BtnCheckin";
@@ -617,7 +617,7 @@
             this.BtnAddCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnAddCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnAddCustomer.FillColor = System.Drawing.Color.Transparent;
-            this.BtnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnAddCustomer.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnAddCustomer.ForeColor = System.Drawing.Color.SeaGreen;
             this.BtnAddCustomer.Location = new System.Drawing.Point(35, 40);
             this.BtnAddCustomer.Name = "BtnAddCustomer";
@@ -660,7 +660,7 @@
             this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.guna2Button5.ForeColor = System.Drawing.Color.SeaGreen;
             this.guna2Button5.Location = new System.Drawing.Point(241, 500);
             this.guna2Button5.Name = "guna2Button5";

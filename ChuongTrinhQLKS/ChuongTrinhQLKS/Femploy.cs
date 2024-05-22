@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChuongTrinhQLKS.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace ChuongTrinhQLKS
 {
     public partial class Femploy : Form
     {
+        HotelManagement db;
         public Femploy()
         {
             InitializeComponent();
@@ -73,8 +75,8 @@ namespace ChuongTrinhQLKS
             txtPhone.Text = dgvEmploy.Rows[e.RowIndex].Cells["colPhone"].FormattedValue.ToString();
             txtaddress.Text = dgvEmploy.Rows[e.RowIndex].Cells["colAddress"].FormattedValue.ToString();
             txtsex.Text = dgvEmploy.Rows[e.RowIndex].Cells["colSex"].FormattedValue.ToString();
-            txtbirthday.Text = dgvEmploy.Rows[e.RowIndex].Cells["colDateOfBirth"].FormattedValue.ToString();
-            txtstardate.Text = dgvEmploy.Rows[e.RowIndex].Cells["colStartDate"].FormattedValue.ToString();
+            DateTimeBirthday.Text = dgvEmploy.Rows[e.RowIndex].Cells["colDateOfBirth"].FormattedValue.ToString();
+            DateTimeStart.Text = dgvEmploy.Rows[e.RowIndex].Cells["colStartDate"].FormattedValue.ToString();
 
             }
         }
@@ -99,9 +101,9 @@ namespace ChuongTrinhQLKS
                 update.IDCard = txtIDcard.Text;
                 update.PhoneNumber = int.Parse(txtPhone.Text);
                 update.Address = txtaddress.Text;
-                update.DateOfBirth = DateTime.Parse(txtbirthday.Text);
+                update.DateOfBirth = DateTimeBirthday.Value;
                 update.Sex = txtsex.Text;
-                update.StartDay = DateTime.Parse(txtstardate.Text);
+                update.StartDay =DateTimeStart.Value;
                 update.IDStaffType = int.Parse(cbtype.SelectedValue.ToString());
                 update.UserName = txtusername.Text;
                 try
@@ -134,7 +136,7 @@ namespace ChuongTrinhQLKS
         #region Search
         private async void search()
         {
-            using (HotelManagement db = new HotelManagement())
+            using (var db = linqConnect.GetDatabase())
             {
                 var ListEmploy = await (from employ in db.STAFFs
                                         join type in db.STAFFTYPEs on employ.IDStaffType equals type.ID
@@ -154,15 +156,7 @@ namespace ChuongTrinhQLKS
                                         }).FirstOrDefaultAsync();
                 if (ListEmploy != null)
                 {
-                    txtaddress.Text = ListEmploy.Address;
-                    txtbirthday.Text = ListEmploy.DateOfBirth.ToString("F");
-                    txtIDcard.Text = ListEmploy.IDCard;
-                    txtdisplay.Text = ListEmploy.DisplayName;
-                    txtPhone.Text = ListEmploy.PhoneNumber.ToString();
-                    txtsex.Text = ListEmploy.Sex;
-                    txtstardate.Text = ListEmploy.StartDate.ToString("F");
-                    txtusername.Text = ListEmploy.User;
-                    cbtype.Text = ListEmploy.nametype;
+                    AssignValues(ListEmploy);
                 }
                 else
                 {
@@ -184,16 +178,7 @@ namespace ChuongTrinhQLKS
                                              }).FirstOrDefaultAsync();
                     if (ListEmploys != null)
                     {
-                        txtaddress.Text = ListEmploys.Address;
-                        txtbirthday.Text = ListEmploys.DateOfBirth.ToString("F");
-                        txtIDcard.Text = ListEmploys.IDCard;
-                        txtdisplay.Text = ListEmploys.DisplayName;
-                        txtPhone.Text = ListEmploys.PhoneNumber.ToString();
-                        txtsex.Text = ListEmploys.Sex;
-                        txtstardate.Text = ListEmploys.StartDate.ToString("F");
-                        txtusername.Text = ListEmploys.User;
-                        cbtype.Text = ListEmploys.nametype;
-
+                        AssignValues(ListEmploys);
                     }
                     else
                     {
@@ -215,24 +200,31 @@ namespace ChuongTrinhQLKS
                                                   }).FirstOrDefaultAsync();
                         if (ListEmployss != null)
                         {
-                            txtaddress.Text = ListEmployss.Address;
-                            txtbirthday.Text = ListEmployss.DateOfBirth.ToString("F");
-                            txtIDcard.Text = ListEmployss.IDCard;
-                            txtdisplay.Text = ListEmployss.DisplayName;
-                            txtPhone.Text = ListEmployss.PhoneNumber.ToString();
-                            txtsex.Text = ListEmployss.Sex;
-                            txtstardate.Text = ListEmployss.StartDate.ToString("F");
-                            txtusername.Text = ListEmployss.User;
-                            cbtype.Text = ListEmployss.nametype;
+                            // Assign values to controls
+                            AssignValues(ListEmployss);
                         }
                         else
                         {
-                            MessageBox.Show("Không tìm thấy nhân viên");
+                            MessageBox.Show("No employees found");
                         }
                     }
                 }
             }
         }
+
+        private void AssignValues(dynamic employee)
+        {
+            txtaddress.Text = employee.Address;
+            DateTimeBirthday.Value = DateTime.Parse(employee.DateOfBirth.ToString());
+            txtIDcard.Text = employee.IDCard;
+            txtdisplay.Text = employee.DisplayName;
+            txtPhone.Text = employee.PhoneNumber.ToString();
+            txtsex.Text = employee.Sex;
+            DateTimeStart.Value = DateTime.Parse(employee.StartDate.ToString());
+            txtusername.Text = employee.User;
+            cbtype.Text = employee.nametype;
+        }
+
         #endregion
         #region click
         private void btnSearch_Click(object sender, EventArgs e)
@@ -247,14 +239,20 @@ namespace ChuongTrinhQLKS
 
         private void btnresetpassword_Click(object sender, EventArgs e)
         {
-           var fool =  MessageBox.Show("bạn có muốn đặt lại mật khẩu về \"123456\"?", "Notification",MessageBoxButtons.OKCancel,MessageBoxIcon.Asterisk);
+           var fool =  MessageBox.Show("Do you want to reset your password to \"123456\"?", "Notification",MessageBoxButtons.OKCancel,MessageBoxIcon.Asterisk);
             if (fool == DialogResult.OK)
             {
                 resetpassword();
             }
         }
-
-        private void guna2Button6_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Faddemploy faddemploy = new Faddemploy();
+            faddemploy.ShowDialog();
+            Show();
+        }
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }

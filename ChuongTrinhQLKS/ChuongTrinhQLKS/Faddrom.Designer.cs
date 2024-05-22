@@ -265,6 +265,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Faddrom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Faddrom";
             this.Load += new System.EventHandler(this.Faddrom_Load);
             this.groupRoom.ResumeLayout(false);

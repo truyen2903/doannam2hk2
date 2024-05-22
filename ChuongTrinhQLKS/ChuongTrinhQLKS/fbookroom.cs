@@ -197,6 +197,12 @@ namespace ChuongTrinhQLKS
                 {
                     AddBookroom();
                     LoadInforBookroomdays();
+                    if (CheckBox.Checked)
+                    {
+                        Hide();
+                        Fcheck_in fcheck_In = new Fcheck_in();
+                        fcheck_In.ShowDialog();
+                    }
                 }
             }
             else
@@ -222,6 +228,8 @@ namespace ChuongTrinhQLKS
                                     }).ToListAsync();
             dataGridViewBookRoom.DataSource = querybookroomdays;
         }
+
+        
     }
     
 }

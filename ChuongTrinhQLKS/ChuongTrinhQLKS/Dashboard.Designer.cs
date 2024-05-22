@@ -528,6 +528,7 @@
             this.btnEmployeemanagement.Name = "btnEmployeemanagement";
             this.btnEmployeemanagement.Size = new System.Drawing.Size(180, 166);
             this.btnEmployeemanagement.TabIndex = 0;
+            this.btnEmployeemanagement.Click += new System.EventHandler(this.btnEmployeemanagement_Click);
             // 
             // guna2Panel4
             // 
