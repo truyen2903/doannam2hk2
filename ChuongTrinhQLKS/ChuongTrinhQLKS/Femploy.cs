@@ -14,7 +14,6 @@ namespace ChuongTrinhQLKS
 {
     public partial class Femploy : Form
     {
-        HotelManagement db;
         public Femploy()
         {
             InitializeComponent();
@@ -200,7 +199,6 @@ namespace ChuongTrinhQLKS
                                                   }).FirstOrDefaultAsync();
                         if (ListEmployss != null)
                         {
-                            // Assign values to controls
                             AssignValues(ListEmployss);
                         }
                         else
@@ -235,6 +233,7 @@ namespace ChuongTrinhQLKS
         private void btnupdate_Click(object sender, EventArgs e)
         {
             update();
+            MessageBox.Show("Update Success");
         }
 
         private void btnresetpassword_Click(object sender, EventArgs e)
@@ -257,5 +256,13 @@ namespace ChuongTrinhQLKS
             this.Close();
         }
         #endregion
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportFile exportFile = new ExportFile();
+            DataTable dt = exportFile.GetDataTableFromDataGridView(dgvEmploy);
+            exportFile.ExportToExcel(dt,"sheet1", "List Employ");
+            MessageBox.Show("The Excel file has been created successfully!");
+        }
     }
 }

@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.txtFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupStaff = new System.Windows.Forms.GroupBox();
+            this.DateTimeStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.cbtype = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DateTimeBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtaddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtdisplay = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,9 +73,6 @@
             this.colDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateTimeBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.DateTimeStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.groupBox3.SuspendLayout();
             this.groupStaff.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -179,6 +178,24 @@
             this.groupStaff.TabStop = false;
             this.groupStaff.Text = "Employee accounts";
             // 
+            // DateTimeStart
+            // 
+            this.DateTimeStart.BackColor = System.Drawing.Color.Transparent;
+            this.DateTimeStart.BorderColor = System.Drawing.Color.SeaGreen;
+            this.DateTimeStart.BorderThickness = 1;
+            this.DateTimeStart.Checked = true;
+            this.DateTimeStart.FillColor = System.Drawing.Color.White;
+            this.DateTimeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimeStart.Location = new System.Drawing.Point(23, 162);
+            this.DateTimeStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimeStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimeStart.Name = "DateTimeStart";
+            this.DateTimeStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DateTimeStart.Size = new System.Drawing.Size(201, 29);
+            this.DateTimeStart.TabIndex = 74;
+            this.DateTimeStart.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
+            // 
             // cbtype
             // 
             this.cbtype.BackColor = System.Drawing.Color.Transparent;
@@ -272,6 +289,24 @@
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Staff information";
+            // 
+            // DateTimeBirthday
+            // 
+            this.DateTimeBirthday.BackColor = System.Drawing.Color.Transparent;
+            this.DateTimeBirthday.BorderColor = System.Drawing.Color.SeaGreen;
+            this.DateTimeBirthday.BorderThickness = 1;
+            this.DateTimeBirthday.Checked = true;
+            this.DateTimeBirthday.FillColor = System.Drawing.Color.White;
+            this.DateTimeBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimeBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimeBirthday.Location = new System.Drawing.Point(19, 211);
+            this.DateTimeBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimeBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimeBirthday.Name = "DateTimeBirthday";
+            this.DateTimeBirthday.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DateTimeBirthday.Size = new System.Drawing.Size(201, 29);
+            this.DateTimeBirthday.TabIndex = 73;
+            this.DateTimeBirthday.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
             // 
             // txtaddress
             // 
@@ -573,7 +608,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(501, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(577, 550);
+            this.groupBox1.Size = new System.Drawing.Size(595, 550);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Of Employee";
@@ -585,14 +620,14 @@
             this.dgvEmploy.AllowUserToResizeRows = false;
             this.dgvEmploy.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmploy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmploy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmploy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEmploy.ColumnHeadersHeight = 29;
             this.dgvEmploy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvEmploy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -604,36 +639,35 @@
             this.colAddress,
             this.colDateOfBirth,
             this.colStartDate,
-            this.colSex,
-            this.colIDStaffType});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmploy.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colSex});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmploy.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmploy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmploy.GridColor = System.Drawing.Color.White;
             this.dgvEmploy.Location = new System.Drawing.Point(3, 25);
             this.dgvEmploy.Name = "dgvEmploy";
             this.dgvEmploy.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmploy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmploy.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmploy.RowHeadersVisible = false;
             this.dgvEmploy.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEmploy.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvEmploy.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvEmploy.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgvEmploy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmploy.Size = new System.Drawing.Size(571, 522);
+            this.dgvEmploy.Size = new System.Drawing.Size(589, 522);
             this.dgvEmploy.TabIndex = 28;
             this.dgvEmploy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmploy_CellClick);
             // 
@@ -714,50 +748,6 @@
             this.colSex.ReadOnly = true;
             this.colSex.Visible = false;
             // 
-            // colIDStaffType
-            // 
-            this.colIDStaffType.DataPropertyName = "IDStaffType";
-            this.colIDStaffType.HeaderText = "";
-            this.colIDStaffType.Name = "colIDStaffType";
-            this.colIDStaffType.ReadOnly = true;
-            this.colIDStaffType.Visible = false;
-            // 
-            // DateTimeBirthday
-            // 
-            this.DateTimeBirthday.BackColor = System.Drawing.Color.Transparent;
-            this.DateTimeBirthday.BorderColor = System.Drawing.Color.SeaGreen;
-            this.DateTimeBirthday.BorderThickness = 1;
-            this.DateTimeBirthday.Checked = true;
-            this.DateTimeBirthday.FillColor = System.Drawing.Color.White;
-            this.DateTimeBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DateTimeBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateTimeBirthday.Location = new System.Drawing.Point(19, 211);
-            this.DateTimeBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DateTimeBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DateTimeBirthday.Name = "DateTimeBirthday";
-            this.DateTimeBirthday.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DateTimeBirthday.Size = new System.Drawing.Size(201, 29);
-            this.DateTimeBirthday.TabIndex = 73;
-            this.DateTimeBirthday.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
-            // 
-            // DateTimeStart
-            // 
-            this.DateTimeStart.BackColor = System.Drawing.Color.Transparent;
-            this.DateTimeStart.BorderColor = System.Drawing.Color.SeaGreen;
-            this.DateTimeStart.BorderThickness = 1;
-            this.DateTimeStart.Checked = true;
-            this.DateTimeStart.FillColor = System.Drawing.Color.White;
-            this.DateTimeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateTimeStart.Location = new System.Drawing.Point(23, 162);
-            this.DateTimeStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DateTimeStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DateTimeStart.Name = "DateTimeStart";
-            this.DateTimeStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DateTimeStart.Size = new System.Drawing.Size(201, 29);
-            this.DateTimeStart.TabIndex = 74;
-            this.DateTimeStart.Value = new System.DateTime(2024, 5, 22, 18, 7, 51, 819);
-            // 
             // Femploy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -821,6 +811,8 @@
         private Guna.UI2.WinForms.Guna2Button btnupdate;
         private Guna.UI2.WinForms.Guna2Button BtnAdd;
         private Guna.UI2.WinForms.Guna2Button btnresetpassword;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeBirthday;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colname;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNameStaffType;
@@ -830,8 +822,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDStaffType;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeBirthday;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeStart;
     }
 }

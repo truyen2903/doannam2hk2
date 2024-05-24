@@ -221,5 +221,13 @@ namespace ChuongTrinhQLKS
         {
             this.Close();
         }
+
+        private void btnExportFile_Click(object sender, EventArgs e)
+        {
+            ExportFile exportFile = new ExportFile();
+            DataTable dataTable = exportFile.GetDataTableFromDataGridView(dataGridViewReceiveRoom);
+            exportFile.ExportToExcel(dataTable, "Checkin", "Check in");
+            MessageBox.Show("The Excel file has been created successfully!");
+        }
     }
 }

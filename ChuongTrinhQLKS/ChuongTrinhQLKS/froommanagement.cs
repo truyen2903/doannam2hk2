@@ -190,5 +190,13 @@ namespace ChuongTrinhQLKS
             LoadlistRoom();
             Show();
         }
+
+        private void btnexport_Click(object sender, EventArgs e)
+        {
+            ExportFile exportFile = new ExportFile();
+            DataTable dataTable = exportFile.GetDataTableFromDataGridView(dataGridViewRoom);
+            exportFile.ExportToExcel(dataTable, "Sheet1", "ListRoom");
+            MessageBox.Show("The Excel file has been created successfully!");
+        }
     }
 }

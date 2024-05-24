@@ -67,7 +67,7 @@
             this.BtnAddCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportFile = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridViewReceiveRoom = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -640,7 +640,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.guna2Button5);
+            this.panel2.Controls.Add(this.btnExportFile);
             this.panel2.Controls.Add(this.dataGridViewReceiveRoom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -649,25 +649,26 @@
             this.panel2.Size = new System.Drawing.Size(447, 541);
             this.panel2.TabIndex = 39;
             // 
-            // guna2Button5
+            // btnExportFile
             // 
-            this.guna2Button5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.BorderRadius = 15;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.Location = new System.Drawing.Point(241, 500);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.PressedColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.Size = new System.Drawing.Size(203, 29);
-            this.guna2Button5.TabIndex = 8;
-            this.guna2Button5.Text = "See details";
+            this.btnExportFile.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportFile.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.BorderRadius = 15;
+            this.btnExportFile.BorderThickness = 1;
+            this.btnExportFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExportFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExportFile.FillColor = System.Drawing.Color.Transparent;
+            this.btnExportFile.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnExportFile.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.Location = new System.Drawing.Point(354, 500);
+            this.btnExportFile.Name = "btnExportFile";
+            this.btnExportFile.PressedColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.Size = new System.Drawing.Size(90, 29);
+            this.btnExportFile.TabIndex = 8;
+            this.btnExportFile.Text = "Export";
+            this.btnExportFile.Click += new System.EventHandler(this.btnExportFile_Click);
             // 
             // dataGridViewReceiveRoom
             // 
@@ -796,6 +797,6 @@
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Button BtnCancel;
         private Guna.UI2.WinForms.Guna2Button BtnCheckin;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button btnExportFile;
     }
 }

@@ -228,8 +228,6 @@ namespace ChuongTrinhQLKS
                                     }).ToListAsync();
             dataGridViewBookRoom.DataSource = querybookroomdays;
         }
-
-        
     }
     
 }

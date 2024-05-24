@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.btnInformation = new Guna.UI2.WinForms.Guna2Button();
@@ -75,6 +76,7 @@
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btncheckout = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Borderlessdashboard = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.PanelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
             this.guna2Panel11.SuspendLayout();
@@ -101,7 +103,7 @@
             this.PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeft.Location = new System.Drawing.Point(0, 0);
             this.PanelLeft.Name = "PanelLeft";
-            this.PanelLeft.Size = new System.Drawing.Size(206, 718);
+            this.PanelLeft.Size = new System.Drawing.Size(206, 701);
             this.PanelLeft.TabIndex = 0;
             // 
             // btnInformation
@@ -180,7 +182,7 @@
             this.PanelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelRight.Location = new System.Drawing.Point(206, 0);
             this.PanelRight.Name = "PanelRight";
-            this.PanelRight.Size = new System.Drawing.Size(1282, 718);
+            this.PanelRight.Size = new System.Drawing.Size(1282, 701);
             this.PanelRight.TabIndex = 1;
             // 
             // label12
@@ -737,13 +739,21 @@
             this.btncheckout.TabIndex = 0;
             this.btncheckout.Click += new System.EventHandler(this.btncheckout_Click);
             // 
+            // guna2Borderlessdashboard
+            // 
+            this.guna2Borderlessdashboard.AnimateWindow = true;
+            this.guna2Borderlessdashboard.AnimationType = Guna.UI2.WinForms.Guna2BorderlessForm.AnimateWindowType.AW_CENTER;
+            this.guna2Borderlessdashboard.ContainerControl = this;
+            this.guna2Borderlessdashboard.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2Borderlessdashboard.TransparentWhileDrag = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1488, 718);
+            this.ClientSize = new System.Drawing.Size(1488, 701);
             this.Controls.Add(this.PanelRight);
             this.Controls.Add(this.PanelLeft);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -828,5 +838,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2Borderlessdashboard;
     }
 }

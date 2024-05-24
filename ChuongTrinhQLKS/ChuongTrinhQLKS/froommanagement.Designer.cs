@@ -57,15 +57,14 @@
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.btnexport = new Guna.UI2.WinForms.Guna2Button();
             this.colIDRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNameRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.groupBox3.SuspendLayout();
             this.groupRoom.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -473,7 +472,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(455, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(652, 435);
+            this.groupBox1.Size = new System.Drawing.Size(652, 399);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Room";
@@ -485,7 +484,7 @@
             this.dataGridViewRoom.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaGreen;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewRoom.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -505,9 +504,7 @@
             this.colNameRoomType,
             this.colPrice,
             this.colLimitPerson,
-            this.colStatus,
-            this.colIdRoomType,
-            this.colIdStatus});
+            this.colStatus});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -537,9 +534,40 @@
             this.dataGridViewRoom.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridViewRoom.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRoom.Size = new System.Drawing.Size(646, 407);
+            this.dataGridViewRoom.Size = new System.Drawing.Size(646, 371);
             this.dataGridViewRoom.TabIndex = 28;
             this.dataGridViewRoom.SelectionChanged += new System.EventHandler(this.DataGridViewRoom_SelectionChanged);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(5, 43);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(1102, 14);
+            this.guna2Separator1.TabIndex = 31;
+            // 
+            // btnexport
+            // 
+            this.btnexport.BackColor = System.Drawing.Color.White;
+            this.btnexport.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.BorderRadius = 12;
+            this.btnexport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnexport.BorderThickness = 1;
+            this.btnexport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnexport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnexport.FillColor = System.Drawing.Color.White;
+            this.btnexport.FocusedColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnexport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.Location = new System.Drawing.Point(1015, 459);
+            this.btnexport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnexport.Name = "btnexport";
+            this.btnexport.Size = new System.Drawing.Size(89, 29);
+            this.btnexport.TabIndex = 61;
+            this.btnexport.Text = "Export";
+            this.btnexport.Click += new System.EventHandler(this.btnexport_Click);
             // 
             // colIDRoom
             // 
@@ -601,40 +629,13 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
             // 
-            // colIdRoomType
-            // 
-            this.colIdRoomType.DataPropertyName = "idRoomType";
-            this.colIdRoomType.HeaderText = "";
-            this.colIdRoomType.MinimumWidth = 6;
-            this.colIdRoomType.Name = "colIdRoomType";
-            this.colIdRoomType.ReadOnly = true;
-            this.colIdRoomType.Visible = false;
-            this.colIdRoomType.Width = 125;
-            // 
-            // colIdStatus
-            // 
-            this.colIdStatus.DataPropertyName = "idStatusRoom";
-            this.colIdStatus.HeaderText = "";
-            this.colIdStatus.MinimumWidth = 6;
-            this.colIdStatus.Name = "colIdStatus";
-            this.colIdStatus.ReadOnly = true;
-            this.colIdStatus.Visible = false;
-            this.colIdStatus.Width = 125;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Location = new System.Drawing.Point(5, 43);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(1102, 14);
-            this.guna2Separator1.TabIndex = 31;
-            // 
             // froommanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1111, 496);
+            this.Controls.Add(this.btnexport);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -644,6 +645,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "froommanagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "  ";
             this.Load += new System.EventHandler(this.Froommanagement_Load);
             this.groupBox3.ResumeLayout(false);
@@ -686,13 +688,12 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2ComboBox cbTyperoom;
         private Guna.UI2.WinForms.Guna2ComboBox cbIDRoom;
+        private Guna.UI2.WinForms.Guna2Button btnexport;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNameRoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLimitPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdRoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdStatus;
     }
 }

@@ -32,17 +32,17 @@
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnexit = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Panellogin = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnClick = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
             this.txtpassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClick = new Guna.UI2.WinForms.Guna2Button();
             this.Panellogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,22 +108,6 @@
             this.Panellogin.Size = new System.Drawing.Size(490, 602);
             this.Panellogin.TabIndex = 3;
             // 
-            // btnClick
-            // 
-            this.btnClick.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClick.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClick.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClick.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClick.FillColor = System.Drawing.Color.Transparent;
-            this.btnClick.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnClick.ForeColor = System.Drawing.Color.White;
-            this.btnClick.Location = new System.Drawing.Point(299, 459);
-            this.btnClick.Name = "btnClick";
-            this.btnClick.Size = new System.Drawing.Size(99, 19);
-            this.btnClick.TabIndex = 10;
-            this.btnClick.Text = "Click here";
-            this.btnClick.Click += new System.EventHandler(this.Lbclick_Click);
-            // 
             // guna2ImageButton3
             // 
             this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
@@ -169,6 +153,17 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(20, 20);
             this.guna2ImageButton1.TabIndex = 7;
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(182, 459);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(111, 19);
+            this.guna2HtmlLabel1.TabIndex = 4;
+            this.guna2HtmlLabel1.Text = "Forget Password? ";
+            // 
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
@@ -184,14 +179,15 @@
             // 
             this.btnlogin.BackColor = System.Drawing.Color.Transparent;
             this.btnlogin.BorderRadius = 12;
+            this.btnlogin.BorderThickness = 1;
             this.btnlogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnlogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnlogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnlogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnlogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnlogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnlogin.FillColor = System.Drawing.Color.Transparent;
+            this.btnlogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.Location = new System.Drawing.Point(144, 397);
+            this.btnlogin.Location = new System.Drawing.Point(144, 369);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(219, 38);
             this.btnlogin.TabIndex = 3;
@@ -214,7 +210,7 @@
             this.txtpassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtpassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtpassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpassword.Location = new System.Drawing.Point(144, 296);
+            this.txtpassword.Location = new System.Drawing.Point(144, 281);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '*';
             this.txtpassword.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -263,17 +259,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Log in";
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(182, 459);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(111, 19);
-            this.guna2HtmlLabel1.TabIndex = 4;
-            this.guna2HtmlLabel1.Text = "Forget Password? ";
-            // 
             // guna2Button1
             // 
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -290,16 +275,34 @@
             this.guna2Button1.Text = "Click here";
             this.guna2Button1.Click += new System.EventHandler(this.Lbclick_Click);
             // 
+            // btnClick
+            // 
+            this.btnClick.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClick.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClick.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClick.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClick.FillColor = System.Drawing.Color.Transparent;
+            this.btnClick.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnClick.ForeColor = System.Drawing.Color.White;
+            this.btnClick.Location = new System.Drawing.Point(299, 459);
+            this.btnClick.Name = "btnClick";
+            this.btnClick.Size = new System.Drawing.Size(99, 19);
+            this.btnClick.TabIndex = 10;
+            this.btnClick.Text = "Click here";
+            this.btnClick.Click += new System.EventHandler(this.Lbclick_Click);
+            // 
             // flogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Snow;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(641, 840);
             this.Controls.Add(this.Panellogin);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.guna2CircleButton1);
+            this.ForeColor = System.Drawing.Color.Azure;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "flogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

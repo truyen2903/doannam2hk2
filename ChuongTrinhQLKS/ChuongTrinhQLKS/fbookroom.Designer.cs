@@ -74,15 +74,15 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.CheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnBookRoom = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDetails = new Guna.UI2.WinForms.Guna2Button();
+            this.btnexport = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridViewBookRoom = new System.Windows.Forms.DataGridView();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.CheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -773,6 +773,24 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Funcion";
             // 
+            // CheckBox
+            // 
+            this.CheckBox.AutoSize = true;
+            this.CheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CheckBox.CheckedState.BorderRadius = 0;
+            this.CheckBox.CheckedState.BorderThickness = 0;
+            this.CheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CheckBox.CheckMarkColor = System.Drawing.Color.SeaGreen;
+            this.CheckBox.Location = new System.Drawing.Point(33, 52);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(146, 25);
+            this.CheckBox.TabIndex = 48;
+            this.CheckBox.Text = "Move to check in";
+            this.CheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.CheckBox.UncheckedState.BorderRadius = 0;
+            this.CheckBox.UncheckedState.BorderThickness = 0;
+            this.CheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
             // btnClose
             // 
             this.btnClose.BorderColor = System.Drawing.Color.SeaGreen;
@@ -849,7 +867,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnDetails);
+            this.panel2.Controls.Add(this.btnexport);
             this.panel2.Controls.Add(this.dataGridViewBookRoom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -859,24 +877,24 @@
             this.panel2.Size = new System.Drawing.Size(514, 544);
             this.panel2.TabIndex = 39;
             // 
-            // btnDetails
+            // btnexport
             // 
-            this.btnDetails.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnDetails.BorderRadius = 12;
-            this.btnDetails.BorderThickness = 1;
-            this.btnDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDetails.FillColor = System.Drawing.Color.White;
-            this.btnDetails.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnDetails.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnDetails.Location = new System.Drawing.Point(335, 493);
-            this.btnDetails.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(177, 39);
-            this.btnDetails.TabIndex = 46;
-            this.btnDetails.Text = "Details";
+            this.btnexport.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.BorderRadius = 12;
+            this.btnexport.BorderThickness = 1;
+            this.btnexport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnexport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnexport.FillColor = System.Drawing.Color.White;
+            this.btnexport.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnexport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.Location = new System.Drawing.Point(335, 493);
+            this.btnexport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnexport.Name = "btnexport";
+            this.btnexport.Size = new System.Drawing.Size(177, 39);
+            this.btnexport.TabIndex = 46;
+            this.btnexport.Text = "Export";
             // 
             // dataGridViewBookRoom
             // 
@@ -944,24 +962,6 @@
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(1239, 10);
             this.guna2Separator1.TabIndex = 51;
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.AutoSize = true;
-            this.CheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CheckBox.CheckedState.BorderRadius = 0;
-            this.CheckBox.CheckedState.BorderThickness = 0;
-            this.CheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CheckBox.CheckMarkColor = System.Drawing.Color.SeaGreen;
-            this.CheckBox.Location = new System.Drawing.Point(33, 52);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(146, 25);
-            this.CheckBox.TabIndex = 48;
-            this.CheckBox.Text = "Move to check in";
-            this.CheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.CheckBox.UncheckedState.BorderRadius = 0;
-            this.CheckBox.UncheckedState.BorderThickness = 0;
-            this.CheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // fbookroom
             // 
@@ -1051,7 +1051,7 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnBookRoom;
-        private Guna.UI2.WinForms.Guna2Button btnDetails;
+        private Guna.UI2.WinForms.Guna2Button btnexport;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2CheckBox CheckBox;
     }
