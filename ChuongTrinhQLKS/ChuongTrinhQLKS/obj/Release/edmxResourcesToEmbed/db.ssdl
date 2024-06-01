@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Access">
+    <Key>
+      <PropertyRef Name="IDStaffType" />
+      <PropertyRef Name="IDJob" />
+    </Key>
+    <Property Name="IDStaffType" Type="int" Nullable="false" />
+    <Property Name="IDJob" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="BILL">
     <Key>
       <PropertyRef Name="ID" />
@@ -57,13 +65,13 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <EntityType Name="job">
+  <EntityType Name="Job">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="250" />
-    <Property Name="nameform" Type="nvarchar" MaxLength="250" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NameForm" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -172,6 +180,30 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <Association Name="FK__Access__IDJob__3DB3258D">
+    <End Role="Job" Type="Self.Job" Multiplicity="1" />
+    <End Role="Access" Type="Self.Access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Access">
+        <PropertyRef Name="IDJob" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Access__IDStaffT__3CBF0154">
+    <End Role="STAFFTYPE" Type="Self.STAFFTYPE" Multiplicity="1" />
+    <End Role="Access" Type="Self.Access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STAFFTYPE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Access">
+        <PropertyRef Name="IDStaffType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__BILL__IDReceiveR__66603565">
     <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
@@ -740,12 +772,13 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
     <Parameter Name="idRoom" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="HotelManagementModelStoreContainer">
+    <EntitySet Name="Access" EntityType="Self.Access" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BILLDETAILS" EntityType="Self.BILLDETAILS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BOOKROOM" EntityType="Self.BOOKROOM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMERTYPE" EntityType="Self.CUSTOMERTYPE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="job" EntityType="Self.job" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RECEIVEROOM" EntityType="Self.RECEIVEROOM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RECEIVEROOMDETAILS" EntityType="Self.RECEIVEROOMDETAILS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ROOM" EntityType="Self.ROOM" Schema="dbo" store:Type="Tables" />
@@ -764,6 +797,14 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
     [PARAMETER].[Describe] AS [Describe]
     FROM [dbo].[PARAMETER] AS [PARAMETER]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK__Access__IDJob__3DB3258D" Association="Self.FK__Access__IDJob__3DB3258D">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="Access" EntitySet="Access" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Access__IDStaffT__3CBF0154" Association="Self.FK__Access__IDStaffT__3CBF0154">
+      <End Role="STAFFTYPE" EntitySet="STAFFTYPE" />
+      <End Role="Access" EntitySet="Access" />
+    </AssociationSet>
     <AssociationSet Name="FK__BILL__IDReceiveR__66603565" Association="Self.FK__BILL__IDReceiveR__66603565">
       <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
       <End Role="BILL" EntitySet="BILL" />

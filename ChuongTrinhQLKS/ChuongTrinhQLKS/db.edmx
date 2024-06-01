@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access">
+          <Key>
+            <PropertyRef Name="IDStaffType" />
+            <PropertyRef Name="IDJob" />
+          </Key>
+          <Property Name="IDStaffType" Type="int" Nullable="false" />
+          <Property Name="IDJob" Type="int" Nullable="false" />
+          <Property Name="describe" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="BILL">
           <Key>
             <PropertyRef Name="ID" />
@@ -62,13 +71,13 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="job">
+        <EntityType Name="Job">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="250" />
-          <Property Name="nameform" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NameForm" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -88,14 +97,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDBookRoom" Type="int" Nullable="false" />
           <Property Name="IDRoom" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RECEIVEROOMDETAILS">
-          <Key>
-            <PropertyRef Name="IDReceiveRoom" />
-            <PropertyRef Name="IDCustomerOther" />
-          </Key>
-          <Property Name="IDReceiveRoom" Type="int" Nullable="false" />
-          <Property Name="IDCustomerOther" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ROOM">
           <Key>
@@ -177,6 +178,30 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK__Access__IDJob__3DB3258D">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Access" Type="Self.Access" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Access">
+              <PropertyRef Name="IDJob" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Access__IDStaffT__3CBF0154">
+          <End Role="STAFFTYPE" Type="Self.STAFFTYPE" Multiplicity="1" />
+          <End Role="Access" Type="Self.Access" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFFTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Access">
+              <PropertyRef Name="IDStaffType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__BILL__IDReceiveR__66603565">
           <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="1" />
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
@@ -282,30 +307,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
             </Principal>
             <Dependent Role="RECEIVEROOM">
               <PropertyRef Name="IDBookRoom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RECEIVERO__IDCus__59FA5E80">
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
-          <End Role="RECEIVEROOMDETAILS" Type="Self.RECEIVEROOMDETAILS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="RECEIVEROOMDETAILS">
-              <PropertyRef Name="IDCustomerOther" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RECEIVERO__IDRec__59063A47">
-          <End Role="RECEIVEROOM" Type="Self.RECEIVEROOM" Multiplicity="1" />
-          <End Role="RECEIVEROOMDETAILS" Type="Self.RECEIVEROOMDETAILS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RECEIVEROOM">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="RECEIVEROOMDETAILS">
-              <PropertyRef Name="IDReceiveRoom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -745,14 +746,14 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Parameter Name="idRoom" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="HotelManagementModelStoreContainer">
+          <EntitySet Name="Access" EntityType="Self.Access" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BILLDETAILS" EntityType="Self.BILLDETAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BOOKROOM" EntityType="Self.BOOKROOM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMERTYPE" EntityType="Self.CUSTOMERTYPE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="job" EntityType="Self.job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECEIVEROOM" EntityType="Self.RECEIVEROOM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RECEIVEROOMDETAILS" EntityType="Self.RECEIVEROOMDETAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROOM" EntityType="Self.ROOM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROOMTYPE" EntityType="Self.ROOMTYPE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SERVICE" EntityType="Self.SERVICE" Schema="dbo" store:Type="Tables" />
@@ -769,6 +770,14 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
     [PARAMETER].[Describe] AS [Describe]
     FROM [dbo].[PARAMETER] AS [PARAMETER]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__Access__IDJob__3DB3258D" Association="Self.FK__Access__IDJob__3DB3258D">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Access" EntitySet="Access" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Access__IDStaffT__3CBF0154" Association="Self.FK__Access__IDStaffT__3CBF0154">
+            <End Role="STAFFTYPE" EntitySet="STAFFTYPE" />
+            <End Role="Access" EntitySet="Access" />
+          </AssociationSet>
           <AssociationSet Name="FK__BILL__IDReceiveR__66603565" Association="Self.FK__BILL__IDReceiveR__66603565">
             <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
             <End Role="BILL" EntitySet="BILL" />
@@ -805,14 +814,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
             <End Role="BOOKROOM" EntitySet="BOOKROOM" />
             <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
           </AssociationSet>
-          <AssociationSet Name="FK__RECEIVERO__IDCus__59FA5E80" Association="Self.FK__RECEIVERO__IDCus__59FA5E80">
-            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
-            <End Role="RECEIVEROOMDETAILS" EntitySet="RECEIVEROOMDETAILS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RECEIVERO__IDRec__59063A47" Association="Self.FK__RECEIVERO__IDRec__59063A47">
-            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
-            <End Role="RECEIVEROOMDETAILS" EntitySet="RECEIVEROOMDETAILS" />
-          </AssociationSet>
           <AssociationSet Name="FK__RECEIVERO__IDRoo__5629CD9C" Association="Self.FK__RECEIVERO__IDRoo__5629CD9C">
             <End Role="ROOM" EntitySet="ROOM" />
             <End Role="RECEIVEROOM" EntitySet="RECEIVEROOM" />
@@ -844,7 +845,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <EntitySet Name="BOOKROOMs" EntityType="HotelManagementModel.BOOKROOM" />
           <EntitySet Name="CUSTOMERs" EntityType="HotelManagementModel.CUSTOMER" />
           <EntitySet Name="CUSTOMERTYPEs" EntityType="HotelManagementModel.CUSTOMERTYPE" />
-          <EntitySet Name="jobs" EntityType="HotelManagementModel.job" />
           <EntitySet Name="RECEIVEROOMs" EntityType="HotelManagementModel.RECEIVEROOM" />
           <EntitySet Name="ROOMs" EntityType="HotelManagementModel.ROOM" />
           <EntitySet Name="ROOMTYPEs" EntityType="HotelManagementModel.ROOMTYPE" />
@@ -911,10 +911,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <AssociationSet Name="FK__STAFF__IDStaffTy__3C69FB99" Association="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99">
             <End Role="STAFFTYPE" EntitySet="STAFFTYPEs" />
             <End Role="STAFF" EntitySet="STAFFs" />
-          </AssociationSet>
-          <AssociationSet Name="RECEIVEROOMDETAILS" Association="HotelManagementModel.RECEIVEROOMDETAILS">
-            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
-            <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
           </AssociationSet>
           <FunctionImport Name="GetIDReceiveRoomCurrent" ReturnType="Collection(Int32)" />
           <FunctionImport Name="InsertReceiveRoom">
@@ -1290,6 +1286,16 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <FunctionImport Name="USP_UpdateStatusRoom">
           <Parameter Name="idRoom" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Accesses" EntityType="HotelManagementModel.Access" />
+          <EntitySet Name="Jobs" EntityType="HotelManagementModel.Job" />
+          <AssociationSet Name="FK__Access__IDJob__3DB3258D" Association="HotelManagementModel.FK__Access__IDJob__3DB3258D">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Access" EntitySet="Accesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Access__IDStaffT__3CBF0154" Association="HotelManagementModel.FK__Access__IDStaffT__3CBF0154">
+            <End Role="STAFFTYPE" EntitySet="STAFFTYPEs" />
+            <End Role="Access" EntitySet="Accesses" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BILL">
           <Key>
@@ -1351,7 +1357,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Name="Nationality" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BOOKROOMs" Relationship="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F" FromRole="CUSTOMER" ToRole="BOOKROOM" />
           <NavigationProperty Name="CUSTOMERTYPE" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMER" ToRole="CUSTOMERTYPE" />
-          <NavigationProperty Name="RECEIVEROOMs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="CUSTOMER" ToRole="RECEIVEROOM" />
         </EntityType>
         <EntityType Name="CUSTOMERTYPE">
           <Key>
@@ -1360,14 +1365,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMERTYPE" ToRole="CUSTOMER" />
-        </EntityType>
-        <EntityType Name="job">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="nameform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RECEIVEROOM">
           <Key>
@@ -1379,7 +1376,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <NavigationProperty Name="BILLs" Relationship="HotelManagementModel.FK__BILL__IDReceiveR__66603565" FromRole="RECEIVEROOM" ToRole="BILL" />
           <NavigationProperty Name="BOOKROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963" FromRole="RECEIVEROOM" ToRole="BOOKROOM" />
           <NavigationProperty Name="ROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C" FromRole="RECEIVEROOM" ToRole="ROOM" />
-          <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="RECEIVEROOM" ToRole="CUSTOMER" />
         </EntityType>
         <EntityType Name="ROOM">
           <Key>
@@ -1447,6 +1443,7 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STAFFs" Relationship="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99" FromRole="STAFFTYPE" ToRole="STAFF" />
+          <NavigationProperty Name="Accesses" Relationship="HotelManagementModel.FK__Access__IDStaffT__3CBF0154" FromRole="STAFFTYPE" ToRole="Access" />
         </EntityType>
         <EntityType Name="STATUSBILL">
           <Key>
@@ -1650,10 +1647,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
               <PropertyRef Name="IDStaffType" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="RECEIVEROOMDETAILS">
-          <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
-          <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
         </Association>
         <ComplexType Name="ShowBookRoomInfo_Result">
           <Property Type="String" Name="FullName" Nullable="false" MaxLength="100" />
@@ -1976,6 +1969,50 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
           <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Access">
+          <Key>
+            <PropertyRef Name="IDStaffType" />
+            <PropertyRef Name="IDJob" />
+          </Key>
+          <Property Name="IDStaffType" Type="Int32" Nullable="false" />
+          <Property Name="IDJob" Type="Int32" Nullable="false" />
+          <Property Name="describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Job" Relationship="HotelManagementModel.FK__Access__IDJob__3DB3258D" FromRole="Access" ToRole="Job" />
+          <NavigationProperty Name="STAFFTYPE" Relationship="HotelManagementModel.FK__Access__IDStaffT__3CBF0154" FromRole="Access" ToRole="STAFFTYPE" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NameForm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accesses" Relationship="HotelManagementModel.FK__Access__IDJob__3DB3258D" FromRole="Job" ToRole="Access" />
+        </EntityType>
+        <Association Name="FK__Access__IDJob__3DB3258D">
+          <End Type="HotelManagementModel.Job" Role="Job" Multiplicity="1" />
+          <End Type="HotelManagementModel.Access" Role="Access" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Access">
+              <PropertyRef Name="IDJob" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Access__IDStaffT__3CBF0154">
+          <End Type="HotelManagementModel.STAFFTYPE" Role="STAFFTYPE" Multiplicity="1" />
+          <End Type="HotelManagementModel.Access" Role="Access" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFFTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Access">
+              <PropertyRef Name="IDStaffType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2040,15 +2077,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
               <MappingFragment StoreEntitySet="CUSTOMERTYPE">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="jobs">
-            <EntityTypeMapping TypeName="HotelManagementModel.job">
-              <MappingFragment StoreEntitySet="job">
-                <ScalarProperty Name="nameform" ColumnName="nameform" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2159,14 +2187,6 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="RECEIVEROOMDETAILS" TypeName="HotelManagementModel.RECEIVEROOMDETAILS" StoreEntitySet="RECEIVEROOMDETAILS">
-            <EndProperty Name="RECEIVEROOM">
-              <ScalarProperty Name="ID" ColumnName="IDReceiveRoom" />
-            </EndProperty>
-            <EndProperty Name="CUSTOMER">
-              <ScalarProperty Name="ID" ColumnName="IDCustomerOther" />
-            </EndProperty>
-          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="GetIDReceiveRoomCurrent" FunctionName="HotelManagementModel.Store.GetIDReceiveRoomCurrent" />
           <FunctionImportMapping FunctionImportName="InsertReceiveRoom" FunctionName="HotelManagementModel.Store.InsertReceiveRoom" />
           <FunctionImportMapping FunctionImportName="InsertReceiveRoomDetails" FunctionName="HotelManagementModel.Store.InsertReceiveRoomDetails" />
@@ -2702,7 +2722,25 @@ warning 6002: The table/view 'HotelManagement.dbo.PARAMETER' does not have a pri
           <FunctionImportMapping FunctionImportName="USP_UpdateStaff" FunctionName="HotelManagementModel.Store.USP_UpdateStaff" />
           <FunctionImportMapping FunctionImportName="USP_UpdateStaffType" FunctionName="HotelManagementModel.Store.USP_UpdateStaffType" />
           <FunctionImportMapping FunctionImportName="USP_UpdateStatusRoom" FunctionName="HotelManagementModel.Store.USP_UpdateStatusRoom" />
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Accesses">
+            <EntityTypeMapping TypeName="HotelManagementModel.Access">
+              <MappingFragment StoreEntitySet="Access">
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="IDJob" ColumnName="IDJob" />
+                <ScalarProperty Name="IDStaffType" ColumnName="IDStaffType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="HotelManagementModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NameForm" ColumnName="NameForm" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

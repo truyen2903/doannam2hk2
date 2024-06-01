@@ -18,7 +18,6 @@ namespace ChuongTrinhQLKS
         public RECEIVEROOM()
         {
             this.BILLs = new HashSet<BILL>();
-            this.CUSTOMERs = new HashSet<CUSTOMER>();
         }
     
         public int ID { get; set; }
@@ -29,7 +28,5 @@ namespace ChuongTrinhQLKS
         public virtual ICollection<BILL> BILLs { get; set; }
         public virtual BOOKROOM BOOKROOM { get; set; }
         public virtual ROOM ROOM { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CUSTOMER> CUSTOMERs { get; set; }
     }
 }

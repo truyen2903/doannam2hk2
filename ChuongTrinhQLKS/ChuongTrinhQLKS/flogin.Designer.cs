@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flogin));
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnexit = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Panellogin = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -41,29 +40,10 @@
             this.txtpassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnForget = new Guna.UI2.WinForms.Guna2Button();
             this.btnClick = new Guna.UI2.WinForms.Guna2Button();
             this.Panellogin.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // guna2CircleButton1
-            // 
-            this.guna2CircleButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.Empty;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(160, 160);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(241, 3);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(148, 148);
-            this.guna2CircleButton1.TabIndex = 0;
             // 
             // btnexit
             // 
@@ -98,7 +78,7 @@
             this.Panellogin.Controls.Add(this.txtpassword);
             this.Panellogin.Controls.Add(this.txtusername);
             this.Panellogin.Controls.Add(this.label1);
-            this.Panellogin.Controls.Add(this.guna2Button1);
+            this.Panellogin.Controls.Add(this.btnForget);
             this.Panellogin.Controls.Add(this.btnClick);
             this.Panellogin.CustomBorderColor = System.Drawing.Color.Transparent;
             this.Panellogin.FillColor = System.Drawing.Color.Transparent;
@@ -259,21 +239,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Log in";
             // 
-            // guna2Button1
+            // btnForget
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(284, 459);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(99, 19);
-            this.guna2Button1.TabIndex = 10;
-            this.guna2Button1.Text = "Click here";
-            this.guna2Button1.Click += new System.EventHandler(this.Lbclick_Click);
+            this.btnForget.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnForget.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnForget.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnForget.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnForget.FillColor = System.Drawing.Color.Transparent;
+            this.btnForget.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnForget.ForeColor = System.Drawing.Color.White;
+            this.btnForget.Location = new System.Drawing.Point(284, 459);
+            this.btnForget.Name = "btnForget";
+            this.btnForget.Size = new System.Drawing.Size(99, 19);
+            this.btnForget.TabIndex = 10;
+            this.btnForget.Text = "Click here";
+            this.btnForget.Click += new System.EventHandler(this.Lbclick_Click);
             // 
             // btnClick
             // 
@@ -301,7 +281,6 @@
             this.ClientSize = new System.Drawing.Size(641, 840);
             this.Controls.Add(this.Panellogin);
             this.Controls.Add(this.btnexit);
-            this.Controls.Add(this.guna2CircleButton1);
             this.ForeColor = System.Drawing.Color.Azure;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "flogin";
@@ -315,8 +294,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2CircleButton btnexit;
         private Guna.UI2.WinForms.Guna2Panel Panellogin;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
@@ -329,6 +306,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnClick;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnForget;
     }
 }

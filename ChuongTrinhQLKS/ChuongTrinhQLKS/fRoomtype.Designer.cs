@@ -80,9 +80,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox3.Location = new System.Drawing.Point(4, 46);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(165, 116);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
@@ -156,10 +156,10 @@
             this.groupRoomType.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupRoomType.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupRoomType.Location = new System.Drawing.Point(4, 163);
-            this.groupRoomType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.groupRoomType.Name = "groupRoomType";
-            this.groupRoomType.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupRoomType.Size = new System.Drawing.Size(165, 215);
+            this.groupRoomType.Padding = new System.Windows.Forms.Padding(2);
+            this.groupRoomType.Size = new System.Drawing.Size(165, 222);
             this.groupRoomType.TabIndex = 52;
             this.groupRoomType.TabStop = false;
             this.groupRoomType.Text = "Information";
@@ -175,7 +175,7 @@
             this.txtPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrice.Location = new System.Drawing.Point(17, 186);
+            this.txtPrice.Location = new System.Drawing.Point(17, 191);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
@@ -195,7 +195,7 @@
             this.txtLimitPerson.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLimitPerson.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLimitPerson.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLimitPerson.Location = new System.Drawing.Point(18, 136);
+            this.txtLimitPerson.Location = new System.Drawing.Point(17, 146);
             this.txtLimitPerson.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtLimitPerson.Name = "txtLimitPerson";
             this.txtLimitPerson.PasswordChar = '\0';
@@ -235,7 +235,7 @@
             this.cbIDRoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.cbIDRoom.ItemHeight = 30;
             this.cbIDRoom.Location = new System.Drawing.Point(17, 47);
-            this.cbIDRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbIDRoom.Margin = new System.Windows.Forms.Padding(2);
             this.cbIDRoom.Name = "cbIDRoom";
             this.cbIDRoom.Size = new System.Drawing.Size(133, 36);
             this.cbIDRoom.TabIndex = 29;
@@ -258,7 +258,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label3.Location = new System.Drawing.Point(14, 162);
+            this.label3.Location = new System.Drawing.Point(13, 168);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 20);
@@ -297,9 +297,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox2.Location = new System.Drawing.Point(4, 380);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(165, 105);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
@@ -388,7 +388,7 @@
             this.dataGridViewRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRoom.GridColor = System.Drawing.Color.White;
             this.dataGridViewRoom.Location = new System.Drawing.Point(3, 25);
-            this.dataGridViewRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewRoom.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewRoom.Name = "dataGridViewRoom";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
@@ -439,7 +439,7 @@
             this.ForeColor = System.Drawing.Color.SeaGreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fRoomtype";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fRoomtype";

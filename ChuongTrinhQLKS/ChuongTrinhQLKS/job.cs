@@ -12,10 +12,19 @@ namespace ChuongTrinhQLKS
     using System;
     using System.Collections.Generic;
     
-    public partial class job
+    public partial class Job
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string nameform { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Job()
+        {
+            this.Accesses = new HashSet<Access>();
+        }
+    
+        public int ID { get; set; }
+        public string NameForm { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Access> Accesses { get; set; }
     }
 }

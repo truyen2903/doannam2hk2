@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <Compile Include="BILL.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -86,12 +89,6 @@
     <Compile Include="CUSTOMERTYPE.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="db.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +103,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Faccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faccess.Designer.cs">
+      <DependentUpon>Faccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faddcustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faddcustomer.Designer.cs">
+      <DependentUpon>Faddcustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Faddemploy.cs">
       <SubType>Form</SubType>
@@ -143,11 +152,23 @@
     <Compile Include="Fcustomer.Designer.cs">
       <DependentUpon>Fcustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fdashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fdashboard.Designer.cs">
+      <DependentUpon>Fdashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Femploy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Femploy.Designer.cs">
       <DependentUpon>Femploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finvoid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finvoid.Designer.cs">
+      <DependentUpon>Finvoid.cs</DependentUpon>
     </Compile>
     <Compile Include="flogin.cs">
       <SubType>Form</SubType>
@@ -179,9 +200,28 @@
     <Compile Include="fRoomtype.Designer.cs">
       <DependentUpon>fRoomtype.cs</DependentUpon>
     </Compile>
-    <Compile Include="job.cs">
+    <Compile Include="Fservicetype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fservicetype.Designer.cs">
+      <DependentUpon>Fservicetype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fservicetypemanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fservicetypemanagement.Designer.cs">
+      <DependentUpon>Fservicetypemanagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fsevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fsevice.Designer.cs">
+      <DependentUpon>Fsevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Check.cs" />
     <Compile Include="Models\ExportFile.cs" />
     <Compile Include="Models\linqConnect.cs" />
     <Compile Include="PARAMETER.cs">
@@ -339,8 +379,11 @@
     <EmbeddedResource Include="BOOKROOM.resx">
       <DependentUpon>BOOKROOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Faccess.resx">
+      <DependentUpon>Faccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faddcustomer.resx">
+      <DependentUpon>Faddcustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Faddemploy.resx">
       <DependentUpon>Faddemploy.cs</DependentUpon>
@@ -360,8 +403,14 @@
     <EmbeddedResource Include="Fcustomer.resx">
       <DependentUpon>Fcustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fdashboard.resx">
+      <DependentUpon>Fdashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Femploy.resx">
       <DependentUpon>Femploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finvoid.resx">
+      <DependentUpon>Finvoid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flogin.resx">
       <DependentUpon>flogin.cs</DependentUpon>
@@ -377,6 +426,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fRoomtype.resx">
       <DependentUpon>fRoomtype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fservicetype.resx">
+      <DependentUpon>Fservicetype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fservicetypemanagement.resx">
+      <DependentUpon>Fservicetypemanagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fsevice.resx">
+      <DependentUpon>Fsevice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -419,6 +477,8 @@
       <DependentUpon>db.edmx</DependentUpon>
       <LastGenOutput>db.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\guna2GradientButton1.Image.png" />
+    <None Include="Resources\btnbookroom.Image.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -48,8 +48,8 @@ namespace ChuongTrinhQLKS
                 {
                     Hide();
                     GlobalVariables.LoggedInUsername = user.UserName;
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.ShowDialog();
+                    Fdashboard fdashboard = new Fdashboard();
+                    fdashboard.ShowDialog();
                     this.Close();
                 }
                 else

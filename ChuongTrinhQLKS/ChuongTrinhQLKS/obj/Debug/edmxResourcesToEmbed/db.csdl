@@ -6,7 +6,6 @@
     <EntitySet Name="BOOKROOMs" EntityType="HotelManagementModel.BOOKROOM" />
     <EntitySet Name="CUSTOMERs" EntityType="HotelManagementModel.CUSTOMER" />
     <EntitySet Name="CUSTOMERTYPEs" EntityType="HotelManagementModel.CUSTOMERTYPE" />
-    <EntitySet Name="jobs" EntityType="HotelManagementModel.job" />
     <EntitySet Name="RECEIVEROOMs" EntityType="HotelManagementModel.RECEIVEROOM" />
     <EntitySet Name="ROOMs" EntityType="HotelManagementModel.ROOM" />
     <EntitySet Name="ROOMTYPEs" EntityType="HotelManagementModel.ROOMTYPE" />
@@ -73,10 +72,6 @@
     <AssociationSet Name="FK__STAFF__IDStaffTy__3C69FB99" Association="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99">
       <End Role="STAFFTYPE" EntitySet="STAFFTYPEs" />
       <End Role="STAFF" EntitySet="STAFFs" />
-    </AssociationSet>
-    <AssociationSet Name="RECEIVEROOMDETAILS" Association="HotelManagementModel.RECEIVEROOMDETAILS">
-      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
-      <End Role="RECEIVEROOM" EntitySet="RECEIVEROOMs" />
     </AssociationSet>
     <FunctionImport Name="GetIDReceiveRoomCurrent" ReturnType="Collection(Int32)" />
     <FunctionImport Name="InsertReceiveRoom">
@@ -452,6 +447,16 @@
     <FunctionImport Name="USP_UpdateStatusRoom">
       <Parameter Name="idRoom" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="Accesses" EntityType="HotelManagementModel.Access" />
+    <EntitySet Name="Jobs" EntityType="HotelManagementModel.Job" />
+    <AssociationSet Name="FK__Access__IDJob__3DB3258D" Association="HotelManagementModel.FK__Access__IDJob__3DB3258D">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="Access" EntitySet="Accesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Access__IDStaffT__3CBF0154" Association="HotelManagementModel.FK__Access__IDStaffT__3CBF0154">
+      <End Role="STAFFTYPE" EntitySet="STAFFTYPEs" />
+      <End Role="Access" EntitySet="Accesses" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BILL">
     <Key>
@@ -513,7 +518,6 @@
     <Property Name="Nationality" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="BOOKROOMs" Relationship="HotelManagementModel.FK__BOOKROOM__IDCust__5165187F" FromRole="CUSTOMER" ToRole="BOOKROOM" />
     <NavigationProperty Name="CUSTOMERTYPE" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMER" ToRole="CUSTOMERTYPE" />
-    <NavigationProperty Name="RECEIVEROOMs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="CUSTOMER" ToRole="RECEIVEROOM" />
   </EntityType>
   <EntityType Name="CUSTOMERTYPE">
     <Key>
@@ -522,14 +526,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.FK__CUSTOMER__IDCust__4316F928" FromRole="CUSTOMERTYPE" ToRole="CUSTOMER" />
-  </EntityType>
-  <EntityType Name="job">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="nameform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RECEIVEROOM">
     <Key>
@@ -541,7 +537,6 @@
     <NavigationProperty Name="BILLs" Relationship="HotelManagementModel.FK__BILL__IDReceiveR__66603565" FromRole="RECEIVEROOM" ToRole="BILL" />
     <NavigationProperty Name="BOOKROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDBoo__5535A963" FromRole="RECEIVEROOM" ToRole="BOOKROOM" />
     <NavigationProperty Name="ROOM" Relationship="HotelManagementModel.FK__RECEIVERO__IDRoo__5629CD9C" FromRole="RECEIVEROOM" ToRole="ROOM" />
-    <NavigationProperty Name="CUSTOMERs" Relationship="HotelManagementModel.RECEIVEROOMDETAILS" FromRole="RECEIVEROOM" ToRole="CUSTOMER" />
   </EntityType>
   <EntityType Name="ROOM">
     <Key>
@@ -609,6 +604,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="STAFFs" Relationship="HotelManagementModel.FK__STAFF__IDStaffTy__3C69FB99" FromRole="STAFFTYPE" ToRole="STAFF" />
+    <NavigationProperty Name="Accesses" Relationship="HotelManagementModel.FK__Access__IDStaffT__3CBF0154" FromRole="STAFFTYPE" ToRole="Access" />
   </EntityType>
   <EntityType Name="STATUSBILL">
     <Key>
@@ -812,10 +808,6 @@
         <PropertyRef Name="IDStaffType" />
       </Dependent>
     </ReferentialConstraint>
-  </Association>
-  <Association Name="RECEIVEROOMDETAILS">
-    <End Type="HotelManagementModel.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
-    <End Type="HotelManagementModel.RECEIVEROOM" Role="RECEIVEROOM" Multiplicity="*" />
   </Association>
   <ComplexType Name="ShowBookRoomInfo_Result">
     <Property Type="String" Name="FullName" Nullable="false" MaxLength="100" />
@@ -1138,4 +1130,48 @@
     <Property Type="DateTime" Name="Ngày_nhận" Nullable="false" />
     <Property Type="DateTime" Name="Ngày_trả" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Access">
+    <Key>
+      <PropertyRef Name="IDStaffType" />
+      <PropertyRef Name="IDJob" />
+    </Key>
+    <Property Name="IDStaffType" Type="Int32" Nullable="false" />
+    <Property Name="IDJob" Type="Int32" Nullable="false" />
+    <Property Name="describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Job" Relationship="HotelManagementModel.FK__Access__IDJob__3DB3258D" FromRole="Access" ToRole="Job" />
+    <NavigationProperty Name="STAFFTYPE" Relationship="HotelManagementModel.FK__Access__IDStaffT__3CBF0154" FromRole="Access" ToRole="STAFFTYPE" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameForm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accesses" Relationship="HotelManagementModel.FK__Access__IDJob__3DB3258D" FromRole="Job" ToRole="Access" />
+  </EntityType>
+  <Association Name="FK__Access__IDJob__3DB3258D">
+    <End Type="HotelManagementModel.Job" Role="Job" Multiplicity="1" />
+    <End Type="HotelManagementModel.Access" Role="Access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Access">
+        <PropertyRef Name="IDJob" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Access__IDStaffT__3CBF0154">
+    <End Type="HotelManagementModel.STAFFTYPE" Role="STAFFTYPE" Multiplicity="1" />
+    <End Type="HotelManagementModel.Access" Role="Access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STAFFTYPE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Access">
+        <PropertyRef Name="IDStaffType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

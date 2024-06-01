@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ChuongTrinhQLKS.Program;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ChuongTrinhQLKS
@@ -18,16 +19,14 @@ namespace ChuongTrinhQLKS
     {
         HotelManagement infor;
         string Username = GlobalVariables.LoggedInUsername;
+        public string GetLabelText(Label label)
+        {
+            return label.Text;
+        }
         public Fprofile()
         {
             InitializeComponent();
         }
-
-        private void Btnexit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Fprofile_Load(object sender, EventArgs e)
         {
             txtUsername.ReadOnly = true;

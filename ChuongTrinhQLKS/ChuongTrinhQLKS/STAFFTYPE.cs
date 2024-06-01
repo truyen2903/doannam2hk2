@@ -18,6 +18,7 @@ namespace ChuongTrinhQLKS
         public STAFFTYPE()
         {
             this.STAFFs = new HashSet<STAFF>();
+            this.Accesses = new HashSet<Access>();
         }
     
         public int ID { get; set; }
@@ -25,5 +26,7 @@ namespace ChuongTrinhQLKS
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<STAFF> STAFFs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Access> Accesses { get; set; }
     }
 }

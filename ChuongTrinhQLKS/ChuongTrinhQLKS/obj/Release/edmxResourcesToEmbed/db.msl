@@ -62,15 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="jobs">
-      <EntityTypeMapping TypeName="HotelManagementModel.job">
-        <MappingFragment StoreEntitySet="job">
-          <ScalarProperty Name="nameform" ColumnName="nameform" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RECEIVEROOMs">
       <EntityTypeMapping TypeName="HotelManagementModel.RECEIVEROOM">
         <MappingFragment StoreEntitySet="RECEIVEROOM">
@@ -721,5 +712,22 @@
     <FunctionImportMapping FunctionImportName="USP_UpdateStaff" FunctionName="HotelManagementModel.Store.USP_UpdateStaff" />
     <FunctionImportMapping FunctionImportName="USP_UpdateStaffType" FunctionName="HotelManagementModel.Store.USP_UpdateStaffType" />
     <FunctionImportMapping FunctionImportName="USP_UpdateStatusRoom" FunctionName="HotelManagementModel.Store.USP_UpdateStatusRoom" />
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="HotelManagementModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameForm" ColumnName="NameForm" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Access" TypeName="HotelManagementModel.Access" StoreEntitySet="Access">
+      <EndProperty Name="STAFFTYPE">
+        <ScalarProperty Name="ID" ColumnName="IDStaffType" />
+      </EndProperty>
+      <EndProperty Name="Job">
+        <ScalarProperty Name="ID" ColumnName="IDJob" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -17,7 +17,6 @@ namespace ChuongTrinhQLKS
         HotelManagement dblinq;
         string idcus;
         string idcustype;
-
         public fbookroom()
         {
             InitializeComponent();
@@ -110,7 +109,13 @@ namespace ChuongTrinhQLKS
         }
         private async void GetInforCustumer()
         {
-           dblinq  = linqConnect.GetDatabase();
+            if (txtFindID.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter ID card", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFindID.Focus();
+                return;
+            }
+            dblinq  = linqConnect.GetDatabase();
             var querycustom = from Customed in dblinq.CUSTOMERs
                               where Customed.IDCard.ToString() == txtFindID.Text
                               select Customed;
@@ -121,6 +126,7 @@ namespace ChuongTrinhQLKS
                 MessageBox.Show("Please re-enter ID card", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFindID.Text = string.Empty;
                 txtFindID.Focus();
+                return;
             }
             else
             {
@@ -137,6 +143,10 @@ namespace ChuongTrinhQLKS
         }
         private async void GetCustumerType()
         {
+            if (txtFindID.Text == string.Empty)
+            {
+               return;
+            }
             dblinq = linqConnect.GetDatabase();
             var querytype = from typecustumer in dblinq.CUSTOMERTYPEs
                             join custumers in dblinq.CUSTOMERs on typecustumer.ID equals custumers.IDCustomerType
@@ -144,9 +154,10 @@ namespace ChuongTrinhQLKS
                             select typecustumer;
             var Typecustumer = await querytype.ToListAsync();
             var TypeCustumer = Typecustumer.FirstOrDefault();
-            if (TypeCustumer == null)
+           
+            if(TypeCustumer == null)
             {
-                MessageBox.Show("Customer type not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
@@ -196,13 +207,11 @@ namespace ChuongTrinhQLKS
                 else
                 {
                     AddBookroom();
-                    LoadInforBookroomdays();
-                    if (CheckBox.Checked)
-                    {
-                        Hide();
-                        Fcheck_in fcheck_In = new Fcheck_in();
-                        fcheck_In.ShowDialog();
-                    }
+                    LoadInforBookroomdays();                
+                    Hide();
+                    Fcheck_in fcheck_In = new Fcheck_in();
+                    fcheck_In.ShowDialog();
+                   
                 }
             }
             else
@@ -227,6 +236,14 @@ namespace ChuongTrinhQLKS
                                         Datecheckout = bookroomdays.DateCheckOut
                                     }).ToListAsync();
             dataGridViewBookRoom.DataSource = querybookroomdays;
+        }
+
+        private void btnexport_Click(object sender, EventArgs e)
+        {
+            ExportFile exportFile = new ExportFile();
+            DataTable dataTable = exportFile.GetDataTableFromDataGridView(dataGridViewBookRoom);
+            exportFile.ExportToExcel(dataTable, "Sheet1", "ListBookRoom");
+            MessageBox.Show("The Excel file has been created successfully!");
         }
     }
     

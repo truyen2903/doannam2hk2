@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ChuongTrinhQLKS.Program;
 
 namespace ChuongTrinhQLKS
 {
     public partial class Femploy : Form
     {
+        string Username = GlobalVariables.LoggedInUsername;
         public Femploy()
         {
             InitializeComponent();
@@ -232,6 +234,11 @@ namespace ChuongTrinhQLKS
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (txtusername.Text == "")
+            {
+                MessageBox.Show("Please select an employee to update!");
+                return;
+            }
             update();
             MessageBox.Show("Update Success");
         }
@@ -263,6 +270,21 @@ namespace ChuongTrinhQLKS
             DataTable dt = exportFile.GetDataTableFromDataGridView(dgvEmploy);
             exportFile.ExportToExcel(dt,"sheet1", "List Employ");
             MessageBox.Show("The Excel file has been created successfully!");
+        }
+
+        private void btnAccess_Click(object sender, EventArgs e)
+        {
+            if (Check.CheckAccess("Faccess", Username))
+            {
+                Hide();
+                Faccess faccess = new Faccess();
+                faccess.ShowDialog();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission to access this feature!");
+            }
         }
     }
 }

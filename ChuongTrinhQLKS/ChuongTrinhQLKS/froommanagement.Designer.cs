@@ -53,18 +53,17 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.btnexport = new Guna.UI2.WinForms.Guna2Button();
             this.colIDRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNameRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.btnexport = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox3.SuspendLayout();
             this.groupRoom.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -359,9 +358,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnexport);
             this.groupBox4.Controls.Add(this.btnAddRoom);
             this.groupBox4.Controls.Add(this.btnUpdate);
-            this.groupBox4.Controls.Add(this.btnClose);
             this.groupBox4.Controls.Add(this.btnEdit);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -419,29 +418,6 @@
             this.btnUpdate.Text = "Update Room";
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.White;
-            this.btnClose.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.BorderRadius = 12;
-            this.btnClose.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnClose.BorderThickness = 1;
-            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClose.FillColor = System.Drawing.Color.White;
-            this.btnClose.FocusedColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Location = new System.Drawing.Point(247, 89);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(164, 29);
-            this.btnClose.TabIndex = 32;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.White;
@@ -472,7 +448,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(455, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(652, 399);
+            this.groupBox1.Size = new System.Drawing.Size(652, 431);
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Room";
@@ -534,40 +510,9 @@
             this.dataGridViewRoom.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridViewRoom.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRoom.Size = new System.Drawing.Size(646, 371);
+            this.dataGridViewRoom.Size = new System.Drawing.Size(646, 403);
             this.dataGridViewRoom.TabIndex = 28;
             this.dataGridViewRoom.SelectionChanged += new System.EventHandler(this.DataGridViewRoom_SelectionChanged);
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Location = new System.Drawing.Point(5, 43);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(1102, 14);
-            this.guna2Separator1.TabIndex = 31;
-            // 
-            // btnexport
-            // 
-            this.btnexport.BackColor = System.Drawing.Color.White;
-            this.btnexport.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnexport.BorderRadius = 12;
-            this.btnexport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnexport.BorderThickness = 1;
-            this.btnexport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnexport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnexport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnexport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnexport.FillColor = System.Drawing.Color.White;
-            this.btnexport.FocusedColor = System.Drawing.Color.SeaGreen;
-            this.btnexport.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnexport.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnexport.Location = new System.Drawing.Point(1015, 459);
-            this.btnexport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnexport.Name = "btnexport";
-            this.btnexport.Size = new System.Drawing.Size(89, 29);
-            this.btnexport.TabIndex = 61;
-            this.btnexport.Text = "Export";
-            this.btnexport.Click += new System.EventHandler(this.btnexport_Click);
             // 
             // colIDRoom
             // 
@@ -629,13 +574,43 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
             // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(5, 43);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(1102, 14);
+            this.guna2Separator1.TabIndex = 31;
+            // 
+            // btnexport
+            // 
+            this.btnexport.BackColor = System.Drawing.Color.White;
+            this.btnexport.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.BorderRadius = 12;
+            this.btnexport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnexport.BorderThickness = 1;
+            this.btnexport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnexport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnexport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnexport.FillColor = System.Drawing.Color.White;
+            this.btnexport.FocusedColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnexport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnexport.Location = new System.Drawing.Point(247, 89);
+            this.btnexport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnexport.Name = "btnexport";
+            this.btnexport.Size = new System.Drawing.Size(164, 29);
+            this.btnexport.TabIndex = 61;
+            this.btnexport.Text = "Export";
+            this.btnexport.Click += new System.EventHandler(this.btnexport_Click);
+            // 
             // froommanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1111, 496);
-            this.Controls.Add(this.btnexport);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -682,7 +657,6 @@
         private System.Windows.Forms.DataGridView dataGridViewRoom;
         private Guna.UI2.WinForms.Guna2Button btnAddRoom;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
-        private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2ComboBox cbCondition;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;

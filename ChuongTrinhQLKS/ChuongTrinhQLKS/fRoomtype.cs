@@ -112,5 +112,7 @@ namespace ChuongTrinhQLKS
         {
             Search();
         }
+
+        
     }
 }

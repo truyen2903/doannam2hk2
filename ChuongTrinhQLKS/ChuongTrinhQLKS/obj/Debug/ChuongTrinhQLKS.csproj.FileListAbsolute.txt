@@ -29,7 +29,6 @@ C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrin
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.csproj.AssemblyReference.cache
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.BOOKROOM.resources
-C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Dashboard.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.fbookroom.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.flogin.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.froommanagement.resources
@@ -48,3 +47,10 @@ C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrin
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Femploy.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Faddemploy.resources
 C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fcustomer.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fdashboard.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Faddcustomer.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Finvoid.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fsevice.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Faccess.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fservicetype.resources
+C:\Users\nguye\OneDrive - vinhuni.edu.vn\Documents\GitHub\doannam2hk2\ChuongTrinhQLKS\ChuongTrinhQLKS\obj\Debug\ChuongTrinhQLKS.Fservicetypemanagement.resources

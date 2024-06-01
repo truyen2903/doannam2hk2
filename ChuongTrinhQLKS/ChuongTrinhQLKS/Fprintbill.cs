@@ -55,7 +55,8 @@ namespace ChuongTrinhQLKS
                                 Surcharge = bill.Surcharge,
                                 TotalPrice = bill.TotalPrice,
                                 Discount = bill.Discount,
-                                ServicePrice = bill.ServicePrice
+                                ServicePrice = bill.ServicePrice,
+                                Phonenumber = customer.PhoneNumber
                             }).FirstOrDefaultAsync();
             if(ListInfor != null)
             {
@@ -84,6 +85,7 @@ namespace ChuongTrinhQLKS
                 int TotalPrice = ListInfor.TotalPrice;
                 int FinalPrice = TotalPrice - (Discount * TotalPrice) / 10;
                 lblFinalPrice.Text = FinalPrice.ToString();
+                lblPhoneNumber.Text = ListInfor.Phonenumber.ToString();
             }
             else
             {

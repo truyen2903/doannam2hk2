@@ -57,8 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAccess = new Guna.UI2.WinForms.Guna2Button();
             this.btnupdate = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnresetpassword = new Guna.UI2.WinForms.Guna2Button();
@@ -482,8 +481,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.BtnClose);
-            this.groupBox4.Controls.Add(this.guna2Button5);
+            this.groupBox4.Controls.Add(this.btnAccess);
             this.groupBox4.Controls.Add(this.btnupdate);
             this.groupBox4.Controls.Add(this.BtnAdd);
             this.groupBox4.Controls.Add(this.btnresetpassword);
@@ -492,51 +490,31 @@
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox4.Location = new System.Drawing.Point(6, 426);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(489, 179);
+            this.groupBox4.Size = new System.Drawing.Size(489, 142);
             this.groupBox4.TabIndex = 46;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chức Năng";
             // 
-            // BtnClose
+            // btnAccess
             // 
-            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClose.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.BorderRadius = 15;
-            this.BtnClose.BorderThickness = 1;
-            this.BtnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnClose.FillColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.Location = new System.Drawing.Point(45, 140);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(175, 31);
-            this.BtnClose.TabIndex = 35;
-            this.BtnClose.Text = "Close";
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.BorderRadius = 15;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2Button5.Location = new System.Drawing.Point(290, 95);
-            this.guna2Button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(175, 31);
-            this.guna2Button5.TabIndex = 34;
-            this.guna2Button5.Text = "Access Right";
+            this.btnAccess.BackColor = System.Drawing.Color.Transparent;
+            this.btnAccess.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnAccess.BorderRadius = 15;
+            this.btnAccess.BorderThickness = 1;
+            this.btnAccess.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccess.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccess.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAccess.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAccess.FillColor = System.Drawing.Color.Transparent;
+            this.btnAccess.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccess.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnAccess.Location = new System.Drawing.Point(290, 95);
+            this.btnAccess.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAccess.Name = "btnAccess";
+            this.btnAccess.Size = new System.Drawing.Size(175, 31);
+            this.btnAccess.TabIndex = 34;
+            this.btnAccess.Text = "Access Right";
+            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
             // 
             // btnupdate
             // 
@@ -608,7 +586,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(501, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(595, 550);
+            this.groupBox1.Size = new System.Drawing.Size(595, 513);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Of Employee";
@@ -667,7 +645,7 @@
             this.dgvEmploy.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvEmploy.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgvEmploy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmploy.Size = new System.Drawing.Size(589, 522);
+            this.dgvEmploy.Size = new System.Drawing.Size(589, 485);
             this.dgvEmploy.TabIndex = 28;
             this.dgvEmploy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmploy_CellClick);
             // 
@@ -753,7 +731,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1101, 607);
+            this.ClientSize = new System.Drawing.Size(1101, 596);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -806,8 +784,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtaddress;
         private Guna.UI2.WinForms.Guna2TextBox txtPhone;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
-        private Guna.UI2.WinForms.Guna2Button BtnClose;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button btnAccess;
         private Guna.UI2.WinForms.Guna2Button btnupdate;
         private Guna.UI2.WinForms.Guna2Button BtnAdd;
         private Guna.UI2.WinForms.Guna2Button btnresetpassword;

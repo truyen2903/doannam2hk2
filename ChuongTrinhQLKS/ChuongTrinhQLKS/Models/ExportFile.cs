@@ -44,7 +44,7 @@ namespace ChuongTrinhQLKS.Models
 
                 // Lưu workbook
                 string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string savePath = System.IO.Path.Combine(projectDirectory, title+".xlsx");
+                string savePath = System.IO.Path.Combine(projectDirectory, "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\Data\\" + title + ".xlsx");
                 workbook.SaveAs(savePath);
                 workbook.Close();
                 excel.Quit();
@@ -88,8 +88,9 @@ namespace ChuongTrinhQLKS.Models
 
             // Thêm các cột vào DataTable
             foreach (DataGridViewColumn column in dataGridView.Columns)
-            {     
-                dt.Columns.Add(column.HeaderText, column.ValueType);
+            {
+                Type columnType = column.ValueType ?? typeof(object);
+                dt.Columns.Add(column.HeaderText, columnType);
             }
 
             // Thêm các hàng vào DataTable

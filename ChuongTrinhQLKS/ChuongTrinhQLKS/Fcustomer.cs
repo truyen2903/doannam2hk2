@@ -133,18 +133,25 @@ namespace ChuongTrinhQLKS
                 DateTimebirthday.Value = Convert.ToDateTime(dataGridViewCustomer.Rows[e.RowIndex].Cells["colDateOfBirth"].Value);
             }
         }
-
-
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (txtID.Text == "" && txtName.Text=="" && txtID.Text=="" )
+            {
+                MessageBox.Show("Please select a customer to update");
+                return;
+            }
+            UpdateCustumer();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Faddcustomer faddcustomer = new Faddcustomer();
+            faddcustomer.ShowDialog();
+            LoadListCustomer();
         }
 
         #endregion
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            UpdateCustumer();
-        }
+
     }
 }

@@ -32,7 +32,6 @@ namespace ChuongTrinhQLKS
         public virtual DbSet<BOOKROOM> BOOKROOMs { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
         public virtual DbSet<CUSTOMERTYPE> CUSTOMERTYPEs { get; set; }
-        public virtual DbSet<job> jobs { get; set; }
         public virtual DbSet<RECEIVEROOM> RECEIVEROOMs { get; set; }
         public virtual DbSet<ROOM> ROOMs { get; set; }
         public virtual DbSet<ROOMTYPE> ROOMTYPEs { get; set; }
@@ -44,6 +43,8 @@ namespace ChuongTrinhQLKS
         public virtual DbSet<STATUSROOM> STATUSROOMs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<PARAMETER> PARAMETERs { get; set; }
+        public virtual DbSet<Access> Accesses { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
     
         public virtual ObjectResult<Nullable<int>> GetIDReceiveRoomCurrent()
         {

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnSearch = new Guna.UI2.WinForms.Guna2Button();
@@ -61,13 +61,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportFile = new Guna.UI2.WinForms.Guna2Button();
             this.BtnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.BtnCheckin = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnAddCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExportFile = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridViewReceiveRoom = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -83,7 +81,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(8, 8);
+            this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 37);
             this.label2.TabIndex = 27;
@@ -96,7 +94,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox3.Location = new System.Drawing.Point(7, 55);
+            this.groupBox3.Location = new System.Drawing.Point(7, 40);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(252, 150);
             this.groupBox3.TabIndex = 31;
@@ -166,7 +164,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox2.Location = new System.Drawing.Point(265, 55);
+            this.groupBox2.Location = new System.Drawing.Point(267, 40);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(252, 150);
             this.groupBox2.TabIndex = 47;
@@ -249,7 +247,7 @@
             this.groupBox6.Controls.Add(this.label21);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox6.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox6.Location = new System.Drawing.Point(7, 208);
+            this.groupBox6.Location = new System.Drawing.Point(7, 196);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(510, 272);
             this.groupBox6.TabIndex = 48;
@@ -530,39 +528,38 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.BtnClose);
+            this.groupBox5.Controls.Add(this.btnExportFile);
             this.groupBox5.Controls.Add(this.BtnCancel);
             this.groupBox5.Controls.Add(this.BtnCheckin);
-            this.groupBox5.Controls.Add(this.BtnAddCustomer);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(7, 486);
+            this.groupBox5.Location = new System.Drawing.Point(5, 474);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(512, 141);
+            this.groupBox5.Size = new System.Drawing.Size(512, 123);
             this.groupBox5.TabIndex = 49;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Function";
             // 
-            // BtnClose
+            // btnExportFile
             // 
-            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClose.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.BorderRadius = 15;
-            this.BtnClose.BorderThickness = 1;
-            this.BtnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnClose.FillColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.Location = new System.Drawing.Point(274, 94);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.PressedColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.Size = new System.Drawing.Size(203, 29);
-            this.BtnClose.TabIndex = 3;
-            this.BtnClose.Text = "Close";
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.btnExportFile.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportFile.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.BorderRadius = 15;
+            this.btnExportFile.BorderThickness = 1;
+            this.btnExportFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExportFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExportFile.FillColor = System.Drawing.Color.Transparent;
+            this.btnExportFile.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnExportFile.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.Location = new System.Drawing.Point(262, 28);
+            this.btnExportFile.Name = "btnExportFile";
+            this.btnExportFile.PressedColor = System.Drawing.Color.SeaGreen;
+            this.btnExportFile.Size = new System.Drawing.Size(203, 29);
+            this.btnExportFile.TabIndex = 8;
+            this.btnExportFile.Text = "Export";
+            this.btnExportFile.Click += new System.EventHandler(this.btnExportFile_Click);
             // 
             // BtnCancel
             // 
@@ -577,7 +574,7 @@
             this.BtnCancel.FillColor = System.Drawing.Color.Transparent;
             this.BtnCancel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnCancel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnCancel.Location = new System.Drawing.Point(35, 94);
+            this.BtnCancel.Location = new System.Drawing.Point(262, 77);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.PressedColor = System.Drawing.Color.SeaGreen;
             this.BtnCancel.Size = new System.Drawing.Size(203, 29);
@@ -598,7 +595,7 @@
             this.BtnCheckin.FillColor = System.Drawing.Color.Transparent;
             this.BtnCheckin.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.BtnCheckin.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnCheckin.Location = new System.Drawing.Point(274, 40);
+            this.BtnCheckin.Location = new System.Drawing.Point(37, 28);
             this.BtnCheckin.Name = "BtnCheckin";
             this.BtnCheckin.PressedColor = System.Drawing.Color.SeaGreen;
             this.BtnCheckin.Size = new System.Drawing.Size(203, 29);
@@ -606,119 +603,77 @@
             this.BtnCheckin.Text = "Chech-in";
             this.BtnCheckin.Click += new System.EventHandler(this.BtnCheckin_Click);
             // 
-            // BtnAddCustomer
-            // 
-            this.BtnAddCustomer.BackColor = System.Drawing.Color.Transparent;
-            this.BtnAddCustomer.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnAddCustomer.BorderRadius = 15;
-            this.BtnAddCustomer.BorderThickness = 1;
-            this.BtnAddCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAddCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAddCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnAddCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnAddCustomer.FillColor = System.Drawing.Color.Transparent;
-            this.BtnAddCustomer.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.BtnAddCustomer.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnAddCustomer.Location = new System.Drawing.Point(35, 40);
-            this.BtnAddCustomer.Name = "BtnAddCustomer";
-            this.BtnAddCustomer.PressedColor = System.Drawing.Color.SeaGreen;
-            this.BtnAddCustomer.Size = new System.Drawing.Size(203, 29);
-            this.BtnAddCustomer.TabIndex = 0;
-            this.BtnAddCustomer.Text = "Add customers";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.panel2);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox4.Location = new System.Drawing.Point(523, 55);
+            this.groupBox4.Location = new System.Drawing.Point(523, 40);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(453, 569);
+            this.groupBox4.Size = new System.Drawing.Size(453, 557);
             this.groupBox4.TabIndex = 50;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Check-in list for the day";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnExportFile);
             this.panel2.Controls.Add(this.dataGridViewReceiveRoom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(447, 541);
+            this.panel2.Size = new System.Drawing.Size(447, 529);
             this.panel2.TabIndex = 39;
-            // 
-            // btnExportFile
-            // 
-            this.btnExportFile.BackColor = System.Drawing.Color.Transparent;
-            this.btnExportFile.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnExportFile.BorderRadius = 15;
-            this.btnExportFile.BorderThickness = 1;
-            this.btnExportFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExportFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExportFile.FillColor = System.Drawing.Color.Transparent;
-            this.btnExportFile.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnExportFile.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnExportFile.Location = new System.Drawing.Point(354, 500);
-            this.btnExportFile.Name = "btnExportFile";
-            this.btnExportFile.PressedColor = System.Drawing.Color.SeaGreen;
-            this.btnExportFile.Size = new System.Drawing.Size(90, 29);
-            this.btnExportFile.TabIndex = 8;
-            this.btnExportFile.Text = "Export";
-            this.btnExportFile.Click += new System.EventHandler(this.btnExportFile_Click);
             // 
             // dataGridViewReceiveRoom
             // 
             this.dataGridViewReceiveRoom.AllowDrop = true;
             this.dataGridViewReceiveRoom.AllowUserToAddRows = false;
             this.dataGridViewReceiveRoom.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.dataGridViewReceiveRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.dataGridViewReceiveRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewReceiveRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewReceiveRoom.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGridViewReceiveRoom.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewReceiveRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReceiveRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewReceiveRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewReceiveRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewReceiveRoom.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewReceiveRoom.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewReceiveRoom.GridColor = System.Drawing.Color.White;
             this.dataGridViewReceiveRoom.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewReceiveRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewReceiveRoom.Name = "dataGridViewReceiveRoom";
             this.dataGridViewReceiveRoom.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReceiveRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewReceiveRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewReceiveRoom.RowHeadersVisible = false;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReceiveRoom.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewReceiveRoom.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewReceiveRoom.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewReceiveRoom.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridViewReceiveRoom.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -733,7 +688,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 630);
+            this.ClientSize = new System.Drawing.Size(984, 602);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);
@@ -792,9 +747,7 @@
         private Guna.UI2.WinForms.Guna2TextBox Txtcard;
         private Guna.UI2.WinForms.Guna2TextBox TxtName;
         private Guna.UI2.WinForms.Guna2ComboBox CbRoom;
-        private Guna.UI2.WinForms.Guna2Button BtnAddCustomer;
         private Guna.UI2.WinForms.Guna2Button BtnSearch;
-        private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Button BtnCancel;
         private Guna.UI2.WinForms.Guna2Button BtnCheckin;
         private Guna.UI2.WinForms.Guna2Button btnExportFile;

@@ -18,7 +18,6 @@ namespace ChuongTrinhQLKS
         public CUSTOMER()
         {
             this.BOOKROOMs = new HashSet<BOOKROOM>();
-            this.RECEIVEROOMs = new HashSet<RECEIVEROOM>();
         }
     
         public int ID { get; set; }
@@ -34,7 +33,5 @@ namespace ChuongTrinhQLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOOKROOM> BOOKROOMs { get; set; }
         public virtual CUSTOMERTYPE CUSTOMERTYPE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RECEIVEROOM> RECEIVEROOMs { get; set; }
     }
 }

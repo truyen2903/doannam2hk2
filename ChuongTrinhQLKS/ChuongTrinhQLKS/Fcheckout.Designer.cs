@@ -53,7 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.BtnPay = new Guna.UI2.WinForms.Guna2Button();
             this.TxtTotalMoney = new Guna.UI2.WinForms.Guna2TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -118,6 +117,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.pictureBox6);
             this.groupBox3.Controls.Add(this.lblRoomType2);
@@ -129,7 +129,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox3.Location = new System.Drawing.Point(6, 51);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 559);
+            this.groupBox3.Size = new System.Drawing.Size(347, 510);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Room list";
@@ -199,13 +199,14 @@
             this.flowLayoutRooms.AutoScroll = true;
             this.flowLayoutRooms.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutRooms.ForeColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutRooms.Location = new System.Drawing.Point(3, 155);
+            this.flowLayoutRooms.Location = new System.Drawing.Point(3, 130);
             this.flowLayoutRooms.Name = "flowLayoutRooms";
-            this.flowLayoutRooms.Size = new System.Drawing.Size(354, 401);
+            this.flowLayoutRooms.Size = new System.Drawing.Size(341, 377);
             this.flowLayoutRooms.TabIndex = 51;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.CbService);
             this.groupBox1.Controls.Add(this.CbTypeSer);
             this.groupBox1.Controls.Add(this.BtnAdd);
@@ -217,7 +218,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(370, 51);
+            this.groupBox1.Location = new System.Drawing.Point(356, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(236, 291);
             this.groupBox1.TabIndex = 35;
@@ -268,6 +269,9 @@
             this.BtnAdd.FillColor = System.Drawing.Color.Transparent;
             this.BtnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAdd.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnAdd.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.BtnAdd.HoverState.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAdd.HoverState.ForeColor = System.Drawing.Color.White;
             this.BtnAdd.Location = new System.Drawing.Point(17, 256);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.PressedColor = System.Drawing.Color.SpringGreen;
@@ -364,7 +368,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.BtnClose);
+            this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.BtnPay);
             this.groupBox5.Controls.Add(this.TxtTotalMoney);
             this.groupBox5.Controls.Add(this.numericUpDown1);
@@ -372,32 +376,12 @@
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(370, 345);
+            this.groupBox5.Location = new System.Drawing.Point(356, 345);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(236, 265);
+            this.groupBox5.Size = new System.Drawing.Size(236, 216);
             this.groupBox5.TabIndex = 51;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Funcion";
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.BorderRadius = 15;
-            this.BtnClose.BorderThickness = 1;
-            this.BtnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnClose.FillColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnClose.Location = new System.Drawing.Point(17, 212);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.PressedColor = System.Drawing.Color.SpringGreen;
-            this.BtnClose.Size = new System.Drawing.Size(203, 29);
-            this.BtnClose.TabIndex = 65;
-            this.BtnClose.Text = "Close";
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // BtnPay
             // 
@@ -411,7 +395,10 @@
             this.BtnPay.FillColor = System.Drawing.Color.Transparent;
             this.BtnPay.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPay.ForeColor = System.Drawing.Color.SeaGreen;
-            this.BtnPay.Location = new System.Drawing.Point(17, 166);
+            this.BtnPay.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.BtnPay.HoverState.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPay.HoverState.ForeColor = System.Drawing.Color.White;
+            this.BtnPay.Location = new System.Drawing.Point(17, 181);
             this.BtnPay.Name = "BtnPay";
             this.BtnPay.PressedColor = System.Drawing.Color.SpringGreen;
             this.BtnPay.Size = new System.Drawing.Size(203, 29);
@@ -472,10 +459,11 @@
             // 
             // groupBillRoom
             // 
+            this.groupBillRoom.BackColor = System.Drawing.Color.White;
             this.groupBillRoom.Controls.Add(this.listViewBillRoom);
             this.groupBillRoom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBillRoom.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBillRoom.Location = new System.Drawing.Point(611, 51);
+            this.groupBillRoom.Location = new System.Drawing.Point(598, 51);
             this.groupBillRoom.Name = "groupBillRoom";
             this.groupBillRoom.Size = new System.Drawing.Size(638, 70);
             this.groupBillRoom.TabIndex = 54;
@@ -604,12 +592,13 @@
             // 
             // groupBoxBill
             // 
+            this.groupBoxBill.BackColor = System.Drawing.Color.White;
             this.groupBoxBill.Controls.Add(this.panel2);
             this.groupBoxBill.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBill.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBoxBill.Location = new System.Drawing.Point(611, 259);
+            this.groupBoxBill.Location = new System.Drawing.Point(598, 259);
             this.groupBoxBill.Name = "groupBoxBill";
-            this.groupBoxBill.Size = new System.Drawing.Size(637, 348);
+            this.groupBoxBill.Size = new System.Drawing.Size(637, 302);
             this.groupBoxBill.TabIndex = 56;
             this.groupBoxBill.TabStop = false;
             this.groupBoxBill.Text = "Service bill";
@@ -623,7 +612,7 @@
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(631, 320);
+            this.panel2.Size = new System.Drawing.Size(631, 274);
             this.panel2.TabIndex = 39;
             // 
             // listViewUseService
@@ -643,7 +632,7 @@
             this.listViewUseService.HideSelection = false;
             this.listViewUseService.Location = new System.Drawing.Point(0, 0);
             this.listViewUseService.Name = "listViewUseService";
-            this.listViewUseService.Size = new System.Drawing.Size(631, 320);
+            this.listViewUseService.Size = new System.Drawing.Size(631, 274);
             this.listViewUseService.TabIndex = 8;
             this.listViewUseService.UseCompatibleStateImageBehavior = false;
             this.listViewUseService.View = System.Windows.Forms.View.Details;
@@ -722,16 +711,17 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewBookRoom.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewBookRoom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewBookRoom.Size = new System.Drawing.Size(631, 320);
+            this.dataGridViewBookRoom.Size = new System.Drawing.Size(631, 274);
             this.dataGridViewBookRoom.StandardTab = true;
             this.dataGridViewBookRoom.TabIndex = 7;
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.White;
             this.groupBox4.Controls.Add(this.listView);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox4.Location = new System.Drawing.Point(611, 124);
+            this.groupBox4.Location = new System.Drawing.Point(598, 124);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(638, 135);
             this.groupBox4.TabIndex = 57;
@@ -785,7 +775,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1255, 615);
+            this.ClientSize = new System.Drawing.Size(1240, 580);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBoxBill);
             this.Controls.Add(this.groupBillRoom);
@@ -795,6 +785,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Fcheckout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fcheckout";
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -871,7 +862,6 @@
         private Guna.UI2.WinForms.Guna2Button BtnAdd;
         private Guna.UI2.WinForms.Guna2TextBox TxtPrice;
         private Guna.UI2.WinForms.Guna2TextBox TxtTotalMoney;
-        private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Button BtnPay;
         private Guna.UI2.WinForms.Guna2ComboBox CbService;
         private Guna.UI2.WinForms.Guna2ComboBox CbTypeSer;

@@ -62,15 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="jobs">
-      <EntityTypeMapping TypeName="HotelManagementModel.job">
-        <MappingFragment StoreEntitySet="job">
-          <ScalarProperty Name="nameform" ColumnName="nameform" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RECEIVEROOMs">
       <EntityTypeMapping TypeName="HotelManagementModel.RECEIVEROOM">
         <MappingFragment StoreEntitySet="RECEIVEROOM">
@@ -178,14 +169,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="RECEIVEROOMDETAILS" TypeName="HotelManagementModel.RECEIVEROOMDETAILS" StoreEntitySet="RECEIVEROOMDETAILS">
-      <EndProperty Name="RECEIVEROOM">
-        <ScalarProperty Name="ID" ColumnName="IDReceiveRoom" />
-      </EndProperty>
-      <EndProperty Name="CUSTOMER">
-        <ScalarProperty Name="ID" ColumnName="IDCustomerOther" />
-      </EndProperty>
-    </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="GetIDReceiveRoomCurrent" FunctionName="HotelManagementModel.Store.GetIDReceiveRoomCurrent" />
     <FunctionImportMapping FunctionImportName="InsertReceiveRoom" FunctionName="HotelManagementModel.Store.InsertReceiveRoom" />
     <FunctionImportMapping FunctionImportName="InsertReceiveRoomDetails" FunctionName="HotelManagementModel.Store.InsertReceiveRoomDetails" />
@@ -721,5 +704,23 @@
     <FunctionImportMapping FunctionImportName="USP_UpdateStaff" FunctionName="HotelManagementModel.Store.USP_UpdateStaff" />
     <FunctionImportMapping FunctionImportName="USP_UpdateStaffType" FunctionName="HotelManagementModel.Store.USP_UpdateStaffType" />
     <FunctionImportMapping FunctionImportName="USP_UpdateStatusRoom" FunctionName="HotelManagementModel.Store.USP_UpdateStatusRoom" />
+    <EntitySetMapping Name="Accesses">
+      <EntityTypeMapping TypeName="HotelManagementModel.Access">
+        <MappingFragment StoreEntitySet="Access">
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="IDJob" ColumnName="IDJob" />
+          <ScalarProperty Name="IDStaffType" ColumnName="IDStaffType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="HotelManagementModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameForm" ColumnName="NameForm" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
