@@ -1,35 +1,28 @@
 ﻿using ChuongTrinhQLKS.Models;
 using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using static ChuongTrinhQLKS.Program;
 
 namespace ChuongTrinhQLKS
 {
-   
     public partial class Fcheckout : Form
     {
-        string username = GlobalVariables.LoggedInUsername;
-        HotelManagement db;
-        int idbill = 0;
-        int Surcharge = 0;
-        int ReceiveRoom = 0;
-        int ServiceToltal = 0;
-        int surcharge = 0;
-        int totalMoney = 0;
+        private string username = GlobalVariables.LoggedInUsername;
+        private HotelManagement db;
+        private int idbill = 0;
+        private int Surcharge = 0;
+        private int ReceiveRoom = 0;
+        private int totalBill = 0;
+        private int surcharge = 0;
+        private int totalMoney = 0;
+        private bool isProcessing = false;
+        
 
         public Fcheckout()
         {
@@ -38,113 +31,145 @@ namespace ChuongTrinhQLKS
             LoadlistRoomBook();
             LoadSurcharge();
         }
+
         private async void LoadlistRoomBook()
         {
-            db = linqConnect.GetDatabase();
-            var listCheckin = await (from checkin in db.RECEIVEROOMs
-                                     join bookroom in db.BOOKROOMs on checkin.IDBookRoom equals bookroom.ID
-                                     join room in db.ROOMs on checkin.IDRoom equals room.ID
-                                     join typeroom in db.ROOMTYPEs on bookroom.IDRoomType equals typeroom.ID
-                                     where !(from bill in db.BILLs where bill.IDStatusBill == 2 select bill.IDReceiveRoom).Contains(checkin.ID)
-                                     select new
-                                     {
-                                         IDReceive= checkin.ID,
-                                         roomID = room.ID,
-                                         NameRoom = room.Name,
-                                         RoomTypeID = typeroom.ID,
-                                         Price = typeroom.Price,
-                                         dateCheckin = bookroom.DateCheckIn,
-                                         datecheckout = bookroom.DateCheckOut,
-                                     }).ToListAsync();
-            flowLayoutRooms.Controls.Clear();
-            foreach (var item in listCheckin)
+            try
             {
-                Button roomButton = new Button
+                db = linqConnect.GetDatabase();
+                var listCheckin = await (from checkin in db.RECEIVEROOMs
+                                         join bookroom in db.BOOKROOMs on checkin.IDBookRoom equals bookroom.ID
+                                         join room in db.ROOMs on checkin.IDRoom equals room.ID
+                                         join typeroom in db.ROOMTYPEs on bookroom.IDRoomType equals typeroom.ID
+                                         where !(from bill in db.BILLs where bill.IDStatusBill == 2 select bill.IDReceiveRoom).Contains(checkin.ID)
+                                         select new
+                                         {
+                                             IDReceive = checkin.ID,
+                                             roomID = room.ID,
+                                             NameRoom = room.Name,
+                                             RoomTypeID = typeroom.ID,
+                                             Price = typeroom.Price,
+                                             dateCheckin = bookroom.DateCheckIn,
+                                             datecheckout = bookroom.DateCheckOut,
+                                         }).ToListAsync();
+                flowLayoutRooms.Controls.Clear();
+                foreach (var item in listCheckin)
                 {
-                    Text = item.NameRoom.ToString(),
-                    ForeColor = Color.White,
-                    Size = new Size(90, 90),
-                    Image = Image.FromFile(@"C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\img\\house.png"),
-                    ImageAlign = ContentAlignment.MiddleCenter, 
-                    Tag = item,
-                };
-                if (item.RoomTypeID == 1) 
-                {
-                    roomButton.BackColor = Color.Violet;
+                    Button roomButton = new Button
+                    {
+                        Text = item.NameRoom.ToString(),
+                        ForeColor = Color.White,
+                        Size = new Size(90, 90),
+                        Image = Image.FromFile(@"C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\img\\house.png"),
+                        ImageAlign = ContentAlignment.MiddleCenter,
+                        Tag = item,
+                    };
+                    if (item.RoomTypeID == 1)
+                    {
+                        roomButton.BackColor = Color.Violet;
+                    }
+                    else if (item.RoomTypeID == 3)
+                    {
+                        roomButton.BackColor = Color.BurlyWood;
+                    }
+                    else if (item.RoomTypeID == 4)
+                    {
+                        roomButton.BackColor = Color.Pink;
+                    }
+                    roomButton.Click += RoomButton_Click;
+                    flowLayoutRooms.Controls.Add(roomButton);
                 }
-                else if (item.RoomTypeID == 2)
-                {
-                    roomButton.BackColor = Color.BurlyWood;
-                }
-                roomButton.Click += RoomButton_Click;
-                flowLayoutRooms.Controls.Add(roomButton);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading room list: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async void RoomButton_Click(object sender, EventArgs e)
         {
-            
-            db = linqConnect.GetDatabase();
-            var paramer = await (from j in db.PARAMETERs
-                                 select j.Value).FirstOrDefaultAsync();
+            if (isProcessing)
+                return;
+
+            isProcessing = true;
             Button clickedButton = (Button)sender;
-            listViewBillRoom.Items.Clear();
-            var roomInfo = (dynamic)clickedButton.Tag;
-            Surcharge = CalculateSurcharge(roomInfo, paramer);
-            totalMoney = CalculateTotalMoney(roomInfo, surcharge);
-            AddRoomToListView(roomInfo, Surcharge, totalMoney,clickedButton);
-            UpdateButtonColors(clickedButton);
-            await CreateBillIfNotExists(roomInfo);
-            LoadListService();
-            await Changestatus(roomInfo);   
+            clickedButton.Enabled = false;
+
+            try
+            {
+                db = linqConnect.GetDatabase();
+                var paramer = await db.PARAMETERs.Select(j => j.Value).FirstOrDefaultAsync();
+                listViewBillRoom.Items.Clear();
+                var roomInfo = (dynamic)clickedButton.Tag;
+                Surcharge = CalculateSurcharge(roomInfo, paramer);
+                totalMoney = CalculateTotalMoney(roomInfo, Surcharge);
+                AddRoomToListView(roomInfo, Surcharge, totalMoney, clickedButton);
+                UpdateButtonColors(clickedButton);
+                await CreateBillIfNotExists(roomInfo);
+                await Changestatus(roomInfo);
+                LoadListService();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error processing room: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                clickedButton.Enabled = true;
+                isProcessing = true;
+            }
         }
+
         private async Task Changestatus(dynamic roomInfo)
         {
-            int IDRoom = roomInfo.roomID;
-            var RoomList = await (from room in db.ROOMs
-                                  where room.ID == IDRoom
-                                  select room).FirstOrDefaultAsync();
-            if (RoomList != null)
+            try
             {
-                RoomList.IDStatusRoom = 2;
-                try
+                int IDRoom = roomInfo.roomID;
+                var RoomList = await db.ROOMs.FirstOrDefaultAsync(room => room.ID == IDRoom);
+                if (RoomList != null)
                 {
+                    RoomList.IDStatusRoom = 2;
                     await db.SaveChangesAsync();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("There was an error edit " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error changing room status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private int CalculateSurcharge(dynamic roomInfo, double paramer)
         {
-            if (roomInfo.RoomTypeID == 1)
-            {
-                return (int)(roomInfo.Price * paramer);
-            }
-            return 0;
+            return roomInfo.RoomTypeID == 1 ? (int)(roomInfo.Price * paramer) : 0;
         }
 
         private int CalculateTotalMoney(dynamic roomInfo, int surcharge)
-        {  
+        {
             return surcharge + roomInfo.Price;
         }
 
         private void AddRoomToListView(dynamic roomInfo, int surcharge, int totalMoney, Button clickedButton)
         {
-            ListViewItem item = new ListViewItem(new string[]
+            try
             {
-                roomInfo.NameRoom.ToString(),
-                roomInfo.Price.ToString("c0", new CultureInfo("vi-VN")),
-                roomInfo.dateCheckin.ToString("dd/MM/yyyy"),
-                roomInfo.datecheckout.ToString("dd/MM/yyyy"),
-                roomInfo.Price.ToString("c0", new CultureInfo("vi-VN")),
-                surcharge.ToString("c0", new CultureInfo("vi-VN")),
-                totalMoney.ToString("c0", new CultureInfo("vi-VN"))
-            });
+                ListViewItem item = new ListViewItem(new string[]
+                {
+                    roomInfo.NameRoom.ToString(),
+                    roomInfo.Price.ToString("c0", new CultureInfo("vi-VN")),
+                    roomInfo.dateCheckin.ToString("dd/MM/yyyy"),
+                    roomInfo.datecheckout.ToString("dd/MM/yyyy"),
+                    roomInfo.Price.ToString("c0", new CultureInfo("vi-VN")),
+                    surcharge.ToString("c0", new CultureInfo("vi-VN")),
+                    totalMoney.ToString("c0", new CultureInfo("vi-VN"))
+                });
 
                 listViewBillRoom.Items.Add(item);
                 clickedButton.BackColor = Color.SeaGreen;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding room to list view: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void UpdateButtonColors(Button clickedButton)
@@ -198,14 +223,14 @@ namespace ChuongTrinhQLKS
                 {
                     MessageBox.Show("There was an error add " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
             else
             {
                 idbill = checkBill.ID;
             }
         }
-        
+
         private async void AddService()
         {
             if (idbill != 0)
@@ -216,17 +241,17 @@ namespace ChuongTrinhQLKS
                 int IDService = int.Parse(CbService.SelectedValue.ToString());
                 int price = int.Parse(TxtPrice.Text.ToString());
                 var check = await (from i in db.BILLDETAILS
-                            where i.IDBill == IDBill
-                            where i.IDService == IDService
-                            select i).FirstOrDefaultAsync();
-                if (check == null) 
-                { 
+                                   where i.IDBill == IDBill
+                                   where i.IDService == IDService
+                                   select i).FirstOrDefaultAsync();
+                if (check == null)
+                {
                     var BILLDETAIL = new BILLDETAIL
                     {
                         IDBill = IDBill,
                         IDService = IDService,
                         Count = cout,
-                        TotalPrice =  cout * price
+                        TotalPrice = cout * price
                     };
                     db.BILLDETAILS.Add(BILLDETAIL);
                     try
@@ -248,7 +273,7 @@ namespace ChuongTrinhQLKS
                         await db.SaveChangesAsync();
                         LoadListService();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("There was an error while editing" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -263,20 +288,20 @@ namespace ChuongTrinhQLKS
         {
             db = linqConnect.GetDatabase();
             var ListPay = await (from i in db.BILLs
-                          where i.ID == idbill
-                          select i).FirstOrDefaultAsync();
+                                 where i.ID == idbill
+                                 select i).FirstOrDefaultAsync();
             if (ListPay != null)
             {
 
-                ListPay.ServicePrice = ServiceToltal;
+                ListPay.ServicePrice = totalBill;
                 ListPay.Surcharge = Surcharge;
                 ListPay.TotalPrice = int.Parse(TxtTotalMoney.Text);
-                ListPay.Discount  = (int)numericUpDown1.Value;
+                ListPay.Discount = (int)numericUpDown1.Value;
                 ListPay.IDStatusBill = 2;
-                try 
+                try
                 {
-                   await db.SaveChangesAsync();
-                   LoadlistRoomBook();
+                    await db.SaveChangesAsync();
+                    LoadlistRoomBook();
                     Fprintbill fprintbill = new Fprintbill(idbill);
                     fprintbill.ShowDialog();
 
@@ -285,9 +310,9 @@ namespace ChuongTrinhQLKS
                 {
                     MessageBox.Show("There was an error while editing" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
-            
+
         }
         private async void LoadListService()
         {
@@ -302,32 +327,32 @@ namespace ChuongTrinhQLKS
                                          Count = i.Count,
                                          Price = j.Price
                                      }).ToListAsync();
-            int totalBill = 0;
+            
             listViewUseService.Items.Clear();
             foreach (var list in ListService)
             {
                 int cout = 1;
-                int serviceTotal = list.Count * list.Price; 
+                int serviceTotal = list.Count * list.Price;
                 totalBill += serviceTotal;
                 ListViewItem item = new ListViewItem(new string[]
                 {
-                    cout.ToString(),
-                    list.Name,
-                    list.Price.ToString(),
-                    list.Count.ToString(),
-                    serviceTotal.ToString()
+            cout.ToString(),
+            list.Name,
+            list.Price.ToString(),
+            list.Count.ToString(),
+            serviceTotal.ToString()
                 });
                 listViewUseService.Items.Add(item);
                 cout++;
             }
             ListViewItem totalItem = new ListViewItem(new string[]
                {
-                     "",
-                     "",
-                     "",
-                    "Total:",
-                    totalBill.ToString()
-                    
+             "",
+             "",
+             "",
+            "Total:",
+            totalBill.ToString()
+
         });
             TxtTotalMoney.Text = (totalMoney + totalBill).ToString();
             listViewUseService.Items.Add(totalItem);
@@ -338,30 +363,30 @@ namespace ChuongTrinhQLKS
             int count = 1;
             db = linqConnect.GetDatabase();
             var listSurcharge = await (from i in db.PARAMETERs
-                                select i).ToListAsync();
-            foreach ( var item in listSurcharge )
+                                       select i).ToListAsync();
+            foreach (var item in listSurcharge)
             {
                 ListViewItem i = new ListViewItem(new string[]
                 {
-                    count.ToString(),
-                    item.Name,
-                    item.Value.ToString(),
-                    item.Describe,
+            count.ToString(),
+            item.Name,
+            item.Value.ToString(),
+            item.Describe,
                 });
                 listView.Items.Add(i);
                 count++;
             }
         }
-        
+
         private async void LoadTypeService()
         {
             db = linqConnect.GetDatabase();
             var ListType = await (from type in db.SERVICETYPEs
-                           select type).ToListAsync();
+                                  select type).ToListAsync();
             CbTypeSer.DataSource = ListType;
             CbTypeSer.DisplayMember = "Name";
             CbTypeSer.ValueMember = "ID";
-            CbTypeSer.SelectedValueChanged += CbTypeSer_SelectedIndexChanged;  
+            CbTypeSer.SelectedValueChanged += CbTypeSer_SelectedIndexChanged;
             LoadService();
         }
         private async void LoadService()
@@ -376,15 +401,15 @@ namespace ChuongTrinhQLKS
             }
             db = linqConnect.GetDatabase();
             var listService = await (from service in db.SERVICEs
-                              where service.IDServiceType == id
-                              select service).ToListAsync();
+                                     where service.IDServiceType == id
+                                     select service).ToListAsync();
             CbService.DataSource = listService;
             CbService.DisplayMember = "Name";
             CbService.ValueMember = "ID";
             CbService.SelectedValueChanged += CbService_SelectedIndexChanged;
 
         }
-        
+
         private void CbTypeSer_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadService();

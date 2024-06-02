@@ -257,6 +257,7 @@ namespace ChuongTrinhQLKS
             Faddemploy faddemploy = new Faddemploy();
             faddemploy.ShowDialog();
             Show();
+            LoadListEmploy();
         }
         private void BtnClose_Click(object sender, EventArgs e)
         {

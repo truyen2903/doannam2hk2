@@ -17,20 +17,20 @@ namespace ChuongTrinhQLKS.Models
 
             try
             {
-                // Thêm tiêu đề
+                
                 var titleRange = worksheet.get_Range("A1", Type.Missing);
                 titleRange.MergeCells = true;
                 titleRange.Value2 = title;
                 titleRange.Font.Size = 20;
                 titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
-                // Thêm tên cột
+                
                 for (int i = 0; i < dataTable.Columns.Count; i++)
                 {
                     worksheet.Cells[2, i + 1] = dataTable.Columns[i].ColumnName;
                 }
 
-                // Thêm các hàng dữ liệu
+               
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
                     for (int j = 0; j < dataTable.Columns.Count; j++)
@@ -39,10 +39,10 @@ namespace ChuongTrinhQLKS.Models
                     }
                 }
 
-                // Tự động điều chỉnh độ rộng cột
+                
                 worksheet.Columns.AutoFit();
 
-                // Lưu workbook
+                
                 string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 string savePath = System.IO.Path.Combine(projectDirectory, "C:\\Users\\nguye\\OneDrive - vinhuni.edu.vn\\Documents\\GitHub\\doannam2hk2\\ChuongTrinhQLKS\\Data\\" + title + ".xlsx");
                 workbook.SaveAs(savePath);

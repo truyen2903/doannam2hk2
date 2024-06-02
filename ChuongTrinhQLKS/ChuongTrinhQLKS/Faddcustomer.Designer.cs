@@ -32,11 +32,8 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CbType = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtNationnality = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtSex = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtIDcard = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,6 +48,9 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.DateTimeBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtSex = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtNationnality = new Guna.UI2.WinForms.Guna2ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,12 +69,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.CbType);
+            this.groupBox2.Controls.Add(this.DateTimeBirthday);
             this.groupBox2.Controls.Add(this.txtNationnality);
-            this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.txtSex);
+            this.groupBox2.Controls.Add(this.CbType);
+            this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.txtAddress);
-            this.groupBox2.Controls.Add(this.txtBirthday);
             this.groupBox2.Controls.Add(this.txtIDcard);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.label6);
@@ -107,27 +107,8 @@
             this.CbType.ItemHeight = 30;
             this.CbType.Location = new System.Drawing.Point(12, 154);
             this.CbType.Name = "CbType";
-            this.CbType.Size = new System.Drawing.Size(152, 36);
+            this.CbType.Size = new System.Drawing.Size(170, 36);
             this.CbType.TabIndex = 48;
-            // 
-            // txtNationnality
-            // 
-            this.txtNationnality.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNationnality.DefaultText = "";
-            this.txtNationnality.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNationnality.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNationnality.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNationnality.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNationnality.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNationnality.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNationnality.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNationnality.Location = new System.Drawing.Point(242, 210);
-            this.txtNationnality.Name = "txtNationnality";
-            this.txtNationnality.PasswordChar = '\0';
-            this.txtNationnality.PlaceholderText = "";
-            this.txtNationnality.SelectedText = "";
-            this.txtNationnality.Size = new System.Drawing.Size(152, 26);
-            this.txtNationnality.TabIndex = 47;
             // 
             // txtPhone
             // 
@@ -145,27 +126,8 @@
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
-            this.txtPhone.Size = new System.Drawing.Size(152, 26);
+            this.txtPhone.Size = new System.Drawing.Size(170, 26);
             this.txtPhone.TabIndex = 47;
-            // 
-            // txtSex
-            // 
-            this.txtSex.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSex.DefaultText = "";
-            this.txtSex.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSex.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSex.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSex.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSex.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSex.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSex.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSex.Location = new System.Drawing.Point(242, 154);
-            this.txtSex.Name = "txtSex";
-            this.txtSex.PasswordChar = '\0';
-            this.txtSex.PlaceholderText = "";
-            this.txtSex.SelectedText = "";
-            this.txtSex.Size = new System.Drawing.Size(152, 26);
-            this.txtSex.TabIndex = 47;
             // 
             // txtAddress
             // 
@@ -183,27 +145,8 @@
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(152, 26);
+            this.txtAddress.Size = new System.Drawing.Size(200, 26);
             this.txtAddress.TabIndex = 47;
-            // 
-            // txtBirthday
-            // 
-            this.txtBirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBirthday.DefaultText = "";
-            this.txtBirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBirthday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBirthday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Location = new System.Drawing.Point(242, 51);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.PasswordChar = '\0';
-            this.txtBirthday.PlaceholderText = "";
-            this.txtBirthday.SelectedText = "";
-            this.txtBirthday.Size = new System.Drawing.Size(152, 26);
-            this.txtBirthday.TabIndex = 47;
             // 
             // txtIDcard
             // 
@@ -221,7 +164,7 @@
             this.txtIDcard.PasswordChar = '\0';
             this.txtIDcard.PlaceholderText = "";
             this.txtIDcard.SelectedText = "";
-            this.txtIDcard.Size = new System.Drawing.Size(152, 26);
+            this.txtIDcard.Size = new System.Drawing.Size(170, 26);
             this.txtIDcard.TabIndex = 47;
             // 
             // txtName
@@ -240,7 +183,7 @@
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(152, 26);
+            this.txtName.Size = new System.Drawing.Size(170, 26);
             this.txtName.TabIndex = 47;
             // 
             // label6
@@ -281,7 +224,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label12.Location = new System.Drawing.Point(238, 182);
+            this.label12.Location = new System.Drawing.Point(238, 187);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 20);
             this.label12.TabIndex = 29;
@@ -392,6 +335,60 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // DateTimeBirthday
+            // 
+            this.DateTimeBirthday.Checked = true;
+            this.DateTimeBirthday.FillColor = System.Drawing.Color.White;
+            this.DateTimeBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimeBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimeBirthday.Location = new System.Drawing.Point(242, 48);
+            this.DateTimeBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimeBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimeBirthday.Name = "DateTimeBirthday";
+            this.DateTimeBirthday.Size = new System.Drawing.Size(200, 29);
+            this.DateTimeBirthday.TabIndex = 49;
+            this.DateTimeBirthday.Value = new System.DateTime(2024, 6, 2, 8, 50, 25, 673);
+            // 
+            // txtSex
+            // 
+            this.txtSex.BackColor = System.Drawing.Color.Transparent;
+            this.txtSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtSex.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSex.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSex.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtSex.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txtSex.ItemHeight = 30;
+            this.txtSex.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ ",
+            "Khác"});
+            this.txtSex.Location = new System.Drawing.Point(242, 154);
+            this.txtSex.Name = "txtSex";
+            this.txtSex.Size = new System.Drawing.Size(200, 36);
+            this.txtSex.TabIndex = 48;
+            // 
+            // txtNationnality
+            // 
+            this.txtNationnality.BackColor = System.Drawing.Color.Transparent;
+            this.txtNationnality.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtNationnality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtNationnality.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNationnality.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNationnality.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNationnality.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txtNationnality.ItemHeight = 30;
+            this.txtNationnality.Items.AddRange(new object[] {
+            "Việt Nam",
+            "Mỹ",
+            "Thái Lan",
+            "Lào",
+            "Trung Quốc"});
+            this.txtNationnality.Location = new System.Drawing.Point(242, 210);
+            this.txtNationnality.Name = "txtNationnality";
+            this.txtNationnality.Size = new System.Drawing.Size(200, 36);
+            this.txtNationnality.TabIndex = 48;
+            // 
             // Faddcustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -431,13 +428,13 @@
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2ComboBox CbType;
-        private Guna.UI2.WinForms.Guna2TextBox txtNationnality;
         private Guna.UI2.WinForms.Guna2TextBox txtPhone;
-        private Guna.UI2.WinForms.Guna2TextBox txtSex;
         private Guna.UI2.WinForms.Guna2TextBox txtAddress;
-        private Guna.UI2.WinForms.Guna2TextBox txtBirthday;
         private Guna.UI2.WinForms.Guna2TextBox txtIDcard;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimeBirthday;
+        private Guna.UI2.WinForms.Guna2ComboBox txtSex;
+        private Guna.UI2.WinForms.Guna2ComboBox txtNationnality;
     }
 }

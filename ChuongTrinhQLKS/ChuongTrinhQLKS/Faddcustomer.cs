@@ -32,7 +32,9 @@ namespace ChuongTrinhQLKS
                     PhoneNumber = int.Parse(txtPhone.Text),
                     IDCard = txtIDcard.Text,
                     Nationality = txtNationnality.Text,
-                    IDCustomerType = (int)CbType.SelectedValue
+                    IDCustomerType = (int)CbType.SelectedValue,
+                    DateOfBirth = DateTimeBirthday.Value,
+                    Sex = txtSex.SelectedItem.ToString(),
                 };
                 db.CUSTOMERs.Add(customer);
                 try

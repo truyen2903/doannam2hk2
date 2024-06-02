@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChuongTrinhQLKS.Models;
+using Microsoft.Office.Interop.Excel;
 
 namespace ChuongTrinhQLKS
 {
@@ -150,8 +151,120 @@ namespace ChuongTrinhQLKS
             LoadListCustomer();
         }
 
-        #endregion
 
-
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (cbSearch.Text != string.Empty)
+            {
+                using (db = linqConnect.GetDatabase())
+                {
+                    if (cbSearch.Text == "ID Customer")
+                    {
+                        int searchID;
+                        if (int.TryParse(txtsearch.Text, out searchID))
+                        {
+                            var customer = await (from i in db.CUSTOMERs
+                                                  where i.ID == searchID
+                                                  select i).FirstOrDefaultAsync();
+                            if (customer != null)
+                            {
+                                txtID.Text = customer.ID.ToString();
+                                txtIdCard.Text = customer.IDCard;
+                                txtName.Text = customer.Name;
+                                txtNation.Text = customer.Nationality;
+                                txtPhone.Text = customer.PhoneNumber.ToString();
+                                txtSex.Text = customer.Sex;
+                                cbType.SelectedValue = customer.IDCustomerType;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Customer not found");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid ID format");
+                        }
+                    }
+                    else if (cbSearch.Text == "Customer name")
+                    {
+                        var customer = await (from i in db.CUSTOMERs
+                                              where i.Name == txtsearch.Text
+                                              select i).FirstOrDefaultAsync();
+                        if (customer != null)
+                        {
+                            txtID.Text = customer.ID.ToString();
+                            txtIdCard.Text = customer.IDCard;
+                            txtName.Text = customer.Name;
+                            txtNation.Text = customer.Nationality;
+                            txtPhone.Text = customer.PhoneNumber.ToString();
+                            txtSex.Text = customer.Sex;
+                            cbType.SelectedValue = customer.IDCustomerType;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Customer not found");
+                        }
+                    }
+                    else if (cbSearch.Text == "ID Card")
+                    {
+                        var customer = await (from i in db.CUSTOMERs
+                                              where i.IDCard.Contains(txtsearch.Text)
+                                              select i).FirstOrDefaultAsync();
+                        if (customer != null)
+                        {
+                            txtID.Text = customer.ID.ToString();
+                            txtIdCard.Text = customer.IDCard;
+                            txtName.Text = customer.Name;
+                            txtNation.Text = customer.Nationality;
+                            txtPhone.Text = customer.PhoneNumber.ToString();
+                            txtSex.Text = customer.Sex;
+                            cbType.SelectedValue = customer.IDCustomerType;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Customer not found");
+                        }
+                    }
+                    else if (cbSearch.Text == "Phone number")
+                    {
+                        int searchPhone;
+                        if (int.TryParse(txtsearch.Text, out searchPhone))
+                        {
+                            var customer = await (from i in db.CUSTOMERs
+                                                  where i.PhoneNumber == searchPhone
+                                                  select i).FirstOrDefaultAsync();
+                            if (customer != null)
+                            {
+                                txtID.Text = customer.ID.ToString();
+                                txtIdCard.Text = customer.IDCard;
+                                txtName.Text = customer.Name;
+                                txtNation.Text = customer.Nationality;
+                                txtPhone.Text = customer.PhoneNumber.ToString();
+                                txtSex.Text = customer.Sex;
+                                cbType.SelectedValue = customer.IDCustomerType;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Customer not found");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid phone number format");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a search type");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a search value");
+            }
+        }
     }
 }
+#endregion

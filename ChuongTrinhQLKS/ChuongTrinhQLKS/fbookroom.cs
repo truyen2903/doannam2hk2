@@ -15,8 +15,8 @@ namespace ChuongTrinhQLKS
     public partial class fbookroom : Form
     {
         HotelManagement dblinq;
-        string idcus;
-        string idcustype;
+        int idcus;
+        int idrommtype;
         public fbookroom()
         {
             InitializeComponent();
@@ -119,8 +119,7 @@ namespace ChuongTrinhQLKS
             var querycustom = from Customed in dblinq.CUSTOMERs
                               where Customed.IDCard.ToString() == txtFindID.Text
                               select Customed;
-            var CustomerList = await querycustom.ToListAsync();
-            var custumer  = CustomerList.FirstOrDefault();
+            var custumer  = await querycustom.FirstOrDefaultAsync();
             if (custumer == null)
             {
                 MessageBox.Show("Please re-enter ID card", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,43 +134,33 @@ namespace ChuongTrinhQLKS
                 txtFullName.Text = custumer.Name.ToString();
                 txtNationality.Text = custumer.Nationality.ToString(); 
                 txtPhonenumber.Text = custumer.PhoneNumber.ToString();
-                idcus = custumer.ID.ToString();
+                cbCustomtype.Text = custumer.ID.ToString();
                 cbSex.Text = custumer.Sex.ToString();
                 DateBirthday.Value = DateTime.Parse(custumer.DateOfBirth.ToString());
+                idcus = custumer.ID;
             }
 
         }
         private async void GetCustumerType()
         {
-            if (txtFindID.Text == string.Empty)
-            {
-               return;
-            }
+            
             dblinq = linqConnect.GetDatabase();
-            var querytype = from typecustumer in dblinq.CUSTOMERTYPEs
-                            join custumers in dblinq.CUSTOMERs on typecustumer.ID equals custumers.IDCustomerType
-                            where custumers.IDCard == txtFindID.Text
-                            select typecustumer;
-            var Typecustumer = await querytype.ToListAsync();
-            var TypeCustumer = Typecustumer.FirstOrDefault();
-           
-            if(TypeCustumer == null)
-            {
-                return;
-            }
-            else
-            {
-                cbCustomtype.Text = TypeCustumer.Name.ToString();
-                idcustype = TypeCustumer.ID.ToString();
-            }
+            var querytype = await(from typecustumer in dblinq.CUSTOMERTYPEs
+                            select typecustumer).ToListAsync();      
+            cbCustomtype.DataSource = querytype;
+            cbCustomtype.DisplayMember = "Name";
+            cbCustomtype.ValueMember = "ID";
+
         }  
         private async void AddBookroom()
         {
+            
+            idrommtype = (int)cbRoomtype.SelectedValue;
             dblinq = linqConnect.GetDatabase();
             var newBookrooom = new BOOKROOM
             {
-                IDCustomer = int.Parse(idcus),
-                IDRoomType = int.Parse(idcustype),
+                IDCustomer = idcus,
+                IDRoomType = idrommtype,
                 DateBookRoom = DateTime.Now,
                 DateCheckIn = Datecheckin.Value,
                 DateCheckOut = Datecheckout.Value
@@ -187,19 +176,19 @@ namespace ChuongTrinhQLKS
                 txtFindID.Text = string.Empty;
                 txtIDCard.Text = string.Empty;
                 LoadDate();
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show("There was an error adding a booking: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+}
 
         private void BtnBookRoom_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to add a new booking?", "Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                if(txtFindID == null || idcustype == null)
+                if(txtAddress.Text==null ||txtFullName.Text ==null || txtIDtypeRoom.Text ==null || txtIDCard.Text ==null)
                 {
                     MessageBox.Show("Please enter full information","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     BtnCancel_Click(sender, e);
@@ -207,11 +196,8 @@ namespace ChuongTrinhQLKS
                 else
                 {
                     AddBookroom();
-                    LoadInforBookroomdays();                
-                    Hide();
-                    Fcheck_in fcheck_In = new Fcheck_in();
-                    fcheck_In.ShowDialog();
-                   
+                    LoadInforBookroomdays();   
+                    BtnCancel_Click(sender, e);
                 }
             }
             else

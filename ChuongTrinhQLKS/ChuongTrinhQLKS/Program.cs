@@ -12,7 +12,7 @@ namespace ChuongTrinhQLKS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Fdashboard());
+            Application.Run(new Fcheckout());
         }
         public static class GlobalVariables
         {

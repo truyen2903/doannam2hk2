@@ -32,10 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fdashboard));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.PanelLeft = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnClose = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnAccess = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.BtnStatistics = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnService = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnInvoid = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnCustomer = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -71,10 +69,8 @@
             // PanelLeft
             // 
             this.PanelLeft.BackColor = System.Drawing.Color.White;
-            this.PanelLeft.Controls.Add(this.guna2GradientButton1);
             this.PanelLeft.Controls.Add(this.BtnClose);
             this.PanelLeft.Controls.Add(this.BtnAccess);
-            this.PanelLeft.Controls.Add(this.BtnStatistics);
             this.PanelLeft.Controls.Add(this.BtnService);
             this.PanelLeft.Controls.Add(this.BtnInvoid);
             this.PanelLeft.Controls.Add(this.BtnCustomer);
@@ -93,29 +89,6 @@
             this.PanelLeft.ShadowDecoration.Enabled = true;
             this.PanelLeft.Size = new System.Drawing.Size(205, 792);
             this.PanelLeft.TabIndex = 0;
-            // 
-            // guna2GradientButton1
-            // 
-            this.guna2GradientButton1.BorderRadius = 15;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
-            this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(0, 726);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(205, 33);
-            this.guna2GradientButton1.TabIndex = 11;
-            this.guna2GradientButton1.Text = "Introduction";
-            this.guna2GradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // BtnClose
             // 
@@ -157,7 +130,7 @@
             this.BtnAccess.Image = ((System.Drawing.Image)(resources.GetObject("BtnAccess.Image")));
             this.BtnAccess.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnAccess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAccess.Location = new System.Drawing.Point(0, 568);
+            this.BtnAccess.Location = new System.Drawing.Point(0, 523);
             this.BtnAccess.Name = "BtnAccess";
             this.BtnAccess.ShadowDecoration.BorderRadius = 0;
             this.BtnAccess.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(136)))), ((int)(((byte)(152)))), ((int)(((byte)(170)))));
@@ -168,37 +141,6 @@
             this.BtnAccess.Text = "Access rights";
             this.BtnAccess.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnAccess.Click += new System.EventHandler(this.BtnAccess_Click);
-            // 
-            // BtnStatistics
-            // 
-            this.BtnStatistics.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.BtnStatistics.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnStatistics.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnStatistics.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnStatistics.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnStatistics.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnStatistics.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnStatistics.FillColor = System.Drawing.Color.Transparent;
-            this.BtnStatistics.FillColor2 = System.Drawing.Color.Transparent;
-            this.BtnStatistics.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnStatistics.ForeColor = System.Drawing.Color.Black;
-            this.BtnStatistics.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.BtnStatistics.HoverState.FillColor2 = System.Drawing.Color.Transparent;
-            this.BtnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("BtnStatistics.Image")));
-            this.BtnStatistics.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnStatistics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnStatistics.Location = new System.Drawing.Point(0, 523);
-            this.BtnStatistics.Name = "BtnStatistics";
-            this.BtnStatistics.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnStatistics.ShadowDecoration.BorderRadius = 0;
-            this.BtnStatistics.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(136)))), ((int)(((byte)(152)))), ((int)(((byte)(170)))));
-            this.BtnStatistics.ShadowDecoration.Depth = 10;
-            this.BtnStatistics.ShadowDecoration.Enabled = true;
-            this.BtnStatistics.Size = new System.Drawing.Size(205, 45);
-            this.BtnStatistics.TabIndex = 9;
-            this.BtnStatistics.Text = "Statistics";
-            this.BtnStatistics.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnStatistics.Click += new System.EventHandler(this.BtnStatistics_Click);
             // 
             // BtnService
             // 
@@ -630,7 +572,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel PanelLeft;
         private Guna.UI2.WinForms.Guna2GradientButton BtnBook;
         private Guna.UI2.WinForms.Guna2GradientButton BtnAccess;
-        private Guna.UI2.WinForms.Guna2GradientButton BtnStatistics;
         private Guna.UI2.WinForms.Guna2GradientButton BtnService;
         private Guna.UI2.WinForms.Guna2GradientButton BtnInvoid;
         private Guna.UI2.WinForms.Guna2GradientButton BtnCustomer;
@@ -651,6 +592,5 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm3;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
     }
 }
